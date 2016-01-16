@@ -4,7 +4,7 @@ module.exports = {
   template_dir: 'templates',
   output_dir: 'build',
   server: {
-    host: process.env.HOST || 'localhost',
+    host: process.env.HOST || '0.0.0.0',
     port: process.env.PORT || 7500,
   },
   plugins: {
