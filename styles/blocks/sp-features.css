@@ -1,0 +1,38 @@
+.sp-features {
+  padding-top: calc( $bh * 2 );
+  padding-bottom: calc( $bh * 2 );
+
+  &__heading {
+    @mixin heading;
+  }
+
+  &__lead {
+    @mixin text-big;
+    margin-top: calc( $bh * 0.5 );
+  }
+
+  &__list {
+    margin-top: $bh;
+  }
+
+  &__feature-item {
+    margin: 0 calc( $bw * -5 );
+    padding: $bh calc( $bw * 5 );
+    border-width: $border-width-default 0;
+    border-color: transparent;
+
+    &:nth-child(odd) {
+      background-color: color( $color-brand tint(95%) );
+      border-color: color( $color-brand tint(90%) );
+    }
+  }
+
+  &__feature-subheading {
+    @mixin subheading;
+  }
+
+  &__feature-description {
+    @mixin text-body;
+    margin-top: calc( $bh * 0.5 );
+  }
+}

@@ -1,0 +1,9 @@
+@define-mixin keep-on-top {
+  position: relative;
+  z-index: 1000;
+}
+
+@define-mixin keep-on-bottom {
+  position: relative;
+  z-index: 2;
+}

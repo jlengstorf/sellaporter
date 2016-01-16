@@ -1,0 +1,7 @@
+@define-mixin box-shadow-default {
+  box-shadow: 0 2px 3px color( $color-gray-dark alpha(15%) );
+}
+
+@define-mixin box-shadow-active {
+  box-shadow: 0 1px 5px color( $color-gray-dark alpha(45%) );
+}

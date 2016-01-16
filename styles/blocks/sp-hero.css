@@ -1,0 +1,154 @@
+.sp-hero {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  min-height: 30vh;
+  padding-top: calc( $bh * 3 );
+  padding-bottom: calc( $bh * 3.5 );
+  background-position: left center;
+  background-repeat: no-repeat;
+  background-size: cover;
+  border-bottom: $border-default;
+
+  @media (min-width: $media-screen-xsmall) {
+    background-position: left calc( $bw * -9 ) center;
+  }
+
+  @media (min-width: $media-screen-small) {
+    min-height: 65vh;
+    padding-top: calc( $bh * 5 );
+    padding-bottom: calc( $bh * 6 );
+    background-position: center;
+  }
+
+  &--medium-overlay,&--dark-overlay {
+    &::after {
+      content: '';
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      display: block;
+      z-index: 10;
+    }
+  }
+
+  &--medium-overlay {
+    &::after {
+      background-color: color( $color-darkest alpha(50%) );
+    }
+  }
+
+  &--dark-overlay {
+    &::after {
+      background-color: color( $color-darkest alpha(65%) );
+    }
+  }
+
+  &__superheading {
+    font-family: $font-family-heading;
+    font-size: 87.5%;
+    font-weight: lighter;
+    line-height: 1;
+    vertical-align: baseline;
+
+    @media (min-width: $media-screen-xsmall) {
+      font-size: 100%;
+    }
+  }
+
+  &__logo {
+    width: 150px;
+    margin-top: -2.5px;
+    margin-right: 10px;
+    padding-right: 10px;
+    border-right: $border-width-default $border-style-default $color-lightest;
+    vertical-align: middle;
+
+    @media (min-width: $media-screen-xsmall) {
+      width: 220px;
+      margin-right: 20px;
+      padding-right: 20px;
+    }
+  }
+
+  &__heading {
+    @mixin heading;
+    margin-top: $bh;
+  }
+
+  &__subtitle {
+    margin-top: calc( $bh * 3 );
+    font-family: $font-family-heading;
+    font-size: 150%;
+    font-weight: bold;
+    line-height: 1.1;
+
+    @media (min-width: $media-screen-xsmall) {
+      max-width: 90%;
+      font-size: 5.4vw;
+      font-weight: normal;
+    }
+
+    @media (min-width: $media-screen-small) {
+      max-width: 72%;
+    }
+
+    @media (min-width: $media-screen-large) {
+      font-size: 345%;
+    }
+  }
+
+  &__superheading,&__heading,&__subtitle {
+    @mixin heading-color;
+
+    &--inverted {
+      @mixin heading-color-inverted;
+    }
+
+    &--shadow {
+      @mixin text-shadow;
+    }
+  }
+
+  &__body-text {
+    @mixin text-body;
+    margin-top: calc( $bh * 1.875 );
+
+    @media (min-width: $media-screen-xsmall) {
+      max-width: calc( $bw * 76 );
+    }
+
+    @media (min-width: $media-screen-small) {
+      max-width: calc( $bw * 46 );
+    }
+
+    /*
+     * This element contains WYSIWYG output from WordPress, so we try to set
+     * sensible defaults and hope for the best.
+     */
+    > * + * {
+      margin-top: $bh;
+    }
+
+    &--inverted {
+      @mixin text-color-inverted;
+    }
+
+    &--shadow {
+      @mixin text-shadow;
+    }
+  }
+
+  &__button {
+    @mixin button;
+    margin-top: calc( $bh * 2.25 );
+
+    @media (min-width: $media-screen-xsmall) {
+      display: inline-block;
+      padding-left: calc( $bw * 5 );
+      padding-right: calc( $bw * 5 );
+    }
+  }
+}

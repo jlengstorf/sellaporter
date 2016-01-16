@@ -1,0 +1,213 @@
+/*
+
+     1.            2.              3.             4.
+  Add Each      ProCoach      Your Clients     You Build
+ Client in     Sends Daily    See Progress  Success Stories
+ 30 Seconds  Habits & Lessons   Over Time    Automatically
+
+ */
+
+.sp-how-it-works {
+  padding-top: calc( $bh * 2 );
+  padding-bottom: calc( $bh * 2 );
+
+  &__heading {
+    @mixin heading;
+  }
+
+  &__subheading {
+    @mixin text-small;
+  }
+
+  &__lead {
+    @mixin text-big;
+    margin-top: $bh;
+  }
+
+  &__body-text {
+    @mixin text-body;
+    margin-top: $bh;
+  }
+
+  &__steps {
+    margin-top: $bh;
+    margin-left: calc( $bw * -5 );
+    margin-right: calc( $bw * -5 );
+    padding-left: calc( $bw * 5 );
+    padding-right: calc( $bw * 5 );
+    padding-bottom: $bh;
+    background-image: linear-gradient(
+      to right,
+      color( $color-gray-light alpha(100%) ) 0%,
+      color( $color-gray-light alpha(100%) ) 33.3%,
+      color( $color-brand alpha(15%) ) 40%,
+      color( $color-brand alpha(15%) ) 60%,
+      color( $color-gray-light alpha(100%) ) 66.7%,
+      color( $color-gray-light alpha(100%) ) 100%
+    );
+    border-bottom: 2px $border-style-default $color-brand;
+  }
+
+  &__step-headers {
+    display: flex;
+    margin-left: calc( $bw * -5 );
+    margin-right: calc( $bw * -5 );
+    padding-left: calc( $bw * 5 );
+    padding-right: calc( $bw * 5 );
+    align-items: bottom;
+    justify-content: space-between;
+    background-color: color( $color-darkest alpha(85%) );
+    border-bottom: 2px $border-style-default $color-brand;
+    @mixin box-shadow-default;
+  }
+
+  &__step-header {
+    flex: 1 32%;
+    max-width: 32%;
+    text-align: center;
+  }
+
+  &__step-heading {
+    padding: calc( $bh * 0.25 );
+    color: $color-lightest;
+    font-size: $font-size-default;
+    font-weight: $font-weight-subheading;
+    text-align: center;
+  }
+
+  &__step-wrapper {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    margin-top: $bh;
+  }
+
+  &__step {
+    position: relative;
+    flex: 1 32%;
+    max-width: 32%;
+    padding: calc( $bh * 0.5 ) calc( $bw * 2 );
+    background-color: $color-lightest;
+    border: $border-default;
+    border-color: $color-brand;
+    border-radius: $border-radius-default;
+    @mixin box-shadow-default;
+    font-size: $font-size-small;
+    text-align: center;
+    transition: $transition-default;
+
+    &:hover {
+      @mixin box-shadow-active;
+    }
+
+    &--coach {
+
+    }
+
+    &--system:first-child {
+      margin-left: 34%;
+    }
+
+    &--client:first-child {
+      margin-left: 68%;
+    }
+
+    /*
+     * I'm using pseudo-classes to create the arrows for connecting steps. This
+     * probably looks nuts, but it's simpler than trying to cobble together a
+     * bunch of images and semantically-useless markup.
+     */
+    &--connect-top_ {
+      &coach-to- {
+        &coach::before {
+          @mixin line-top-up;
+        }
+
+        &system::before {
+          @mixin line-top-left;
+        }
+
+        &client::before {
+          @mixin line-top-left;
+          width: 109.375%;
+        }
+      }
+
+      &system-to- {
+        &coach::before {
+          @mixin line-top-right;
+        }
+
+        &system::before {
+          @mixin line-top-up;
+        }
+
+        &client::before {
+          @mixin line-top-left;
+        }
+      }
+
+      &client-to- {
+        &coach::before {
+          @mixin line-top-right;
+          width: 109.375%;
+        }
+
+        &system::before {
+          @mixin line-top-right;
+        }
+
+        &client::before {
+          @mixin line-top-up;
+        }
+      }
+    }
+
+    &--connect-bottom_ {
+      &coach-to- {
+        &coach::after {
+          @mixin line-bottom-down;
+        }
+
+        &system::after {
+          @mixin line-bottom-right;
+        }
+
+        &client::after {
+          @mixin line-bottom-right;
+          width: 109.375%;
+        }
+      }
+
+      &system-to- {
+        &coach::after {
+          @mixin line-bottom-left;
+        }
+
+        &system::after {
+          @mixin line-bottom-down;
+        }
+
+        &client::after {
+          @mixin line-bottom-right;
+        }
+      }
+
+      &client-to- {
+        &coach::after {
+          @mixin line-bottom-left;
+          width: 109.375%;
+        }
+
+        &system::after {
+          @mixin line-bottom-left;
+        }
+
+        &client::after {
+          @mixin line-bottom-down;
+        }
+      }
+    }
+
+  }
+}

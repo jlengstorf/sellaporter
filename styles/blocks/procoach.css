@@ -1,0 +1,58 @@
+/*
+ * The logo-thingy for ProCoach® (circuitboard hexagon pulsy thing).
+ */
+.sp-procoach {
+  position: relative;
+  padding: calc( $bw * 2 );
+  animation: 5s linear 0s infinite procoach-throb;
+
+  &__svg {
+    position: relative;
+    display: block;
+    width: 100%;
+    max-width: 160px;
+    height: auto;
+    margin-left: auto;
+    margin-right: auto;
+    z-index: 2;
+  }
+
+  /*&__hexagon {
+    fill: $color-brand;
+    filter: drop-shadow( 0 0 4px color( $color-lightest alpha(50%) ));
+  }
+
+  &__circuits {
+    fill: color( $color-brand tint(15%) );
+  }*/
+
+  &::before,&::after {
+    content: '';
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    display: block;
+    width: 85%;
+    max-width: 136px;
+    height: 85%;
+    background-image: radial-gradient(
+      circle,
+      color( $color-lightest alpha(0%) ) 0%,
+      color( $color-lightest alpha(15%) ) 75%,
+      color( $color-lightest alpha(15%) ) 100%
+    );
+    border: 3px solid color( $color-brand shade(2%) );
+    border-radius: 50%;
+    transform: translate3d(-50%, -48.5%, 0);
+    opacity: 0;
+    z-index: 3;
+  }
+
+  &::before {
+    animation: 3s linear 0s infinite procoach-radar;
+  }
+
+  &::after {
+    animation: 3s linear 1.5s infinite procoach-radar;
+  }
+}

@@ -1,0 +1,155 @@
+/*
+ * This module is a little evil. It breaks BEM standards by allowing nested
+ * rules, and by targeting elements and not classes.
+ *
+ * This is done because WordPress doesn't apply classes to markup without a
+ * metric fuckton of wankery, and it's really just not worth the hassle.
+ *
+ * HOWEVER: be warned that trying to nest other blocks inside a generic block
+ * can (and probably will) have side effects.
+ */
+.sp-generic {
+  padding-top: calc( $bh * 2 );
+  padding-bottom: calc( $bh * 2 );
+
+  &--right,&--left {
+    padding-top: calc( $bh * 5 );
+    padding-bottom: calc( $bh * 5 );
+    background-repeat: no-repeat;
+    background-size: contain;
+
+    &::after {
+      content: '';
+      @mixin keep-on-bottom;
+      position: absolute;
+      top: 0;
+      width: 100%;
+      height: 100%;
+    }
+  }
+
+  /*
+   * A little counterintuitive; the left modifier aligns images to the right
+   * because the _content_ is left-aligned. Same with the right modifier below.
+   */
+  &--left {
+    background-position: right center;
+    padding-right: calc( $bw * 30 );
+
+    &::after {
+      left: 0;
+      background-image: linear-gradient(
+        90deg,
+        color( $color-lightest alpha( 100% ) ) 0%,
+        color( $color-lightest alpha( 100% ) ) 67%,
+        color( $color-lightest alpha( 0% ) ) 85%
+      );
+    }
+  }
+
+  &--right {
+    background-position: left center;
+    padding-left: calc( $bw * 30 );
+
+    &::after {
+      right: 0;
+      background-image: linear-gradient(
+        270deg,
+        color( $color-lightest alpha( 100% ) ) 0%,
+        color( $color-lightest alpha( 100% ) ) 67%,
+        color( $color-lightest alpha( 0% ) ) 85%
+      );
+    }
+  }
+
+  > * {
+    @mixin keep-on-top;
+  }
+
+  * + * {
+    margin-top: calc( $bh * 1 );
+  }
+
+  &__heading {
+    @mixin heading;
+    margin-top: calc( $bh * 1.5 );
+
+    &:first-child {
+      margin-top: 0;
+    }
+
+    &--inverted {
+      @mixin heading-color-inverted;
+    }
+  }
+
+  &__subheading {
+    @mixin subheading;
+    margin-top: calc( $bh * 1.25 );
+
+    &:first-child {
+      margin-top: 0;
+    }
+
+    &--inverted {
+      @mixin heading-color-inverted;
+    }
+  }
+
+  &__lead {
+    @mixin text-big;
+
+    &--inverted {
+      @mixin text-color-inverted;
+    }
+  }
+
+  &__image {
+    display: block;
+    max-width: 100%;
+    height: auto;
+
+    &--float-right {
+      float: right;
+      max-width: 30%;
+      margin-left: $bh;
+    }
+  }
+
+  &__image-with-caption {
+
+  }
+
+  &__image-caption {
+    @mixin text-small;
+    margin-top: calc( $bh * 0.25 );
+    color: $color-gray-medium;
+    font-style: italic;
+  }
+
+  &__link {
+    font-size: inherit;
+  }
+
+  /*
+   * To avoid side-effects in BEM-adherent blocks, we make sure to only style
+   * paragraphs and list items without classes applied.
+   *
+   * This is basically a BEM hack for user-generated input. I find this only
+   * slightly less fucky than trying to hack WordPress to apply classes to all
+   * paragraphs and lists.
+   */
+  p:not([class]),li:not([class]) {
+    @mixin text-body;
+  }
+
+  &--inverted {
+    background-color: $color-gray-dark;
+    border-top: $border-width-default $border-style-default $color-darkest;
+    color: $color-gray-light;
+
+    p:not([class]),li:not([class]) {
+      @mixin text-color-inverted;
+    }
+  }
+}

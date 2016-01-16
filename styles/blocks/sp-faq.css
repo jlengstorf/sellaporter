@@ -1,0 +1,29 @@
+.sp-faq {
+  padding-top: calc( $bh * 2 );
+  padding-bottom: calc( $bh * 2 );
+  background-color: color( $color-brand tint(95%) );
+  border-top: $border-default;
+  border-bottom: $border-default;
+  border-color: color( $color-brand tint(90%) );
+
+  &__heading {
+    @mixin heading;
+  }
+
+  &__faq-list {
+
+  }
+
+  &__q {
+    @mixin subheading;
+    margin-top: $bh;
+    padding-top: $bh;
+    border-top: $border-default;
+    border-color: color( $color-brand tint(75%) );
+  }
+
+  &__a {
+    margin-top: calc( $bh * 0.5 );
+  }
+
+}

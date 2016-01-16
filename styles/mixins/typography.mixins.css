@@ -1,0 +1,58 @@
+@define-mixin heading {
+  @mixin heading-color;
+  font-family: $font-family-heading;
+  font-size: $font-size-heading;
+  font-weight: $font-weight-heading;
+  line-height: $line-height-heading;
+}
+
+@define-mixin subheading {
+  @mixin heading-color;
+  font-family: $font-family-heading;
+  font-size: $font-size-subheading;
+  font-weight: $font-weight-subheading;
+  line-height: $line-height-subheading;
+}
+
+@define-mixin text-body {
+  @mixin text-color;
+  font-size: $font-size-default;
+  font-weight: $font-weight-default;
+  line-height: $line-height-default;
+
+  @media (min-width: $media-screen-small) {
+    font-size: calc( $font-size-default * 1.125 );
+  }
+}
+
+@define-mixin text-big {
+  font-size: $font-size-big;
+  font-weight: $font-weight-default;
+  line-height: $line-height-default;
+}
+
+@define-mixin text-small {
+  font-size: $font-size-small;
+  font-weight: $font-weight-default;
+  line-height: $line-height-default;
+}
+
+@define-mixin text-shadow $color: color( $color-darkest alpha(50%) ) {
+  text-shadow: 1px 1px 1px $color;
+}
+
+@define-mixin heading-color {
+  color: $color-text-headline;
+}
+
+@define-mixin heading-color-inverted {
+  color: $color-inverted-text-headline;
+}
+
+@define-mixin text-color {
+  color: $color-text-body;
+}
+
+@define-mixin text-color-inverted {
+  color: $color-inverted-text-body;
+}

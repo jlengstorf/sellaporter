@@ -1,0 +1,67 @@
+/*
+ * # sellaporter.css
+ * Styles for Sellaporter. This plugin follows the BEM approach for styles in
+ * hopes of keeping things maintainable without too much headache.
+ *
+ * For brevity, the namespace is `sp` instead of `sellaporter`.
+ *
+ * This stylesheet depends on PostCSS for processing. This gives us future-CSS
+ * syntax, plus some Sass-like syntactic sugar such as nesting and simpler
+ * bariable declarations.
+ *
+ * PostCSS processing is managed by webpack to keep assets bundled up and easy
+ * to cache.
+ *
+ * For development:
+ *
+ *     # Navigate to the root of the plugin
+ *     cd ~/path/to/pn.com/site/wordpress/wp-content/plugins/sellaporter
+ *
+ *     # Install dependencies
+ *     npm install
+ *
+ *     # Start the dev server
+ *     npm run dev
+ *
+ *     # Do your thang. Changes will be automatically recompiled.
+ */
+
+/*
+ * DEPENDENCIES
+ */
+
+/*
+ * Basic layout reset — NOTE: this might fuck with other styles, so if 
+ * activating Sellaporter breaks your layout, start debugging by removing this.
+ */
+@import 'config/reset.css';
+
+/* Colors, general measurements, etc. */
+@import 'config/variables.css';
+
+/* Mixins to allow abstracting common styles. */
+@import 'mixins/typography.mixins.css';
+@import 'mixins/box-effects.mixins.css';
+@import 'mixins/buttons.mixins.css';
+@import 'mixins/sp-how-it-works.mixins.css';
+@import 'mixins/miscellaneous.mixins.css';
+
+/* Generic classes for Sellaporter layout and sections. */
+@import 'config/base.css';
+
+/* The logo is animated using CSS. */
+@import 'animations/procoach.css';
+
+/* Styles for the logo.*/
+@import 'blocks/procoach.css';
+
+/* Styles for the various sections. */
+@import 'blocks/sp-hero.css';
+@import 'blocks/sp-generic.css';
+@import 'blocks/sp-video.css';
+@import 'blocks/sp-cta.css';
+@import 'blocks/sp-features.css';
+@import 'blocks/sp-how-it-works.css';
+@import 'blocks/sp-photobox.css';
+@import 'blocks/sp-faq.css';
+@import 'blocks/sp-pricing.css';

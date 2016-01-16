@@ -1,0 +1,72 @@
+/*
+ * Variables for the plugin. In a perfect world, these would be consolidated
+ * into a shared location so things like brand colors aren't redeclared all
+ * over the site's code. However, since there's not really a simple way to
+ * consolidate things without creating a real plan with the whole team, this
+ * file just adds to the chaos. Wheeeeee!
+ */
+
+/*
+ * Colors.
+ */
+$color-lightest:    #ffffff;
+$color-darkest:     #000000;
+$color-brand:       #00bbe3;
+$color-gray-light:  #f4f5f5;
+$color-gray-medium: #7d878a;
+$color-gray-dark:   #333e48;
+$color-gray-border: #d1d1d1;
+
+/*
+ * Text defaults.
+ */
+$color-text-headline: $color-gray-dark;
+$color-text-body: $color-gray-dark;
+
+/*
+ * For text on dark backgrounds.
+ */
+$color-inverted-text-headline: $color-lightest;
+$color-inverted-text-subtitle: $color-lightest;
+$color-inverted-text-body: $color-gray-light;
+
+$font-family-default: proxima-nova, "Helvetica Neue", sans-serif;
+$font-size-default: 1rem;
+$font-weight-default: normal;
+$line-height-default: 1.375;
+
+$font-size-big: 115%;
+$font-size-small: 85%;
+
+$font-family-heading: "Proxima Nova Light","proxima-nova","Helvetica Neue",Helvetica,sans-serif;
+$font-size-heading: 160%;
+$font-weight-heading: bold;
+$line-height-heading: 1.25;
+
+$font-size-subheading: 130%;
+$font-weight-subheading: bold;
+$line-height-subheading: 1.375;
+
+$base-unit-height: 1rem;
+$base-unit-width: 1vw;
+$bh: $base-unit-height;
+$bw: $base-unit-width;
+
+
+
+$border-radius-default: 5px;
+$border-style-default: solid;
+$border-width-default: 1px;
+$border-color-default: $color-gray-border;
+$border-default: $border-width-default $border-style-default $border-color-default;
+
+$animation-delay-default: 0;
+$animation-easing-default: linear;
+$animation-speed-default: 150ms;
+
+$transition-default: $animation-speed-default all $animation-easing-default;
+
+$media-screen-xsmall: 480px;
+$media-screen-small: 768px;
+$media-screen-medium: 1024px;
+$media-screen-large: 1150px;

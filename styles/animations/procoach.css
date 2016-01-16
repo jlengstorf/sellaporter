@@ -1,0 +1,35 @@
+/*
+ * Animations for the ProCoach logo-thing.
+ */
+
+/*
+ * This causes the logo to gently "throb" by changing how transparent it is.
+ */
+@keyframes procoach-throb {
+  0% {
+    opacity: 0.85;
+  }
+
+  50% {
+    opacity: 0.7;
+  }
+
+  100% {
+    opacity: 0.85;
+  }
+}
+
+/*
+ * This causes the radar "ping" look.
+ */
+@keyframes procoach-radar {
+  0% {
+    opacity: 1;
+    transform: translate3d(-50%, -48.5%, 0) scale(0);
+  }
+
+  100% {
+    opacity: 0;
+    transform: translate3d(-50%, -48.5%, 0) scale(1);
+  }
+}

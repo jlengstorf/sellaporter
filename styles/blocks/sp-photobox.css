@@ -1,0 +1,77 @@
+.sp-photobox {
+  padding-top: calc( $bh * 2 );
+  padding-bottom: calc( $bh * 2 );
+  background-color: $color-brand;
+  border-top: $border-default;
+  border-bottom: $border-default;
+  border-color: color( $color-brand shade(15%) );
+
+  &__item {
+    max-width: 700px;
+    margin-left: auto;
+    margin-right: auto;
+    background-color: $color-lightest;
+    border: $border-default;
+    border-color: color( $color-brand shade(15%) );
+    border-radius: $border-radius-default;
+    overflow: hidden;
+    @mixin box-shadow-default;
+
+    @media (min-width: $media-screen-small) {
+      display: flex;
+      align-items: top;
+      justify-content: space-between;
+    }
+  }
+
+  &__heading {
+    margin-top: 0;
+    font-size: 110%;
+    font-weight: $font-weight-heading;
+  }
+
+  &__photo-wrapper {
+    border-bottom: $border-default;
+
+    @media (min-width: $media-screen-small) {
+      flex: 1 37%;
+      max-width: 37%;
+      border-bottom-width: 0;
+      border-right: $border-default;
+    }
+  }
+
+  &__photo {
+    display: block;
+    max-width: 100%;
+    height: auto;
+    margin: 0 auto;
+  }
+
+  &__text-wrapper {
+    margin-top: 0;
+    padding: calc( $bh * 0.5 ) $bh $bh;
+
+    @media (min-width: $media-screen-small) {
+      flex: 3 63%;
+      max-width: 63%;
+      padding-top: $bh;
+    }
+  }
+
+  &__credit {
+    @mixin text-small;
+    margin-top: 0;
+
+    /* Sibling selectors for everyone-but-the-first-child margins. */
+    & + & {
+      margin-top: calc( $bh * 0.25 );
+    }
+  }
+
+  &__body-copy {
+    @mixin text-body;
+    margin-top: calc( $bh * 0.5 );
+  }
+
+}

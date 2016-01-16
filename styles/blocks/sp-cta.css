@@ -1,0 +1,20 @@
+.sp-cta {
+  padding-top: calc( $bh * 0.5 );
+  padding-bottom: calc( $bh * 2 );
+  border-style: $border-style-default;
+  border-width: $border-width-default 0;
+
+  &--dark {
+    background-color: $color-darkest;
+    border-color: color( $color-darkest shade(10%) alpha(50%) );
+  }
+
+  &--light {
+    background-color: $color-lightest;
+    border-color: transparent;
+  }
+
+  &__button {
+    @mixin button;
+  }
+}

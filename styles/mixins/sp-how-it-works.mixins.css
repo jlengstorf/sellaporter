@@ -1,0 +1,81 @@
+/*
+ * These mixins only work when applied to pseudo-elements. Make sure the parent
+ * element has `position: relative;` set or things will get weird.
+ */
+@define-mixin line {
+  content: '';
+  position: absolute;
+  transform: translateX(-1px);
+  border-color: inherit;
+  border-style: $border-style-default;
+}
+
+@define-mixin line-top {
+  @mixin line;
+  top: -11px;
+  height: 11px;
+  border-top-width: $border-width-default;
+  border-bottom-width: 0;
+}
+
+@define-mixin line-bottom {
+  @mixin line;
+  top: 100%;
+  height: calc( $bh * 0.5 );
+  border-top-width: 0;
+  border-bottom-width: $border-width-default;
+}
+
+@define-mixin line-left {
+  @mixin line;
+  right: 50%;
+  width: 56.25%;
+  border-right-width: $border-width-default;
+  border-left-width: 0;
+}
+
+@define-mixin line-right {
+  @mixin line;
+  left: 50%;
+  width: 56.25%;
+  border-right-width: 0;
+  border-left-width: $border-width-default;
+}
+
+@define-mixin line-top-up {
+  @mixin line-top;
+  @mixin line-right;
+  width: 1px;
+  border-top-width: 0;
+}
+
+@define-mixin line-top-left {
+  @mixin line-top;
+  @mixin line-left;
+  border-top-right-radius: $border-radius-default;
+}
+
+@define-mixin line-top-right {
+  @mixin line-top;
+  @mixin line-right;
+  border-top-left-radius: $border-radius-default;
+}
+
+@define-mixin line-bottom-down {
+  @mixin line-bottom;
+  @mixin line-right;
+  width: 1px;
+  border-bottom-width: 0;
+}
+
+@define-mixin line-bottom-left {
+  @mixin line-bottom;
+  @mixin line-left;
+  border-bottom-right-radius: $border-radius-default;
+}
+
+@define-mixin line-bottom-right {
+  @mixin line-bottom;
+  @mixin line-right;
+  border-bottom-left-radius: $border-radius-default;
+}
