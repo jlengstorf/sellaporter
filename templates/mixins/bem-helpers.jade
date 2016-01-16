@@ -1,0 +1,51 @@
+mixin block(blockName, modifiers, tagName)
+  -
+    var tag = tagName || 'div';
+    var classes = getClasses(blockName, modifiers)
+  -
+  #{tag}&attributes(attributes)(class=classes)
+    if block
+      block
+
+mixin element(blockName, element, modifiers, tagName)
+  -
+    var tag = tagName || 'div';
+    var classBase = blockName + '__' + element;
+    var classes = getClasses(classBase, modifiers);
+  -
+  #{tag}&attributes(attributes)(class=classes)
+    if block
+      block
+
+mixin section(type, modifiers, shouldWrapItem)
+  -
+    var classes = getClasses(type, modifiers);
+
+    if (shouldWrapItem !== false) {
+      shouldWrapItem = true;
+    }
+  -
+  .sp__section&attributes(attributes)(class=classes)
+    if (shouldWrapItem)
+      .sp__item
+        if block
+          block
+    else
+      if block
+        block
+
+//- Helper functions
+-
+  function getClasses(base, modifiers) {
+    var modArray = modifiers || [];
+    if (typeof modArray !== 'object') {
+      return base;
+    }
+
+    var classes = [base];
+    for (x in modArray) {
+      classes.push(base + '--' + modArray[x]);
+    }
+
+    return classes.join(' ');
+  }

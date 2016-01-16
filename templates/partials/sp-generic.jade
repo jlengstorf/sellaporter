@@ -1,0 +1,13 @@
+-
+  var blockName = 'sp-generic';
+  var blockModifiers = [];
+  var blockStyle = '';
+
+  if (section.alignment !== 'center') {
+    blockModifiers.push(section.alignment);
+    blockStyle = 'background-image: url(' + section.background_image + ')';
+  }
+-
++section(blockName, blockModifiers)(style=blockStyle)
+  +element(blockName, 'content').
+    !{section.body_text}

@@ -1,0 +1,76 @@
+-
+  var blockName = 'sp-hero';
+  var blockModifiers = ['flex'];
+
+  // Check if we need an overlay for the box
+  var overlayOptions = {
+    medium: 'medium-overlay',
+    dark: 'dark-overlay',
+  };
+
+  if (!!overlayOptions[section.image_tint]) {
+    blockModifiers.push(overlayOptions[section.image_tint]);
+  }
+
+  // Check for a background image, or use a placeholder.
+  var background_image = '//fpoimg.com/1600x900';
+  if (!!section.background_image) {
+    background_image = section.background_image;
+  }
+
+  // Hero boxes come in two flavors.
+  var headline = {};
+  var subtitle = {};
+  var content = {};
+  if (section.hero_type === 'super') {
+    headline.tag = 'h1';
+    headline.type = 'superheading';
+    headline.text = section.superheading;
+
+    subtitle.tag = 'p';
+    subtitle.type = 'subtitle';
+    subtitle.text = section.subtitle;
+  } else {
+    headline.tag = 'h2';
+    headline.type = 'heading';
+    headline.text = section.heading;
+
+    subtitle.tag = false;
+  }
+-
++section(blockName, blockModifiers)(style="background-image: url(" + background_image + ")")
+
+  if section.hero_type === 'super'
+
+    //- For superheadings, we add the PN logo
+    +element(blockName, 'superheading', section.text_options, 'p').
+      #[img.sp-hero__logo(src="img/precision-nutrition.svg" alt="Precision Nutrition")]
+      !{section.superheading}
+
+    //- Subtitle (treated like the main title)
+    +element(blockName, 'subtitle', section.text_options, 'h1').
+      !{section.subtitle}
+
+  else
+
+    //- 
+      Just hacking away over here... This shows the ProCoach logo on "normal" 
+      hero boxes. I am positive this will be an issue later.
+
+      TODO unfuck this.
+    .sp-procoach
+      object(type="image/svg+xml" data="img/procoach.svg" class="sp-procoach__svg")
+
+    +element(blockName, 'heading', section.text_options, 'h2').
+      !{section.heading}
+  
+  //- Add the body copy.
+  //- TODO Do we need an empty check first?
+  +element(blockName, 'body-text', section.text_options, 'div').
+    !{section.text}
+
+  //- Show a CTA button if the option was set
+  if section.show_cta_button !== false
+    +element(blockName, 'button', section.text_options, 'a')(
+      href=section.button_link
+    )= section.button_text

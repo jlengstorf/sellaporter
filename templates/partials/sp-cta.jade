@@ -1,0 +1,8 @@
+-
+  var blockName = 'sp-cta';
+  var blockModifiers = [section.style];
+  var button_link = section.button_link;
+-
++section(blockName, blockModifiers)
+  +element(blockName, 'button', [], 'a')(href=section.button_link).
+    #{section.button_text}

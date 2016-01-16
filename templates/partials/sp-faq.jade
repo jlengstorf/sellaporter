@@ -1,0 +1,22 @@
+-
+  var blockName = 'sp-faq';
+  var blockModifiers = [];
+  var faqs = [
+    {
+      q: 'Will I be able to coach online like you guys?',
+      a: 'Absolutely. ProCoach® was originally built for our very own PN coaches to exclusively coach and communicate online with hundreds of clients.',
+    },
+    {
+      q: 'What if I’m not a strength coach or personal trainer?',
+      a: 'ProCoach® is designed to provide nutritional coaching for all clients, not just ones that are in the gym.',
+    }
+  ];
+-
++section(blockName, blockModifiers)
+  +element(blockName, 'heading', [], 'h2') !{section.headline}
+  +element(blockName, 'faq-list', [], 'dl')
+    each faq in faqs
+      +element(blockName, 'q', [], 'dt').
+        !{faq.q}
+      +element(blockName, 'a', [], 'dd').
+        !{faq.a}

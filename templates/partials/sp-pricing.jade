@@ -1,0 +1,21 @@
+-
+  var blockName = 'sp-pricing';
+  var blockModifiers = [];
+  var pricePoints = [
+    {
+      price: '$99/month',
+      break: 'for up to 20 clients',
+    },
+    {
+      price: '$199/month',
+      break: 'for up to 100 clients',
+    },
+  ];
+-
++section(blockName, blockModifiers)
+  +element(blockName, 'heading', [], 'h2') Pricing & Plans
+  +element(blockName, 'price-points', [], 'ul')
+    each pricePoint in pricePoints
+      +element(blockName, 'price-point', ['featured'], 'li')
+        +element(blockName, 'price', [], 'span')= pricePoint.price
+        +element(blockName, 'break', [], 'span')= pricePoint.break

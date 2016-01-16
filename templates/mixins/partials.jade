@@ -1,0 +1,26 @@
+//- Hacky workaround Jade's lack of support for interpolation in includes.
+
+mixin includeBlock(section)
+  -
+    var block = section.acf_fc_layout;
+  -
+  if block === 'sp-cta'
+    include /partials/sp-cta
+  else if block === 'sp-faq'
+    include /partials/sp-faq
+  else if block === 'sp-features'
+    include /partials/sp-features
+  else if block === 'sp-generic'
+    include /partials/sp-generic
+  else if block === 'sp-hero'
+    include /partials/sp-hero
+  else if block === 'sp-how-it-works'
+    include /partials/sp-how-it-works
+  else if block === 'sp-photobox'
+    include /partials/sp-photobox
+  else if block === 'sp-pricing'
+    include /partials/sp-pricing
+  else if block === 'sp-video'
+    include /partials/sp-video
+  else
+    p Invalid Template Requested

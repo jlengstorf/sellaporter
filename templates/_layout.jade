@@ -1,0 +1,26 @@
+include /mixins/bem-helpers
+include /mixins/partials
+
+doctype html
+html(lang="en")
+
+  head
+    title= fields.title.rendered
+
+    script(src="//use.typekit.net/mdv1txb.js")
+    script.
+      try{Typekit.load();}catch(e){}
+
+    link(rel="stylesheet" href="/css/main.min.css")
+    
+  body
+    .sp
+      each section in fields.acf.layout
+        if (section.visible_phases.indexOf(fields.sellaporter_phase) !== -1)
+          +includeBlock(section)
+
+    script(async deferred src="/js/main.min.js")
+
+    if process.env.NODE_ENV && process.env.NODE_ENV === 'development'
+      - console.warn('NOTE: Development mode is enabled!');
+      script(src="//localhost:9091")
