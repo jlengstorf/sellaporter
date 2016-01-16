@@ -8,8 +8,8 @@
     "develop": "NODE_ENV=development concurrent --kill-others 'npm run watch:assets' 'npm run server' 'npm run livereload'",
     "deploy": "BUILD_ENV=production NODE_ENV=production npm run build",
     "build:assets": "webpack --progress --colors --optimize-minimize --optimize-dedupe",
-    "build:site": "punch g",
-    "server": "punch s",
+    "build:site": "punch g ./config/default.js",
+    "server": "punch s ./config/default.js",
     "livereload": "live-reload --port 9091 templates/",
     "watch:styles": "watch 'npm run build:assets' styles/",
     "watch:scripts": "watch 'npm run build:assets' scripts/",
@@ -23,7 +23,7 @@
     "concurrently": "^1.0.0",
     "getconfig": "^2.2.0",
     "jade": "^1.11.0",
-    "punch": "^0.5.46",
+    "punch": "jlengstorf/punch",
     "underscore": "^1.8.3"
   },
   "devDependencies": {
