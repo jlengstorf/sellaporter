@@ -5,7 +5,7 @@
   "main": "index.js",
   "scripts": {
     "start": "NODE_ENV=production npm run server",
-    "develop": "NODE_ENV=development concurrent --kill-others 'npm run watch:assets' 'npm run server' 'npm run livereload'",
+    "develop": "NODE_ENV=development concurrent --kill-others 'npm run watch:scripts' 'npm run watch:styles' 'npm run server' 'npm run livereload'",
     "deploy": "BUILD_ENV=production NODE_ENV=production npm run build",
     "build:assets": "webpack --progress --colors --optimize-minimize --optimize-dedupe",
     "build:site": "punch g ./config/default.js",
@@ -13,10 +13,16 @@
     "livereload": "live-reload --port 9091 templates/",
     "watch:styles": "watch 'npm run build:assets' styles/",
     "watch:scripts": "watch 'npm run build:assets' scripts/",
-    "watch:assets": "npm run watch:styles && npm run watch:scripts",
     "watch:templates": "watch 'npm run build:site' templates/",
     "postversion": "git push && git push --tags",
     "test": "echo 'Error: no test specified' && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/jlengstorf/sellaporter.git"
+  },
+  "bugs": {
+    "url": "https://github.com/jlengstorf/sellaporter/issues"
   },
   "author": "",
   "license": "ISC",
@@ -28,10 +34,15 @@
     "underscore": "^1.8.3"
   },
   "devDependencies": {
+    "babel-core": "^6.4.0",
+    "babel-loader": "^6.2.1",
+    "babel-preset-es2015": "^6.3.13",
     "css-loader": "^0.23.1",
     "cssnano": "^3.4.0",
     "cssnext": "^1.8.4",
     "extract-text-webpack-plugin": "^1.0.1",
+    "jscs": "^2.8.0",
+    "jscs-loader": "^0.2.0",
     "live-reload": "^1.1.0",
     "postcss-import": "^7.1.3",
     "postcss-loader": "^0.8.0",
