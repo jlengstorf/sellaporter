@@ -1,0 +1,202 @@
+.sp-popover {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100vw;
+  height: 100vh;
+  background: color( $color-lightest alpha(85%) );
+  opacity: 1;
+  overflow-y: scroll;
+  transition: $animation-speed-default opacity $animation-easing-default;
+  z-index: 1000;
+
+  &--fade-out {
+    opacity: 0;
+  }
+
+  &--hidden {
+    position: absolute;
+    top: -1;
+    left: -1;
+    width: 0;
+    height: 0;
+    display: none;
+    pointer-events: none;
+    z-index: -1;
+  }
+
+  @media (min-width: $media-screen-small) {
+    position: fixed;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+
+  &__container {
+    width: 100%;
+    height: 100%;
+    background-color: $color-brand;
+    background-image: url(/img/hectagons.svg);
+    background-repeat: repeat-x;
+    background-size: cover;
+
+    @media (min-width: $media-screen-small) {
+      flex: 1 95%;
+      display: flex;
+      align-items: flex-end;
+      justify-content: space-between;
+      height: auto;
+      max-width: calc( $bw * 95 );
+      max-height: 95%;
+      border-radius: calc( $bh * 0.75 );
+      box-shadow: 0 0 15px 2px color( $color-darkest alpha(20%) );
+    }
+
+    @media (min-width: $media-screen-medium) {
+      max-width: calc( $media-screen-medium - 14 );
+    }
+  }
+
+  &__form {
+    padding: calc( $bh * 1.5 ) $bh;
+
+    @media (min-width: $media-screen-xsmall) {
+      padding: calc( $bh * 2 ) calc( $bh * 1.5 );
+      flex: 2 66%;
+      order: 2;
+      display: flex;
+      align-items: top;
+      flex-wrap: wrap;
+      justify-content: space-between;
+    }
+
+    @media (min-width: $media-screen-medium) {
+      padding: calc( $bh * 3 );
+      padding-left: calc( $bh * 1.5 );
+    }
+  }
+
+  &__heading {
+    color: color( $color-brand tint(80%) );
+    font-size: 150%;
+    font-weight: normal;
+    line-height: 1.1;
+    text-shadow: 1px 1px 2px color( $color-brand shade(5%) );
+
+    @media (min-width: $media-screen-xsmall) {
+      flex: 2 100%;
+      font-size: 175%;
+    }
+  }
+
+  &__heading-bold {
+    color: $color-lightest;
+    font-weight: bold;
+  }
+
+  &__body-text {
+    flex: 2 100%;
+    margin-top: $bh;
+    color: $color-lightest;
+    font-size: $font-size-default;
+    text-shadow: 1px 1px 2px color( $color-brand shade(5%) );
+
+    @media (min-width: $media-screen-xsmall) {
+      flex: 2 100%;
+      font-size: 110%;
+      line-height: 1.75;
+    }
+  }
+
+  &__input-group {
+    margin-top: $bh;
+
+    @media (min-width: $media-screen-xsmall) {
+      flex: 1 50%;
+      max-width: 48%;
+    }
+  }
+
+  &__label {
+    display: block;
+    color: $color-lightest;
+    font-weight: bold;
+    text-shadow: 1px 1px 2px color( $color-brand shade(5%) );
+
+    &--required::after {
+      content: '*';
+    }
+  }
+
+  &__input {
+    width: 100%;
+    padding: 0 calc( $bh * 0.5 );
+    border: 0;
+    border-radius: calc( $bh * 0.35 );
+    font-size: $font-size-default;
+    line-height: 2.5;
+
+    &--select {
+      height: calc( $bh * 2.5 );
+    }
+  }
+
+  &__submit {
+    @mixin button $color-gray-dark;
+    display: block;
+    width: 100%;
+    margin-top: calc( $bh * 1.5 );
+    font-size: 87.5%;
+
+    @media (min-width: $media-screen-xsmall) {
+      width: auto;
+      margin-left: auto;
+      margin-right: auto;
+      font-size: $font-size-default;
+    }
+  }
+
+  &__image-wrap {
+    display: none;
+
+    /* Custom breakpoint that will need to be adjusted per-image, probably. */
+    @media (min-width: 920px) {
+      display: block;
+      height: 100%;
+      flex: 1 60%;
+      order: 1;
+      position: relative;
+      margin-right: calc( $bh * 2 );
+    }
+  }
+
+  &__image {
+    position: absolute;
+    left: 0;
+    bottom: 0;
+    max-width: 100%;
+    height: auto;
+  }
+
+  /* The close button is added via JavaScript. */
+  &__close-btn {
+    position: absolute;
+    top: 0;
+    right: 0;
+    display: block;
+    padding: 0 calc( $bw * 1.5 );
+    background: rgba(0, 0, 0, 0);
+    border: 0;
+    color: $color-gray-dark;
+    cursor: pointer;
+    font-size: 350%;
+    line-height: 0.875;
+    text-shadow: 1px 1px 5px color( $color-darkest alpha(20%) );
+    z-index: 1010;
+
+    &:active,&:focus {
+      outline: 0;
+    }
+  }
+
+}
