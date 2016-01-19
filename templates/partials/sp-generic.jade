@@ -5,7 +5,10 @@
 
   if (section.alignment !== 'center') {
     blockModifiers.push(section.alignment);
-    blockStyle = 'background-image: url(' + section.background_image + ')';
+
+    if (section.background_image) {
+      blockStyle = 'background-image: url(' + section.background_image + ')';
+    }
   }
 -
 +section(blockName, blockModifiers)(style=blockStyle)
