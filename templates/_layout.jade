@@ -15,7 +15,15 @@ html(lang="en")
     
   body
     .sp
-      each section in fields.acf.layout
+      -
+        var isPopoverRequired = false;
+      -
+      each section in fields.acf.smart_sales_page
+        -
+          if (section.cta_type === 'popover') {
+            isPopoverRequired = true;
+          }
+        -
         if (section.visible_phases.indexOf(fields.sellaporter_phase) !== -1)
           +includeBlock(section)
 
