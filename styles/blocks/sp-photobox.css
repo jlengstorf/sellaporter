@@ -1,27 +1,14 @@
 .sp-photobox {
-  padding-top: calc( $bh * 2 );
-  padding-bottom: calc( $bh * 2 );
-  background-color: $color-brand;
-  border-top: $border-default;
-  border-bottom: $border-default;
-  border-color: color( $color-brand shade(15%) );
+  margin-top: calc( $bh * 1 );
+  margin-left: auto;
+  margin-right: auto;
+  padding: 0;
+  overflow: hidden;
 
-  &__item {
-    max-width: 700px;
-    margin-left: auto;
-    margin-right: auto;
-    background-color: $color-lightest;
-    border: $border-default;
-    border-color: color( $color-brand shade(15%) );
-    border-radius: $border-radius-default;
-    overflow: hidden;
-    @mixin box-shadow-default;
-
-    @media (min-width: $media-screen-small) {
-      display: flex;
-      align-items: top;
-      justify-content: space-between;
-    }
+  @media (min-width: $media-screen-small) {
+    display: flex;
+    align-items: flex-end;
+    justify-content: space-between;
   }
 
   &__heading {
@@ -30,14 +17,10 @@
     font-weight: $font-weight-heading;
   }
 
-  &__photo-wrapper {
-    border-bottom: $border-default;
-
+  &__photo-wrap {
     @media (min-width: $media-screen-small) {
       flex: 1 37%;
       max-width: 37%;
-      border-bottom-width: 0;
-      border-right: $border-default;
     }
   }
 
@@ -48,9 +31,9 @@
     margin: 0 auto;
   }
 
-  &__text-wrapper {
+  &__text-wrap {
     margin-top: 0;
-    padding: calc( $bh * 0.5 ) $bh $bh;
+    padding: calc( $bh * 0.5 ) $bh calc( $bh * 1.5 );
 
     @media (min-width: $media-screen-small) {
       flex: 3 63%;
@@ -59,7 +42,7 @@
     }
   }
 
-  &__credit {
+  &__credentials,&__position {
     @mixin text-small;
     margin-top: 0;
 
@@ -69,7 +52,7 @@
     }
   }
 
-  &__body-copy {
+  &__bio {
     @mixin text-body;
     margin-top: calc( $bh * 0.5 );
   }
