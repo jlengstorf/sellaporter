@@ -1,7 +1,7 @@
-@define-mixin button {
+@define-mixin button $color: $color-brand {
   display: block;
-  padding: calc( $bh * 0.75 ) 0;
-  background: $color-brand;
+  padding: calc( $bh * 0.75 );
+  background: $color;
   border: $border-width-default $border-style-default transparent;
   border-radius: $border-radius-default;
   color: $color-lightest;
@@ -12,10 +12,10 @@
   transition: $transition-default;
 
   &:hover,&:active,&:focus {
-    background: color( $color-brand shade(10%) );
+    background: color( $color shade(10%) );
     border-color: color( $color-lightest alpha(30%) );
     color: $color-lightest;
-    text-shadow: 0 0 4px color( $color-brand shade(15%) );
-    outline: 0;
+    text-shadow: 0 0 4px color( $color shade(15%) );
+    outline: none;
   }
 }
