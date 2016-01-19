@@ -1,12 +1,14 @@
 -
   var blockName = 'sp-photobox';
   var blockModifiers = [];
+  var imageSrc = section.image && section.image.sizes.large || 'http://fpoimg.com/450x500';
+  var imageAlt = section.image && section.image.alt || '';
 -
 +section(blockName, blockModifiers, false)
   +element(blockName, 'photo-wrap', [], 'figure')
     +element(blockName, 'photo', [], 'img')(
-      src= section.image.sizes.large
-      alt= section.image.alt
+      src= imageSrc
+      alt= imageAlt
     )
   +element(blockName, 'text-wrap')
     +element(blockName, 'heading', [], 'h4').
