@@ -12,7 +12,7 @@ html(lang="en")
       try{Typekit.load();}catch(e){}
 
     link(rel="stylesheet" href="/css/main.min.css")
-    
+
   body
     .sp
       -
@@ -27,6 +27,16 @@ html(lang="en")
         if (section.visible_phases.indexOf(fields.sellaporter_phase) !== -1)
           +includeBlock(section)
 
+      if (isPopoverRequired)
+        -
+          // TODO make this dynamic and figure out a better way
+          var popover = {
+            acf_fc_layout: 'sp-popover',
+          };
+        -
+        +includeBlock(popover)
+
+    script(async deferred src="/js/vendors.min.js")
     script(async deferred src="/js/main.min.js")
 
     if process.env.NODE_ENV && process.env.NODE_ENV === 'development'

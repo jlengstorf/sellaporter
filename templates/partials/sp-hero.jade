@@ -53,8 +53,8 @@
 
   else
 
-    //- 
-      Just hacking away over here... This shows the ProCoach logo on "normal" 
+    //-
+      Just hacking away over here... This shows the ProCoach logo on "normal"
       hero boxes. I am positive this will be an issue later.
 
       TODO unfuck this.
@@ -63,7 +63,7 @@
 
     +element(blockName, 'heading', section.text_options, 'h2').
       !{section.heading}
-  
+
   //- Add the body copy.
   //- TODO Do we need an empty check first?
   +element(blockName, 'body-text', section.text_options, 'div').
@@ -71,6 +71,12 @@
 
   //- Show a CTA button if the option was set
   if section.show_cta_button !== false
-    +element(blockName, 'button', section.text_options, 'a')(
+    -
+      var btnModifiers = section.text_options;
+      if (section.cta_type === 'popover') {
+        btnModifiers.push('popover');
+      }
+    -
+    +element(blockName, 'button', btnModifiers, 'a')(
       href=section.button_link
     )= section.button_text
