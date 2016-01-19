@@ -12,6 +12,12 @@
   padding-top: calc( $bh * 2 );
   padding-bottom: calc( $bh * 2 );
 
+  &--center {
+    max-width: $media-screen-small;
+    margin-left: auto;
+    margin-right: auto;
+  }
+
   &--right,&--left {
     padding-top: calc( $bh * 5 );
     padding-bottom: calc( $bh * 5 );
@@ -70,9 +76,10 @@
     margin-top: calc( $bh * 1 );
   }
 
-  &__heading {
+  &__heading,h2 {
     @mixin heading;
-    margin-top: calc( $bh * 1.5 );
+    margin-top: calc( $bh * 2 );
+    font-weight: 300;
 
     &:first-child {
       margin-top: 0;
@@ -83,9 +90,9 @@
     }
   }
 
-  &__subheading {
+  &__subheading,h3 {
     @mixin subheading;
-    margin-top: calc( $bh * 1.25 );
+    margin-top: calc( $bh * 2 );
 
     &:first-child {
       margin-top: 0;
@@ -141,6 +148,16 @@
    */
   p:not([class]),li:not([class]) {
     @mixin text-body;
+  }
+
+  h3 + p {
+    margin-top: calc( $bh * 0.5 );
+  }
+
+  img {
+    max-width: 100%;
+    height: auto;
+    margin-top: $bh;
   }
 
   &--inverted {
