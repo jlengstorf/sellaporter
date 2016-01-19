@@ -1,6 +1,8 @@
 -
   var blockName = 'sp-about';
   var blockModifiers = [];
+  var logosSrc = section.credibility_logos && section.credibility_logos.sizes.large || 'http://fpoimg.com/1100x100';
+  var logosAlt = section.credibility_logos && section.credibility_logos.alt || '';
 -
 +section(blockName, blockModifiers, false)
   +element(blockName, 'item')
@@ -21,6 +23,6 @@
     +element(blockName, 'affiliations-heading', [], 'h4').
       #{section.credibility_heading}
     +element(blockName, 'affiliations-logos', [], 'img')(
-      src= section.credibility_logos.sizes.large
-      alt= section.credibility_logos.alt
+      src= logosSrc
+      alt= logosAlt
     )
