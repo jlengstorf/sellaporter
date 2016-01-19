@@ -12,7 +12,7 @@
 $color-lightest:    #ffffff;
 $color-darkest:     #000000;
 $color-brand:       #00bbe3;
-$color-gray-light:  #f4f5f5;
+$color-gray-light:  #eff0ef;
 $color-gray-medium: #7d878a;
 $color-gray-dark:   #333e48;
 $color-gray-border: #d1d1d1;
@@ -38,7 +38,7 @@ $line-height-default: 1.375;
 $font-size-big: 115%;
 $font-size-small: 85%;
 
-$font-family-heading: "Proxima Nova Light","proxima-nova","Helvetica Neue",Helvetica,sans-serif;
+$font-family-heading: "Proxima Nova Light","proxima-nova","Proxima Nova","Helvetica Neue",Helvetica,sans-serif;
 $font-size-heading: 160%;
 $font-weight-heading: bold;
 $line-height-heading: 1.25;
