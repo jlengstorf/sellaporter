@@ -1,0 +1,19 @@
+{
+  "name": "sellaporter",
+  "scripts": {
+  },
+  "env": {
+    "PUNCH_API_HOST": {
+      "required": true
+    },
+    "PUNCH_API_PATH": {
+      "required": true
+    },
+    "PUNCH_API_PORT": {
+      "required": true
+    }
+  },
+  "addons": [
+
+  ]
+}
