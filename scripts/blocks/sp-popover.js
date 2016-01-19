@@ -40,10 +40,14 @@ class SellaporterPopover {
     // There _should_ only ever be a single popover, so grab the first one.
     __popover = document.getElementsByClassName(__config.popoverClass)[0];
 
-    // Since a close button only makes sense if JS works, add it here.
-    _addCloseBtn();
+    // If no popover exists in the DOM, we're done here.
+    if (!!__popover) {
 
-    this.registerClickHandlers();
+      // Since a close button only makes sense if JS works, add it here.
+      _addCloseBtn();
+
+      this.registerClickHandlers();
+    }
   }
 
   registerClickHandlers() {
