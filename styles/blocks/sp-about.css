@@ -1,0 +1,55 @@
+.sp-about {
+  padding: calc( $bh * 4 ) 0 0;
+
+  &__item {
+    max-width: $media-screen-small;
+    margin-left: auto;
+    margin-right: auto;
+  }
+
+  &__heading,h2 {
+    @mixin heading;
+    margin-top: calc( $bh * 2 );
+
+    &:first-child {
+      margin-top: 0;
+    }
+  }
+
+  &__subheading,h3 {
+    @mixin subheading;
+    margin-top: calc( $bh * 2 );
+
+    &:first-child {
+      margin-top: 0;
+    }
+  }
+
+  &__top-text {
+    @mixin text-body;
+
+    p,ul,ol {
+      margin-top: $bh;
+    }
+  }
+
+  &__affiliations {
+    padding: calc( $bh * 1.5 ) 0 0;
+    background: $color-gray-light;
+    border-top: $border-default;
+    border-bottom: $border-default;
+    border-color: color( $color-gray-light shade(5%) );
+    text-align: center;
+  }
+
+  &__affiliations-heading,&__affiliations-logos {
+    max-width: $media-screen-medium;
+    margin-left: auto;
+    margin-right: auto;
+  }
+
+  &__affiliations-heading {
+    font-size: 100%;
+  }
+
+}
