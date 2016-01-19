@@ -1,0 +1,4 @@
+.sp-button {
+  @mixin button;
+  display: inline-block;
+}

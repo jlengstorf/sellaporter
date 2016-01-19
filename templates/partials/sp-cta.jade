@@ -1,8 +1,12 @@
 -
   var blockName = 'sp-cta';
-  var blockModifiers = [section.style];
-  var button_link = section.button_link;
+  var blockModifiers = [];
+  var btnModifiers = [];
+
+  if (section.cta_action === 'popover') {
+    btnModifiers.push('popover')
+  }
 -
-+section(blockName, blockModifiers)
-  +element(blockName, 'button', [], 'a')(href=section.button_link).
-    #{section.button_text}
++section(blockName, blockModifiers, false)
+  +element(blockName, 'button', btnModifiers, 'a')(href=section.cta_link).
+    #{section.cta_text}

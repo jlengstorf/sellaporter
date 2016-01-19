@@ -31,7 +31,7 @@
  */
 
 /*
- * Basic layout reset — NOTE: this might fuck with other styles, so if 
+ * Basic layout reset — NOTE: this might fuck with other styles, so if
  * activating Sellaporter breaks your layout, start debugging by removing this.
  */
 @import 'config/reset.css';
@@ -56,6 +56,8 @@
 @import 'blocks/procoach.css';
 
 /* Styles for the various sections. */
+@import 'blocks/sp-about.css';
+@import 'blocks/sp-button.css';
 @import 'blocks/sp-cta.css';
 @import 'blocks/sp-faq.css';
 @import 'blocks/sp-features.css';

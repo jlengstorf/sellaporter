@@ -23,6 +23,8 @@ const __config = {
   popoverClass: 'sp-popover',
   buttonClasses: [
     'sp-hero__button--popover',
+    'sp-button--popover',
+    'sp-cta__button--popover',
   ],
   transitionClasses: {
     animate: 'sp-popover--fade-out',
