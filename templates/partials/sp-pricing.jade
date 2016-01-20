@@ -1,14 +1,17 @@
 -
   var blockName = 'sp-pricing';
   var blockModifiers = [];
+
+  var ctaArr = section.calls_to_action.filter(cta => cta.phase === section.current_phase);
+  var hasCta = !!ctaArr.length;
 -
 +section(blockName, blockModifiers, false)
   +element(blockName, 'item')
-    +element(blockName, 'heading', [], 'h2')= section.heading
-    +element(blockName, 'body-text').
-      !{section.top_body_text}
+    +element(blockName, 'body-text')
+      +element(blockName, 'heading', [], 'h2')= section.heading
+      | !{section.top_body_text}
 
-    +element(blockName, 'price-points', [], 'ul')
+    +element(blockName, 'price-points', [(hasCta && 'has-cta')], 'ul')
       each pricePoint in section.price_points
         -
           var link = false;
@@ -40,5 +43,18 @@
             +element(blockName, 'price', [], 'span')= pricePoint.price
             +element(blockName, 'break', [], 'span')= pricePoint.break
 
-    +element(blockName, 'body-text').
+    if hasCta
+      -
+        var cta = ctaArr[0];
+        var button = {
+          link: cta.button_action === 'page' ? cta.button_link : '#',
+          text: cta.button_text,
+          modifiers: [cta.button_action]
+        };
+      -
+      +element(blockName, 'button-wrap')
+        +element(blockName, 'button', button.modifiers, 'a')(href=button.link).
+          #{button.text}
+
+    +element(blockName, 'body-text', ['bottom']).
       !{section.bottom_body_text}

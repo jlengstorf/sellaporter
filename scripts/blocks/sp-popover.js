@@ -25,6 +25,7 @@ const __config = {
     'sp-hero__button--popover',
     'sp-button--popover',
     'sp-cta__button--popover',
+    'sp-pricing__button--popover',
   ],
   transitionClasses: {
     animate: 'sp-popover--fade-out',

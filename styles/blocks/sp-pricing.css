@@ -10,11 +10,14 @@
 
   &__heading {
     @mixin heading;
-    text-align: center;
   }
 
   &__body-text {
     @mixin text-body;
+
+    &--bottom {
+      margin-top: $bh;
+    }
 
     * + * {
       margin-top: $bh;
@@ -27,12 +30,16 @@
     flex-wrap: wrap;
     justify-content: center;
     margin-top: calc( $bh * 2 );
-    margin-bottom: calc( $bh * -3 );
-    padding: $bh $bh calc( $bh * 3 );
+    padding: $bh;
     background-color: color( $color-gray-light tint(50%) );
     border: $border-default;
     border-color: color( $color-gray-light tint(15%) );
     border-radius: $border-radius-default;
+
+    &--has-cta {
+      margin-bottom: calc( $bh * -2 );
+      padding-bottom: calc( $bh * 3 );
+    }
   }
 
   &__price-point {
@@ -87,15 +94,15 @@
     line-height: 1;
   }
 
-  &__enterprise {
-    @mixin text-small;
-    margin-top: calc( $bh * 1.5);
-    color: $color-gray-light;
+  &__button-wrap {
     text-align: center;
   }
 
-  &__contact-link {
-    font-size: inherit;
+  &__button {
+    @mixin button;
+    display: inline-block;
+    margin-left: auto;
+    margin-right: auto;
   }
 
 }
