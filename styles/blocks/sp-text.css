@@ -1,0 +1,7 @@
+.sp-text {
+
+  &--notice {
+    @mixin text-small;
+    color: $color-gray-medium;
+  }
+}

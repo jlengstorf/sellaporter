@@ -1,4 +1,5 @@
 include /mixins/bem-helpers
+include /mixins/miscellaneous
 include /mixins/partials
 
 doctype html
@@ -12,13 +13,34 @@ html(lang="en")
       try{Typekit.load();}catch(e){}
 
     link(rel="stylesheet" href="/css/main.min.css")
-    
+
   body
     .sp
-      each section in fields.acf.layout
+      -
+        var isPopoverRequired = false;
+      -
+      each section in fields.acf.smart_sales_page
+        -
+          if (section.cta_type === 'popover') {
+            isPopoverRequired = true;
+          }
+        -
         if (section.visible_phases.indexOf(fields.sellaporter_phase) !== -1)
+          -
+            section.current_phase = fields.sellaporter_phase;
+          -
           +includeBlock(section)
 
+      if (isPopoverRequired)
+        -
+          // TODO make this dynamic and figure out a better way
+          var popover = {
+            acf_fc_layout: 'sp-popover',
+          };
+        -
+        +includeBlock(popover)
+
+    script(async deferred src="/js/vendors.min.js")
     script(async deferred src="/js/main.min.js")
 
     if process.env.NODE_ENV && process.env.NODE_ENV === 'development'

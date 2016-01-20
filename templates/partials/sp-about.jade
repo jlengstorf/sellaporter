@@ -1,0 +1,28 @@
+-
+  var blockName = 'sp-about';
+  var blockModifiers = [];
+  var logosSrc = section.credibility_logos && section.credibility_logos.sizes.large || 'http://fpoimg.com/1100x100';
+  var logosAlt = section.credibility_logos && section.credibility_logos.alt || '';
+-
++section(blockName, blockModifiers, false)
+  +element(blockName, 'item')
+    +element(blockName, 'heading', [], 'h2').
+      #{section.heading}
+    +element(blockName, 'top-text').
+      !{section.top_body_text}
+    +element(blockName, 'team-heading', [], 'h2').
+      #{section.team_heading}
+    each member in section.team_members
+      -
+        // A little hacky.
+        member.acf_fc_layout = 'sp-photobox';
+      -
+      +includeBlock(member)
+
+  +element(blockName, 'affiliations')
+    +element(blockName, 'affiliations-heading', [], 'h4').
+      #{section.credibility_heading}
+    +element(blockName, 'affiliations-logos', [], 'img')(
+      src= logosSrc
+      alt= logosAlt
+    )

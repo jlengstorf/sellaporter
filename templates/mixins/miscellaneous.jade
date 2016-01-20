@@ -1,0 +1,6 @@
+mixin maybeLink(link, blockName, element, modifiers)
+  if (link)
+    +element(blockName, element, modifiers, 'a')(href=link)
+      block
+  else
+    block

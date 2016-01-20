@@ -2,19 +2,6 @@
   padding: calc( $bh * 2 ) 0 $bh;
 
   &__container {
-    position: relative;
-    max-width: 100%;
-    height: auto;
-    padding-bottom: 56.25%;
-    overflow: hidden;
-
-    /* nested selectors to target third-party embed codes */
-    iframe,object,embed {
-      position: absolute;
-      top: 0;
-      left: 0;
-      width: 100%;
-      height: 100%;
-    }
+    @mixin embed-container;
   }
 }

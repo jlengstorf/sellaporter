@@ -4,7 +4,9 @@ mixin includeBlock(section)
   -
     var block = section.acf_fc_layout;
   -
-  if block === 'sp-cta'
+  if block === 'sp-about'
+    include /partials/sp-about
+  else if block === 'sp-cta'
     include /partials/sp-cta
   else if block === 'sp-faq'
     include /partials/sp-faq
@@ -18,6 +20,8 @@ mixin includeBlock(section)
     include /partials/sp-how-it-works
   else if block === 'sp-photobox'
     include /partials/sp-photobox
+  else if block === 'sp-popover'
+    include /partials/sp-popover
   else if block === 'sp-pricing'
     include /partials/sp-pricing
   else if block === 'sp-video'

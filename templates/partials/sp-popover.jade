@@ -1,0 +1,50 @@
+-
+  /*
+   * This block is a special case: it's always implemented by another major
+   * block, and it always starts out hidden. It depends on JS to unhide and
+   * display it.
+   */
+  var blockName = 'sp-popover';
+  var blockModifiers = ['hidden', 'fade-out', 'light'];
+-
++block(blockName, blockModifiers)
+  +element(blockName, 'container')
+    +element(blockName, 'form', [], 'form')
+      +element(blockName, 'heading', [], 'h2').
+        #[+element(blockName, 'heading-bold', [], 'strong') Take the First Step:] Get on Precision Nutrition&rsquo;s ProCoach® Presale List Today.
+      +element(blockName, 'body-text')
+        p.
+          You’ll save up to 30% and get the chance to register 24 hours before everyone else. By joining the presale list today, we’ll send you more information about Precision Nutrition ProCoach®, with no obligations to pay.
+      +element(blockName, 'input-group')
+        +element(blockName, 'label', ['required'], 'label') First Name
+        +element(blockName, 'input', ['text', 'required'], 'input')(
+          name="fname"
+          type="text"
+        )
+      +element(blockName, 'input-group')
+        +element(blockName, 'label', ['required'], 'label') Email
+        +element(blockName, 'input', ['email', 'required'], 'input')(
+          name="email"
+          type="email"
+        )
+      +element(blockName, 'input-group')
+        +element(blockName, 'label', [], 'label') Mobile Phone Country
+        +element(blockName, 'input', ['select'], 'select')(
+          name="country"
+        )
+          option(value="CA") Canada
+          option(value="US") United States
+      +element(blockName, 'input-group')
+        +element(blockName, 'label', [], 'label') Mobile Phone
+        +element(blockName, 'input', ['phone'], 'input')(
+          name="mobile_phone"
+          type="phone"
+        )
+      +element(blockName, 'submit', [], 'button')(
+        type="submit"
+      ) Yes, get me on the Presale List
+    +element(blockName, 'image-wrap')
+      +element(blockName, 'image', [], 'img')(
+        src="/img/overlay_carm.png"
+        alt="popover image"
+      )
