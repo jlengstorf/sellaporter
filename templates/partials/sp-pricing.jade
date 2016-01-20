@@ -1,21 +1,44 @@
 -
   var blockName = 'sp-pricing';
   var blockModifiers = [];
-  var pricePoints = [
-    {
-      price: '$99/month',
-      break: 'for up to 20 clients',
-    },
-    {
-      price: '$199/month',
-      break: 'for up to 100 clients',
-    },
-  ];
 -
-+section(blockName, blockModifiers)
-  +element(blockName, 'heading', [], 'h2') Pricing & Plans
-  +element(blockName, 'price-points', [], 'ul')
-    each pricePoint in pricePoints
-      +element(blockName, 'price-point', ['featured'], 'li')
-        +element(blockName, 'price', [], 'span')= pricePoint.price
-        +element(blockName, 'break', [], 'span')= pricePoint.break
++section(blockName, blockModifiers, false)
+  +element(blockName, 'item')
+    +element(blockName, 'heading', [], 'h2')= section.heading
+    +element(blockName, 'body-text').
+      !{section.top_body_text}
+
+    +element(blockName, 'price-points', [], 'ul')
+      each pricePoint in section.price_points
+        -
+          var link = false;
+          var linkModifiers = [];
+          var itemModifiers = [];
+
+          // Get an array with only the link for the current phase.
+          var linkArr = pricePoint.links.filter(link => link.phase === section.current_phase);
+
+          // If a link was found, set the proper data.
+          if (linkArr.length > 0) {
+            switch (linkArr[0].link) {
+              case 'custom':
+                link = linkArr[0].url;
+                itemModifiers.push('has-link');
+                break;
+              case 'popover':
+                link = '#';
+                linkModifiers.push('popover');
+                itemModifiers.push('has-link');
+                break;
+            }
+          }
+
+          console.log('link', link);
+        -
+        +element(blockName, 'price-point', itemModifiers, 'li')
+          +maybeLink(link, blockName, 'link', linkModifiers)
+            +element(blockName, 'price', [], 'span')= pricePoint.price
+            +element(blockName, 'break', [], 'span')= pricePoint.break
+
+    +element(blockName, 'body-text').
+      !{section.bottom_body_text}

@@ -1,12 +1,24 @@
 .sp-pricing {
   padding-top: calc( $bh * 2 );
   padding-bottom: calc( $bh * 2 );
-  background: $color-darkest;
+
+  &__item {
+    max-width: $media-screen-small;
+    margin-left: auto;
+    margin-right: auto;
+  }
 
   &__heading {
     @mixin heading;
-    color: $color-lightest;
     text-align: center;
+  }
+
+  &__body-text {
+    @mixin text-body;
+
+    * + * {
+      margin-top: $bh;
+    }
   }
 
   &__price-points {
@@ -14,39 +26,65 @@
     align-items: top;
     flex-wrap: wrap;
     justify-content: center;
+    margin-top: calc( $bh * 2 );
+    margin-bottom: calc( $bh * -3 );
+    padding: $bh $bh calc( $bh * 3 );
+    background-color: color( $color-gray-light tint(50%) );
+    border: $border-default;
+    border-color: color( $color-gray-light tint(15%) );
+    border-radius: $border-radius-default;
   }
 
   &__price-point {
-    flex: 1 50%;
-    padding: $bh;
-    max-width: 45%;
-    min-width: 250px;
-    margin-top: $bh;
+    @mixin box-shadow-default;
+    flex: 1 32%;
+    padding: calc( $bh * 2 ) $bh calc( $bh * 1.5 );
+    max-width: 32%;
+    min-width: 230px;
     margin-left: 2%;
-    margin-right: 2%;
-    background: $color-gray-dark;
-    border: $border-width-default $border-style-default $color-gray-medium;
+    background: $color-gray-light;
+    border: $border-width-default $border-style-default color( $color-gray-light shade(5%) );
     border-radius: $border-radius-default;
     color: $color-lightest;
+    overflow: hidden;
     text-align: center;
     transition: $transition-default;
 
-    &:hover {
-      background: $color-brand;
-      border-color: color( $color-brand tint(50%) );
+    &:first-child {
+      margin-left: 0;
     }
+
+    &--has-link {
+
+      /* Remove the padding since the link sets it again for a click target. */
+      padding: 0;
+
+      &:hover,&:active,&:focus {
+        @mixin box-shadow-active;
+        background: color( $color-gray-light shade(10%) );
+        border-color: color( $color-gray-light shade(10%) );
+      }
+    }
+  }
+
+  &__link {
+    display: block;
+    padding: calc( $bh * 2 ) $bh calc( $bh * 1.5 );
+    text-decoration: none;
   }
 
   &__price {
     @mixin subheading;
-    @mixin text-shadow color( $color-darkest alpha(25%) );
     display: block;
-    color: $color-lightest;
+    color: $color-gray-dark;
+    font-size: 450%;
+    line-height: 0.75;
   }
 
   &__break {
-    @mixin text-shadow color( $color-darkest alpha(25%) );
-    color: $color-gray-light;
+    color: $color-gray-medium;
+    font-size: 70%;
+    line-height: 1;
   }
 
   &__enterprise {
