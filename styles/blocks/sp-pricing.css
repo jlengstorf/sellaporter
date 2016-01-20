@@ -17,6 +17,7 @@
 
     &--bottom {
       margin-top: $bh;
+      padding: 0 calc( $bw * 2 );
     }
 
     * + * {
