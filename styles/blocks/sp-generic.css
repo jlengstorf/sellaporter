@@ -9,8 +9,10 @@
  * can (and probably will) have side effects.
  */
 .sp-generic {
-  padding-top: calc( $bh * 2 );
-  padding-bottom: calc( $bh * 2 );
+  max-width: $media-screen-large;
+  margin-left: auto;
+  margin-right: auto;
+  padding: calc( $bh * 2 ) 0;
 
   &--center {
     max-width: $media-screen-small;
@@ -19,19 +21,23 @@
   }
 
   &--right,&--left {
-    padding-top: calc( $bh * 5 );
-    padding-bottom: calc( $bh * 5 );
+    padding: calc( $bh * 5 );
     background-repeat: no-repeat;
-    background-size: contain;
 
-    &::after {
+    /*
+     * This is set based on the image used during design. If it changes, this
+     * will probably need to be adjusted.
+     */
+    background-size: 38% auto;
+
+    /*&::after {
       content: '';
       @mixin keep-on-bottom;
       position: absolute;
       top: 0;
       width: 100%;
       height: 100%;
-    }
+    }*/
   }
 
   /*
@@ -39,10 +45,10 @@
    * because the _content_ is left-aligned. Same with the right modifier below.
    */
   &--left {
-    background-position: right center;
-    padding-right: calc( $bw * 30 );
+    background-position: right bottom;
+    padding-right: 25%;
 
-    &::after {
+    /*&::after {
       left: 0;
       background-image: linear-gradient(
         90deg,
@@ -50,14 +56,14 @@
         color( $color-lightest alpha( 100% ) ) 67%,
         color( $color-lightest alpha( 0% ) ) 85%
       );
-    }
+    }*/
   }
 
   &--right {
-    background-position: left center;
-    padding-left: calc( $bw * 30 );
+    background-position: left bottom;
+    padding-left: 25%;
 
-    &::after {
+    /*&::after {
       right: 0;
       background-image: linear-gradient(
         270deg,
@@ -65,7 +71,7 @@
         color( $color-lightest alpha( 100% ) ) 67%,
         color( $color-lightest alpha( 0% ) ) 85%
       );
-    }
+    }*/
   }
 
   > * {
