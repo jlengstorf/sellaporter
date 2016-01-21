@@ -1,0 +1,22 @@
+-
+  var blockName = 'sp-guarantee';
+  var blockModifiers = [];
+  var image = false;
+
+  if (!!section.image) {
+    image = {
+      src: section.image.sizes.large,
+      alt: section.image.alt,
+    };
+  }
+-
++section(blockName, blockModifiers, false)
+  +element(blockName, 'item')
+    if image
+      +element(blockName, 'image', [], 'img')(
+        src=image.src
+        alt=image.alt
+      )
+    +element(blockName, 'text')
+      +element(blockName, 'heading', [], 'h2')= section.heading
+      | !{section.body_text}
