@@ -1,7 +1,5 @@
 .sp-photobox {
-  margin-top: calc( $bh * 1 );
-  margin-left: auto;
-  margin-right: auto;
+  margin: calc( $bh * 1 ) calc( $bw * -5 ) 0;
   padding: 0;
   overflow: hidden;
 
@@ -9,12 +7,14 @@
     display: flex;
     align-items: flex-end;
     justify-content: space-between;
+    margin-left: auto;
+    margin-right: auto;
   }
 
   &__heading {
     margin-top: 0;
     font-size: 110%;
-    font-weight: $font-weight-heading;
+    font-weight: $font-weight-subheading;
   }
 
   &__photo-wrap {
@@ -26,6 +26,7 @@
 
   &__photo {
     display: block;
+    width: 400px;
     max-width: 100%;
     height: auto;
     margin: 0 auto;
@@ -33,12 +34,14 @@
 
   &__text-wrap {
     margin-top: 0;
-    padding: calc( $bh * 0.5 ) $bh calc( $bh * 1.5 );
+    padding: calc( $bh * 1.5 ) calc( $bw * 5 );
+    border-top: $border-default;
 
     @media (min-width: $media-screen-small) {
       flex: 3 63%;
       max-width: 63%;
-      padding-top: $bh;
+      padding: $bh;
+      border-top: 0;
     }
   }
 

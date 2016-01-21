@@ -1,8 +1,25 @@
 -
   var blockName = 'sp-about';
   var blockModifiers = [];
-  var logosSrc = section.credibility_logos && section.credibility_logos.sizes.large || 'http://fpoimg.com/1100x100';
-  var logosAlt = section.credibility_logos && section.credibility_logos.alt || '';
+
+  var logos = false;
+  var imgDefault = 'http://fpoimg.com/1100x100';
+
+  if (section.credibility_logos_left || section.credibility_logos_right) {
+    logos = {
+      left: {
+        src: section.credibility_logos_left.sizes.large || imgDefault,
+        alt: section.credibility_logos_left.alt || '',
+      },
+      right: {
+        src: section.credibility_logos_right.sizes.large || imgDefault,
+        alt: section.credibility_logos_right.alt || '',
+      },
+    };
+  }
+
+  console.log(section);
+  console.log(logos);
 -
 +section(blockName, blockModifiers, false)
   +element(blockName, 'item')
@@ -22,7 +39,12 @@
   +element(blockName, 'affiliations')
     +element(blockName, 'affiliations-heading', [], 'h4').
       #{section.credibility_heading}
-    +element(blockName, 'affiliations-logos', [], 'img')(
-      src= logosSrc
-      alt= logosAlt
-    )
+    if logos
+      +element(blockName, 'affiliations-logos', ['left'], 'img')(
+        src= logos.left.src
+        alt= logos.left.alt
+      )
+      +element(blockName, 'affiliations-logos', ['right'], 'img')(
+        src= logos.right.src
+        alt= logos.right.alt
+      )
