@@ -9,6 +9,12 @@
   border-bottom: $border-default;
   border-color: color( $color-brand tint(90%) );
 
+  &__item {
+    max-width: $media-screen-small;
+    margin-left: auto;
+    margin-right: auto;
+  }
+
   &__heading {
     @mixin heading;
   }
@@ -26,7 +32,12 @@
   }
 
   &__a {
+    @mixin text-body;
     margin-top: calc( $bh * 0.5 );
+
+    *+* {
+      margin-top: $bh;
+    }
   }
 
 }

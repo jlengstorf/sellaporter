@@ -2,10 +2,11 @@
   var blockName = 'sp-faq';
   var blockModifiers = [];
 -
-+section(blockName, blockModifiers)
-  +element(blockName, 'heading', [], 'h2')= section.heading
-  +element(blockName, 'faq-list', [], 'dl')
-    each faq in section.faqs
-      +element(blockName, 'q', [], 'dt')= faq.question
-      +element(blockName, 'a', [], 'dd').
-        !{faq.answer}
++section(blockName, blockModifiers, false)
+  +element(blockName, 'item')
+    +element(blockName, 'heading', [], 'h2')= section.heading
+    +element(blockName, 'faq-list', [], 'dl')
+      each faq in section.faqs
+        +element(blockName, 'q', [], 'dt')= faq.question
+        +element(blockName, 'a', [], 'dd').
+          !{faq.answer}
