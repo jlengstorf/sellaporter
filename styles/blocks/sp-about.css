@@ -1,5 +1,10 @@
 .sp-about {
-  padding: calc( $bh * 4 ) 0 0;
+  padding: calc( $bh * 4 ) calc( $bw * 5 ) 0;
+
+  @media (min-width: $media-screen-large) {
+    padding-left: 0;
+    padding-right: 0;
+  }
 
   &__item {
     max-width: $media-screen-small;
@@ -34,7 +39,11 @@
   }
 
   &__affiliations {
-    padding: calc( $bh * 1.5 ) 0 0;
+
+    /* Negative margin to cancel out the wrapper padding. */
+    margin-left: calc( $bw * -5 );
+    margin-right: calc( $bw * -5 );
+    padding: calc( $bh * 1.5 ) calc( $bw * 5 );
     background: $color-gray-light;
     border-top: $border-default;
     border-bottom: $border-default;
@@ -49,7 +58,28 @@
   }
 
   &__affiliations-heading {
-    font-size: 100%;
+    font-size: 87.5%;
+
+    @media (min-width: $media-screen-small) {
+      font-size: 100%;
+    }
+  }
+
+  &__affiliations-logos {
+    max-width: 100%;
+    margin-top: $bh;
+
+    &+& {
+      margin-top: 0;
+    }
+
+    @media (min-width: $media-screen-small) {
+      max-width: 48%;
+
+      &+& {
+        margin-top: $bh;
+      }
+    }
   }
 
 }

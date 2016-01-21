@@ -5,6 +5,7 @@
   border: $border-width-default $border-style-default transparent;
   border-radius: $border-radius-default;
   color: $color-lightest;
+  cursor: pointer;
   font-weight: bold;
   text-align: center;
   text-decoration: none;
@@ -13,7 +14,7 @@
 
   &:hover,&:active,&:focus {
     background: color( $color shade(10%) );
-    border-color: color( $color-lightest alpha(30%) );
+    border-color: color( $color alpha(30%) );
     color: $color-lightest;
     text-shadow: 0 0 4px color( $color shade(15%) );
     outline: none;

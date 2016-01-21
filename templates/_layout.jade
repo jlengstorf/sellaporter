@@ -8,6 +8,8 @@ html(lang="en")
   head
     title= fields.title.rendered
 
+    meta(charset='utf-8')
+
     script(src="//use.typekit.net/mdv1txb.js")
     script.
       try{Typekit.load();}catch(e){}
@@ -36,12 +38,16 @@ html(lang="en")
           // TODO make this dynamic and figure out a better way
           var popover = {
             acf_fc_layout: 'sp-popover',
+            heading_bold: fields.acf.popover_heading_bold,
+            heading: fields.acf.popover_heading,
+            body_text: fields.acf.popover_body_text,
+            button_text: fields.acf.popover_button_text,
           };
         -
         +includeBlock(popover)
 
-    script(async deferred src="/js/vendors.min.js")
-    script(async deferred src="/js/main.min.js")
+    script(src="/js/vendors.min.js")
+    script(src="/js/main.min.js")
 
     if process.env.NODE_ENV && process.env.NODE_ENV === 'development'
       - console.warn('NOTE: Development mode is enabled!');

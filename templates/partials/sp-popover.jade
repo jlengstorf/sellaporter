@@ -10,11 +10,11 @@
 +block(blockName, blockModifiers)
   +element(blockName, 'container')
     +element(blockName, 'form', [], 'form')
-      +element(blockName, 'heading', [], 'h2').
-        #[+element(blockName, 'heading-bold', [], 'strong') Take the First Step:] Get on Precision Nutrition&rsquo;s ProCoach® Presale List Today.
-      +element(blockName, 'body-text')
-        p.
-          You’ll save up to 30% and get the chance to register 24 hours before everyone else. By joining the presale list today, we’ll send you more information about Precision Nutrition ProCoach®, with no obligations to pay.
+      +element(blockName, 'heading', [], 'h2')
+        +element(blockName, 'heading-bold', [], 'strong')= section.heading_bold
+        | #{section.heading}
+      +element(blockName, 'body-text').
+        !{section.body_text}
       +element(blockName, 'input-group')
         +element(blockName, 'label', ['required'], 'label') First Name
         +element(blockName, 'input', ['text', 'required'], 'input')(
@@ -42,9 +42,11 @@
         )
       +element(blockName, 'submit', [], 'button')(
         type="submit"
-      ) Yes, get me on the Presale List
+      )= section.button_text
     +element(blockName, 'image-wrap')
       +element(blockName, 'image', [], 'img')(
         src="/img/overlay_carm.png"
         alt="popover image"
       )
+  +element(blockName, 'close-btn', [], 'button').
+    &times;

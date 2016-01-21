@@ -1,4 +1,7 @@
 .sp-button {
   @mixin button;
-  display: inline-block;
+
+  @media (min-width: $media-screen-small) {
+    display: inline-block;
+  }
 }
