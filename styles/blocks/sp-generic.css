@@ -18,26 +18,40 @@
     max-width: $media-screen-small;
     margin-left: auto;
     margin-right: auto;
+    padding: calc( $bh * 2 ) $bh;
+
+    @media (min-width: $media-screen-small) {
+      padding: calc( $bh * 2 );
+    }
+
+    @media (min-width: $media-screen-large) {
+      padding-left: 0;
+      padding-right: 0;
+    }
   }
 
   &--right,&--left {
-    padding: calc( $bh * 5 );
+    padding: calc( $bh * 2 ) $bh;
     background-repeat: no-repeat;
+    background-size: 0;
 
-    /*
-     * This is set based on the image used during design. If it changes, this
-     * will probably need to be adjusted.
-     */
-    background-size: 38% auto;
+    @media (min-width: $media-screen-small) {
+      padding: calc( $bh * 2 );
 
-    /*&::after {
-      content: '';
-      @mixin keep-on-bottom;
-      position: absolute;
-      top: 0;
-      width: 100%;
-      height: 100%;
-    }*/
+      /*
+       * This is set based on the image used during design. If it changes, this
+       * will probably need to be adjusted.
+       */
+      background-size: 43% auto;
+    }
+
+    @media (min-width: $media-screen-medium) {
+      padding: calc( $bh * 5 );
+    }
+
+    @media (min-width: $media-screen-large) {
+      background-size: 500px auto;
+    }
   }
 
   /*
@@ -45,33 +59,29 @@
    * because the _content_ is left-aligned. Same with the right modifier below.
    */
   &--left {
-    background-position: right bottom;
-    padding-right: 25%;
 
-    /*&::after {
-      left: 0;
-      background-image: linear-gradient(
-        90deg,
-        color( $color-lightest alpha( 100% ) ) 0%,
-        color( $color-lightest alpha( 100% ) ) 67%,
-        color( $color-lightest alpha( 0% ) ) 85%
-      );
-    }*/
+    @media (min-width: $media-screen-small) {
+      background-position: right bottom;
+      padding-right: 35%;
+    }
+
+    @media (min-width: $media-screen-large) {
+
+      /* Hard-coded? Whaaaaaa? */
+      padding-right: 430px;
+    }
   }
 
   &--right {
-    background-position: left bottom;
-    padding-left: 25%;
 
-    /*&::after {
-      right: 0;
-      background-image: linear-gradient(
-        270deg,
-        color( $color-lightest alpha( 100% ) ) 0%,
-        color( $color-lightest alpha( 100% ) ) 67%,
-        color( $color-lightest alpha( 0% ) ) 85%
-      );
-    }*/
+    @media (min-width: $media-screen-small) {
+      background-position: left bottom;
+      padding-left: 35%;
+    }
+
+    @media (min-width: $media-screen-large) {
+      padding-right: 430px;
+    }
   }
 
   > * {
