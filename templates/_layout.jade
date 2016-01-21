@@ -36,6 +36,10 @@ html(lang="en")
           // TODO make this dynamic and figure out a better way
           var popover = {
             acf_fc_layout: 'sp-popover',
+            heading_bold: fields.acf.popover_heading_bold,
+            heading: fields.acf.popover_heading,
+            body_text: fields.acf.popover_body_text,
+            button_text: fields.acf.popover_button_text,
           };
         -
         +includeBlock(popover)
