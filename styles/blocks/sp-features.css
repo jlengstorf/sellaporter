@@ -68,12 +68,13 @@
 
   &__list {
     margin-top: calc( $bh * 3 );
-    padding-left: calc( $bw * 2 );
+    padding-left: calc( $bw * 5 );
 
     @media (min-width: $media-screen-small) {
       flex: 2 55%;
       order: 1;
       max-width: 55%;
+      padding-left: calc( $bw * 2 );
     }
   }
 
