@@ -78,7 +78,7 @@ function _addCloseBtn() {
   const closeBtn = document.createElement('button');
 
   closeBtn.classList.add(`${__config.popoverClass}__close-btn`);
-  closeBtn.textContent = '×';
+  closeBtn.textContent = '\u00D7';
   closeBtn.addEventListener('click', event => {
     event.preventDefault();
     _hidePopover();

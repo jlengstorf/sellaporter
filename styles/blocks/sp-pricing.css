@@ -1,6 +1,6 @@
 .sp-pricing {
-  padding-top: calc( $bh * 2 );
-  padding-bottom: calc( $bh * 2 );
+  padding-top: calc( $bh * 3 );
+  padding-bottom: calc( $bh * 3 );
 
   &__item {
     max-width: $media-screen-small;
