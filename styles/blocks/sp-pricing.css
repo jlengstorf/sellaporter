@@ -3,7 +3,7 @@
   padding-bottom: calc( $bh * 3 );
 
   &__item {
-    max-width: $media-screen-small;
+    max-width: $media-screen-medium;
     margin-left: auto;
     margin-right: auto;
   }
@@ -31,11 +31,18 @@
     flex-wrap: wrap;
     justify-content: center;
     margin-top: calc( $bh * 2 );
+    margin-left: calc( $bw * -5 );
+    margin-right: calc( $bw * -5 );
     padding: $bh;
     background-color: color( $color-gray-light tint(50%) );
     border: $border-default;
     border-color: color( $color-gray-light tint(15%) );
-    border-radius: $border-radius-default;
+
+    @media (min-width: $media-screen-medium) {
+      margin-left: auto;
+      margin-right: auto;
+      border-radius: $border-radius-default;
+    }
 
     &--has-cta {
       margin-bottom: calc( $bh * -2 );
@@ -46,10 +53,10 @@
   &__price-point {
     @mixin box-shadow-default;
     flex: 1 32%;
-    padding: calc( $bh * 2 ) $bh calc( $bh * 1.5 );
-    max-width: 32%;
-    min-width: 230px;
-    margin-left: 2%;
+    padding: calc( $bh * 1.5 ) $bh calc( $bh * 1 );
+    max-width: 31%;
+    min-width: 215px;
+    margin: calc( $bh * 0.5 ) 1%;
     background: $color-gray-light;
     border: $border-width-default $border-style-default color( $color-gray-light shade(5%) );
     border-radius: $border-radius-default;
@@ -58,8 +65,14 @@
     text-align: center;
     transition: $transition-default;
 
-    &:first-child {
-      margin-left: 0;
+    @media (min-width: $media-screen-medium) {
+      margin: 0;
+      margin-left: 2%;
+      padding: calc( $bh * 2 ) $bh calc( $bh * 1.5 );
+
+      &:first-child {
+        margin-left: 0;
+      }
     }
 
     &--has-link {
@@ -85,8 +98,16 @@
     @mixin subheading;
     display: block;
     color: $color-gray-dark;
-    font-size: 450%;
+    font-size: 350%;
     line-height: 0.75;
+
+    @media (min-width: $media-screen-small) {
+      font-size: 8vw;
+    }
+
+    @media (min-width: $media-screen-medium) {
+      font-size: 450%;
+    }
   }
 
   &__break {
