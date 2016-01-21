@@ -1,0 +1,32 @@
+.sp-guarantee {
+  padding: calc( $bh * 3 ) 0;
+  background: color( $color-gray-light tint(15%) );
+  border: $border-default;
+  border-color: $color-gray-light;
+  border-left: 0;
+  border-right: 0;
+
+  &__item {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    max-width: $media-screen-large;
+    margin-left: auto;
+    margin-right: auto;
+  }
+
+  &__image {
+    flex: 1 40%;
+    max-width: 205px;
+    margin-right: calc( $bh * 2 );
+  }
+
+  &__text {
+    flex: 2 60%;
+    max-width: 55%;
+
+    *+* {
+      margin-top: $bh;
+    }
+  }
+}

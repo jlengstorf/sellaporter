@@ -32,7 +32,7 @@ $color-inverted-text-body: $color-gray-light;
 
 $font-family-default: proxima-nova, "Helvetica Neue", sans-serif;
 $font-size-default: 1rem;
-$font-weight-default: normal;
+$font-weight-default: 400;
 $line-height-default: 1.375;
 
 $font-size-big: 115%;
@@ -40,11 +40,11 @@ $font-size-small: 85%;
 
 $font-family-heading: "Proxima Nova Light","proxima-nova","Proxima Nova","Helvetica Neue",Helvetica,sans-serif;
 $font-size-heading: 160%;
-$font-weight-heading: bold;
+$font-weight-heading: 300;
 $line-height-heading: 1.25;
 
 $font-size-subheading: 130%;
-$font-weight-subheading: bold;
+$font-weight-subheading: 700;
 $line-height-subheading: 1.375;
 
 $base-unit-height: 1rem;
