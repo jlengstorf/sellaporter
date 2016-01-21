@@ -33,7 +33,7 @@
     margin-top: calc( $bh * 2 );
     margin-left: calc( $bw * -5 );
     margin-right: calc( $bw * -5 );
-    padding: $bh;
+    padding: $bh calc( $bw * 5 );
     background-color: color( $color-gray-light tint(50%) );
     border: $border-default;
     border-color: color( $color-gray-light tint(15%) );
@@ -41,6 +41,8 @@
     @media (min-width: $media-screen-medium) {
       margin-left: auto;
       margin-right: auto;
+      padding-left: $bh;
+      padding-right: $bh;
       border-radius: $border-radius-default;
     }
 
