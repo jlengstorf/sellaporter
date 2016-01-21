@@ -109,11 +109,12 @@
   }
 
   &__input-group {
-    margin-top: $bh;
+    margin-top: calc( $bh * 0.5 );
 
     @media (min-width: $media-screen-xsmall) {
       flex: 1 50%;
       max-width: 48%;
+      margin-top: $bh;
     }
   }
 

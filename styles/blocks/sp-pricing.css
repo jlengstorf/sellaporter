@@ -33,7 +33,7 @@
     margin-top: calc( $bh * 2 );
     margin-left: calc( $bw * -5 );
     margin-right: calc( $bw * -5 );
-    padding: $bh;
+    padding: $bh calc( $bw * 5 );
     background-color: color( $color-gray-light tint(50%) );
     border: $border-default;
     border-color: color( $color-gray-light tint(15%) );
@@ -41,6 +41,8 @@
     @media (min-width: $media-screen-medium) {
       margin-left: auto;
       margin-right: auto;
+      padding-left: $bh;
+      padding-right: $bh;
       border-radius: $border-radius-default;
     }
 
@@ -52,9 +54,9 @@
 
   &__price-point {
     @mixin box-shadow-default;
-    flex: 1 32%;
+    flex: 1 90%;
     padding: calc( $bh * 1.5 ) $bh calc( $bh * 1 );
-    max-width: 31%;
+    max-width: 90%;
     min-width: 215px;
     margin: calc( $bh * 0.5 ) 1%;
     background: $color-gray-light;
@@ -64,6 +66,11 @@
     overflow: hidden;
     text-align: center;
     transition: $transition-default;
+
+    @media (min-width: $media-screen-xsmall) {
+      flex: 1 30%;
+      max-width: 30%
+    }
 
     @media (min-width: $media-screen-medium) {
       margin: 0;
