@@ -85,7 +85,6 @@
   &__heading,h2 {
     @mixin heading;
     margin-top: calc( $bh * 2 );
-    font-weight: 300;
 
     &:first-child {
       margin-top: 0;
