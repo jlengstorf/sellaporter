@@ -1,8 +1,11 @@
 .sp-faq {
   padding-top: calc( $bh * 2 );
   padding-bottom: calc( $bh * 2 );
-  background-color: color( $color-brand tint(95%) );
-  border-top: $border-default;
+  background-image: linear-gradient(
+    0deg,
+    color( $color-brand tint(95%) ) 0%,
+    $color-lightest 100%
+  );
   border-bottom: $border-default;
   border-color: color( $color-brand tint(90%) );
 
