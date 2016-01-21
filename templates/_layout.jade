@@ -46,8 +46,8 @@ html(lang="en")
         -
         +includeBlock(popover)
 
-    script(async deferred src="/js/vendors.min.js")
-    script(async deferred src="/js/main.min.js")
+    script(src="/js/vendors.min.js")
+    script(src="/js/main.min.js")
 
     if process.env.NODE_ENV && process.env.NODE_ENV === 'development'
       - console.warn('NOTE: Development mode is enabled!');
