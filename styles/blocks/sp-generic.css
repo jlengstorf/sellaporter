@@ -42,6 +42,7 @@
        * This is set based on the image used during design. If it changes, this
        * will probably need to be adjusted.
        */
+      min-height: 53vw;
       background-size: 43% auto;
     }
 
@@ -50,6 +51,7 @@
     }
 
     @media (min-width: $media-screen-large) {
+      min-height: 640px;
       background-size: 500px auto;
     }
   }
