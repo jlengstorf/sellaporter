@@ -38,6 +38,15 @@
     *+* {
       margin-top: $bh;
     }
+
+    ul,ol {
+      padding-left: calc( $bh * 1.5 );
+    }
+
+    li {
+      list-style: disc;
+      margin-top: calc( $bh * 0.25 );
+    }
   }
 
 }
