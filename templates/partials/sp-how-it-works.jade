@@ -2,26 +2,23 @@
   var blockName = 'sp-how-it-works';
   var blockModifiers = [];
 -
-+section(blockName, blockModifiers)
-  h2.sp-how-it-works__heading !{section.headline}
-  p.sp-how-it-works__lead.
-    The real magic under the hood of ProCoach® is its simplicity.
-  .sp-how-it-works__body-text
-    p.
-      You can join in minutes, add each client in under 30 seconds, and then — this is the big one — <em>ProCoach® will run automatically,</em> with no additional input required from you. (Unless you want to do more. ProCoach® supports that, too.)
-    p.
-      ProCoach® can be a true set-it-and-forget-it solution, or an additional platform for you to give your clients the support, feedback, and encouragement they need to succeed.
-  +element(blockName, 'steps', [], 'ul')
-    +element(blockName, 'step-headers', [], 'li')
-      +element(blockName, 'step-header')
-        h3.sp-how-it-works__step-heading You
-      +element(blockName, 'step-header', ['highlight'])
-        h3.sp-how-it-works__step-heading ProCoach®
-      +element(blockName, 'step-header')
-        h3.sp-how-it-works__step-heading Client
-    +element(blockName, 'step-wrapper', [], 'li')
-      +element(blockName, 'step', ['coach', 'connect-bottom_coach-to-coach'])
-        +element(blockName, 'subheading', [], 'h3') Sign up for ProCoach®
-    +element(blockName, 'step-wrapper', [], 'li')
-      +element(blockName, 'step', ['coach', 'connect-top_coach-to-coach', 'connect-bottom_coach-to-system'])
-        +element(blockName, 'subheading', [], 'h3') Add Your Client
++section(blockName, blockModifiers, false)
+  +element(blockName, 'item')
+    +element(blockName, 'heading', [], 'h2')= section.heading
+    +element(blockName, 'lead').
+      !{section.lead}
+
+    +element(blockName, 'flex-wrapper')
+      +element(blockName, 'video-container').
+        !{section.video}
+      +element(blockName, 'video-caption', [], 'p')= section.video_caption
+
+    +element(blockName, 'steps', [], 'ul')
+      each step in section.steps
+        +element(blockName, 'step', ['one'], 'li')
+          +element(blockName, 'icon', [], 'img')(
+            src= step.icon.url
+            alt= step.icon.alt
+          )
+          +element(blockName, 'subheading', [], 'h3')= step.step_heading
+          +element(blockName, 'description', [], 'p')= step.step_description
