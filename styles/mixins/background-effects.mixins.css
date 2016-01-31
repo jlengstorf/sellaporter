@@ -1,0 +1,26 @@
+@define-mixin background-gradient-top $color {
+  background-image: linear-gradient(
+    180deg,
+    $color 0%,
+    $color-lightest 100%
+  );
+  border-top: $border-default;
+  border-color: color( $color shade(5%) );
+}
+
+@define-mixin background-gradient-bottom $color {
+  background-image: linear-gradient(
+    0deg,
+    $color 0%,
+    $color-lightest 100%
+  );
+  border-bottom: $border-default;
+  border-color: color( $color shade(5%) );
+}
+
+@define-mixin background-solid-color $color {
+  background-color: $color;
+  border-top: $border-default;
+  border-bottom: $border-default;
+  border-color: color( $color shade(5%) );
+}
