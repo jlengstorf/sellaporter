@@ -1,10 +1,6 @@
 .sp-guarantee {
+  @mixin background-solid-color color( $color-gray-light tint(15%) );
   padding: calc( $bh * 3 ) calc( $bw * 5 );
-  background: color( $color-gray-light tint(15%) );
-  border: $border-default;
-  border-color: $color-gray-light;
-  border-left: 0;
-  border-right: 0;
 
   @media (min-width: $media-screen-xsmall) {
     padding-left: 0;
@@ -48,6 +44,7 @@
     @media (min-width: $media-screen-xsmall) {
       flex: 2 60%;
       max-width: 55%;
+      margin-top: 0;
     }
 
     *+* {

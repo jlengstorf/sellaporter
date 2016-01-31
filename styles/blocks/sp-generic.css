@@ -21,7 +21,7 @@
     padding: calc( $bh * 2 ) $bh;
 
     @media (min-width: $media-screen-small) {
-      padding: calc( $bh * 2 );
+      padding: calc( $bh * 4 );
     }
 
     @media (min-width: $media-screen-large) {
@@ -36,7 +36,7 @@
     background-size: 0;
 
     @media (min-width: $media-screen-small) {
-      padding: calc( $bh * 2 );
+      padding: calc( $bh * 4 );
 
       /*
        * This is set based on the image used during design. If it changes, this

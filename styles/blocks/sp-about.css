@@ -1,6 +1,18 @@
 .sp-about {
   padding: calc( $bh * 4 ) calc( $bw * 5 ) 0;
 
+  &--gradient-top {
+    @mixin background-gradient-top $color-gray-light;
+  }
+
+  &--gradient-bottom {
+    @mixin background-gradient-bottom $color-gray-light;
+  }
+
+  &--solid-color {
+    @mixin background-solid-color color( $color-brand tint(75%) );
+  }
+
   @media (min-width: $media-screen-large) {
     padding-left: 0;
     padding-right: 0;
@@ -36,6 +48,31 @@
     p,ul,ol {
       margin-top: $bh;
     }
+
+    img {
+
+      &.alignleft {
+        clear: left;
+        float: left;
+        max-width: 160px;
+        height: auto;
+        margin-top: $bh;
+        margin-bottom: calc( $bh * 2 );
+        margin-right: $bh;
+      }
+    }
+
+    hr {
+      clear: both;
+      margin-top: calc( $bh * 2 );
+      border: none;
+      border-top: $border-default;
+    }
+  }
+
+  &__team-heading {
+    clear: both;
+    visibility: hidden;
   }
 
   &__affiliations {

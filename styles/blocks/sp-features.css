@@ -1,15 +1,17 @@
 .sp-features {
   padding-top: calc( $bh * 4 );
-  padding-bottom: calc( $bh * 2 );
+  padding-bottom: calc( $bh * 4 );
 
-  &--gradient {
-    background-image: linear-gradient(
-      180deg,
-      $color-gray-light 0%,
-      $color-lightest 100%
-    );
-    border-top: $border-default;
-    border-color: color( $color-gray-light shade(5%) );
+  &--gradient-top {
+    @mixin background-gradient-top $color-gray-light;
+  }
+
+  &--gradient-bottom {
+    @mixin background-gradient-bottom $color-gray-light;
+  }
+
+  &--solid-color {
+    @mixin background-solid-color color( $color-brand tint(95%) );
   }
 
   &__item {
@@ -36,7 +38,7 @@
 
   &__heading {
     @mixin heading;
-    font-weight: 200;
+    font-weight: 700;
   }
 
   &__lead {
