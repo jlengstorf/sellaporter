@@ -41,6 +41,7 @@
 
 /* Mixins to allow abstracting common styles. */
 @import 'mixins/typography.mixins.css';
+@import 'mixins/background-effects.mixins.css';
 @import 'mixins/box-effects.mixins.css';
 @import 'mixins/buttons.mixins.css';
 @import 'mixins/sp-how-it-works.mixins.css';
