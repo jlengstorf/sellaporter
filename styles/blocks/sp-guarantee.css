@@ -44,6 +44,7 @@
     @media (min-width: $media-screen-xsmall) {
       flex: 2 60%;
       max-width: 55%;
+      margin-top: 0;
     }
 
     *+* {
