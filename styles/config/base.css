@@ -17,6 +17,13 @@
   border-bottom: 0;
   font-family: $font-family-default;
 
+  /* For fun, trying out some style on the bottom. */
+  background-image: url(/img/puppy-friends.jpg);
+  background-repeat: no-repeat;
+  background-size: contain;
+  background-position: bottom center;
+  padding-bottom: 50vw;
+
   /*
    * General reset
    */
