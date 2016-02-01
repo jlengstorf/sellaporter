@@ -1,0 +1,16 @@
+.sp-finalists {
+  display: block;
+  width: 100%;
+  border: 1px;
+
+  &--no-js {
+    padding-bottom: 41.2%;
+    background-image: url(/img/client_photos_women.jpg);
+    background-repeat: no-repeat;
+    background-size: contain;
+  }
+
+  &--no-js[data-group="men"] {
+    background-image: url(/img/client_photos_men.jpg);
+  }
+}
