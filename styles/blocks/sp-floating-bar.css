@@ -1,0 +1,51 @@
+.sp-floating-bar {
+  width: 100vw;
+  padding: calc( $bh * 0.5 ) calc( $bw * 5 );
+  background: $color-lightest;
+  border-bottom: $border-default;
+  transition: $transition-default;
+
+  &--fixed-top {
+    position: fixed;
+    top: 0;
+    left: 0;
+    z-index: 900;
+  }
+
+  &--hidden {
+    pointer-events: none;
+    transform: translateY(-100%);
+  }
+
+  /*
+   * This prevents the float-pop thing that happens when the URL bar slides in
+   * and out in Chrome for iOS.
+   */
+  backface-visibility: hidden;
+
+  &__text {
+    max-width: $media-screen-large;
+    text-align: center;
+  }
+
+  &__text-bold {
+    display: block;
+
+    @media (min-width: $media-screen-xsmall) {
+      display: inline-block;
+      margin-right: $bw;
+    }
+  }
+
+  &__button {
+    @mixin button;
+    padding: calc( $bh * 0.5 ) calc( $bw * 2 );
+    font-size: 85%;
+
+    @media (min-width: $media-screen-xsmall) {
+      display: inline-block;
+      max-width: 280px;
+      margin-left: calc( $bw * 2 );
+    }
+  }
+}
