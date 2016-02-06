@@ -46,9 +46,6 @@ class SellaporterPopover {
     // If no popover exists in the DOM, we're done here.
     if (!!__popover) {
 
-      // Since a close button only makes sense if JS works, add it here.
-      // _addCloseBtn();
-
       document.querySelector(`.${__config.popoverClass}__close-btn`).addEventListener('click', event => {
         event.preventDefault();
         _hidePopover();
@@ -78,19 +75,6 @@ export default instance;
 /*
  * Helper functions
  */
-
-function _addCloseBtn() {
-  const closeBtn = document.createElement('button');
-
-  closeBtn.classList.add(`${__config.popoverClass}__close-btn`);
-  closeBtn.textContent = '\u00D7';
-  closeBtn.addEventListener('click', event => {
-    event.preventDefault();
-    _hidePopover();
-  });
-
-  __popover.appendChild(closeBtn);
-}
 
 function _showPopover() {
 
