@@ -21,12 +21,9 @@ import {intersect, toArray} from '../utils/array_helpers';
  */
 const __config = {
   popoverClass: 'sp-popover',
-  buttonClasses: [
-    'sp-hero__button--popover',
-    'sp-button--popover',
-    'sp-cta__button--popover',
-    'sp-pricing__button--popover',
-  ],
+
+  // Any button with a `--popover` modifier should open the popover.
+  buttonModifier: new RegExp(/--popover\b/),
   transitionClasses: {
     animate: 'sp-popover--fade-out',
     hide: 'sp-popover--hidden',
@@ -46,9 +43,6 @@ class SellaporterPopover {
     // If no popover exists in the DOM, we're done here.
     if (!!__popover) {
 
-      // Since a close button only makes sense if JS works, add it here.
-      // _addCloseBtn();
-
       document.querySelector(`.${__config.popoverClass}__close-btn`).addEventListener('click', event => {
         event.preventDefault();
         _hidePopover();
@@ -60,9 +54,10 @@ class SellaporterPopover {
 
   registerClickHandlers() {
     document.addEventListener('click', event => {
-      const sel = toArray(__config.buttonClasses);
       const cls = toArray(event.target.classList);
-      if (intersect(sel, cls).length) {
+
+      // Checks the element's classList for the popover modifier.
+      if (__config.buttonModifier.test(cls)) {
         event.preventDefault();
         _showPopover();
       }
@@ -78,19 +73,6 @@ export default instance;
 /*
  * Helper functions
  */
-
-function _addCloseBtn() {
-  const closeBtn = document.createElement('button');
-
-  closeBtn.classList.add(`${__config.popoverClass}__close-btn`);
-  closeBtn.textContent = '\u00D7';
-  closeBtn.addEventListener('click', event => {
-    event.preventDefault();
-    _hidePopover();
-  });
-
-  __popover.appendChild(closeBtn);
-}
 
 function _showPopover() {
 

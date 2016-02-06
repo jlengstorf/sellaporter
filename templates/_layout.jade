@@ -20,6 +20,7 @@ html(lang="en")
   body
     .sp
       -
+        var isFloatingBarRequired = fields.acf.floating_bar_visible;
         var isPopoverRequired = false;
       -
       each section in fields.acf.smart_sales_page
@@ -34,9 +35,20 @@ html(lang="en")
           -
           +includeBlock(section)
 
+      //- This is the hello bar style persistent CTA
+      if (isFloatingBarRequired)
+        -
+          var floatingBar = {
+            acf_fc_layout: 'sp-floating-bar',
+            phase_text: fields.acf.floating_bar_text,
+            current_phase: fields.sellaporter_phase
+          };
+        -
+        +includeBlock(floatingBar)
+
+      //- If any of the buttons open a popover, add the markup
       if (isPopoverRequired)
         -
-          // TODO make this dynamic and figure out a better way
           var popover = {
             acf_fc_layout: 'sp-popover',
             heading_bold: fields.acf.popover_heading_bold,
@@ -47,9 +59,13 @@ html(lang="en")
         -
         +includeBlock(popover)
 
+    //-
+      Vendor scripts are bundled separately because they're less likely to
+      change than app scripts. Keeping them separate helps with caching.
     script(src="/js/vendors.min.js")
     script(src="/js/main.min.js")
 
+    //- If we're in development mode, this adds a LiveReload listener.
     if process.env.NODE_ENV && process.env.NODE_ENV === 'development'
       - console.warn('NOTE: Development mode is enabled!');
       script(src="//localhost:9091")
