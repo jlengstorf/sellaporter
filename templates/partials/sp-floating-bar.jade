@@ -1,0 +1,15 @@
+-
+  var blockName = 'sp-floating-bar';
+  var blockModifiers = ['fixed-top', 'hidden'];
+  var btnModifiers = [];
+
+  var barText = section.phase_text.filter(text => {
+    return (text.visible_phases.indexOf(section.current_phase) !== -1);
+  })[0];
+-
++block(blockName, blockModifiers)
+  +element(blockName, 'text', [], 'p')
+    +element(blockName, 'text-bold', [], 'strong')= barText.bold_text
+    | #{barText.text}
+    +element(blockName, 'button', [], 'a')(href="#link-to-presale").
+      #{barText.button_text}
