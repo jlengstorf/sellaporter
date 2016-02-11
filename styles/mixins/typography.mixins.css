@@ -6,12 +6,26 @@
   line-height: $line-height-heading;
 }
 
+@define-mixin heading-centered {
+  @mixin heading;
+  font-size: 250%;
+  text-align: center;
+}
+
 @define-mixin subheading {
   @mixin heading-color;
   font-family: $font-family-heading;
   font-size: $font-size-subheading;
   font-weight: $font-weight-subheading;
   line-height: $line-height-subheading;
+}
+
+@define-mixin text-lead-centered {
+  @mixin text-color;
+  @mixin text-big;
+  font-weight: 700;
+  line-height: 1.75;
+  text-align: center;
 }
 
 @define-mixin text-body {
