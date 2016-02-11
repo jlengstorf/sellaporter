@@ -21,10 +21,15 @@ module.exports = {
     }
 
     const reqOptions = {
+      method: 'GET',
       host: config.content.host,
       port: config.content.port,
-      path: util.format('%s/pages?filter[name]=%s%s', config.content.path, slug, spOptions),
-      method: 'GET',
+      path: util.format('%s/%s?filter[name]=%s%s',
+        config.content.path,
+        config.content.type,
+        slug,
+        spOptions
+      ),
     };
 
     const req = http.request(reqOptions, res => {
