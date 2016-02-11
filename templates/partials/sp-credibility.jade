@@ -1,0 +1,19 @@
+-
+  var blockName = 'sp-credibility';
+  var blockModifiers = [];
+  var credibility_logos = false;
+
+  if (!!section.credibility_logos) {
+    credibility_logos = {
+      src: section.credibility_logos.url,
+      alt: section.credibility_logos.alt,
+    };
+  }
+-
++section(blockName, blockModifiers, false)
+  +element(blockName, 'item')
+    +element(blockName, 'lead-text', [], 'p')= section.lead_text
+    +element(blockName, 'credibility-logos', [], 'img')(
+      src= credibility_logos.src,
+      alt= credibility_logos.alt
+    )
