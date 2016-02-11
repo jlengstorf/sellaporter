@@ -1,6 +1,5 @@
 .sp-guarantee {
-  @mixin background-solid-color color( $color-gray-light tint(15%) );
-  padding: calc( $bh * 3 ) calc( $bw * 5 );
+  padding: calc( $bh * 4 ) calc( $bw * 5 );
 
   @media (min-width: $media-screen-xsmall) {
     padding-left: 0;
@@ -36,6 +35,11 @@
       flex: 1 40%;
       max-width: 205px;
     }
+  }
+
+  &__heading {
+    @mixin heading-centered;
+    text-align: left;
   }
 
   &__text {

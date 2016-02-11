@@ -20,31 +20,30 @@ html(lang="en")
   body
     .sp
       -
-        var isFloatingBarRequired = fields.acf.floating_bar_visible;
         var isPopoverRequired = false;
+        var currentPhase = fields.sellaporter_phase;
+
+        // Run a quick pre-loop to get all floating nav items
+        var floatingNavItems = fields.acf.smart_sales_page.filter(block => {
+          var isVisible = block.visible_phases.indexOf(currentPhase) !== -1;
+          return (isVisible && block.floating_nav_visible && !!block.nav_text);
+        });
       -
       each section in fields.acf.smart_sales_page
-        -
-          if (section.cta_type === 'popover') {
-            isPopoverRequired = true;
-          }
-        -
         if (section.visible_phases.indexOf(fields.sellaporter_phase) !== -1)
           -
+            if (section.cta_type === 'popover') {
+              isPopoverRequired = true;
+            }
+
+            if (section.acf_fc_layout === 'sp-floating-bar') {
+              section.phase_text = fields.acf.floating_bar_text;
+              section.nav_items = floatingNavItems;
+            }
+
             section.current_phase = fields.sellaporter_phase;
           -
           +includeBlock(section)
-
-      //- This is the hello bar style persistent CTA
-      if (isFloatingBarRequired)
-        -
-          var floatingBar = {
-            acf_fc_layout: 'sp-floating-bar',
-            phase_text: fields.acf.floating_bar_text,
-            current_phase: fields.sellaporter_phase
-          };
-        -
-        +includeBlock(floatingBar)
 
       //- If any of the buttons open a popover, add the markup
       if (isPopoverRequired)

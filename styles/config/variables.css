@@ -15,13 +15,14 @@ $color-brand:       #00bbe3;
 $color-gray-light:  #eff0ef;
 $color-gray-medium: #7d878a;
 $color-gray-dark:   #333e48;
-$color-gray-border: #d1d1d1;
+$color-gray-border: #F4F5F5;
+$color-blue-bg:     #ebf7fa;
 
 /*
  * Text defaults.
  */
 $color-text-headline: $color-gray-dark;
-$color-text-body: $color-gray-dark;
+$color-text-body: #5f5f61;
 
 /*
  * For text on dark backgrounds.

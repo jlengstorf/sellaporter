@@ -25,7 +25,7 @@ mixin section(type, modifiers, shouldWrapItem)
       shouldWrapItem = true;
     }
   -
-  .sp__section&attributes(attributes)(class=classes)
+  section.sp__section&attributes(attributes)(class=classes)
     if (shouldWrapItem)
       .sp__item
         if block

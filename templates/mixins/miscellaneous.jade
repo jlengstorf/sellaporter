@@ -1,6 +1,40 @@
 mixin maybeLink(link, blockName, element, modifiers)
-  if (link)
+  if link
     +element(blockName, element, modifiers, 'a')(href=link)
       block
   else
     block
+
+mixin sectionLink(blockName, element, modifiers, text)
+  -
+    var sectionHash = '#' + toSlug(text);
+  -
+  +element(blockName, element, modifiers, 'a')(
+    href= sectionHash
+  )= text
+
+mixin sectionID(blockName, modifiers, shouldWrapItem, section)
+  if section.floating_nav_visible && section.nav_text
+    -
+      var sectionID = toSlug(section.nav_text);
+    -
+    +section(blockName, modifiers, shouldWrapItem)&attributes(attributes)(id= sectionID)
+      block
+  else
+    +section(blockName, modifiers, shouldWrapItem)&attributes(attributes)
+      block
+
+-
+  /**
+   * Very simple slug creation helper.
+   *
+   * This should almost always create a usable slug. It finds one or more
+   * characters that don't match A-Z, 0–9, or _ and converts them to -. It will
+   * also remove leading or trailing hyphens and convert to lowercase.
+   *
+   * @param  {String} string the label to slugify
+   * @return {String}        the generated slug
+   */
+  function toSlug(string) {
+    return string.replace(/\W+/g, '-').replace(/^-|-$/g, '').toLowerCase();
+  }

@@ -1,6 +1,6 @@
 -
   var blockName = 'sp-floating-bar';
-  var blockModifiers = ['fixed-top', 'hidden'];
+  var blockModifiers = [];
   var btnModifiers = [];
 
   var barText = section.phase_text.filter(text => {
@@ -11,11 +11,13 @@
     btnModifiers.push('popover')
   }
 -
-+block(blockName, blockModifiers)
-  +element(blockName, 'text', [], 'p')
-    +element(blockName, 'text-bold', [], 'strong')= barText.bold_text
-    | #{barText.text}
-    +element(blockName, 'button', btnModifiers, 'a')(
-      href= barText.button_link || '#'
-    ).
-      #{barText.button_text}
++block(blockName, blockModifiers, 'nav')
+  +element(blockName, 'nav-items', [], 'ul')
+    each nav_item in section.nav_items
+      +element(blockName, 'nav-item', [], 'li')
+        +sectionLink(blockName, 'nav-link', [], nav_item.nav_text)
+    +element(blockName, 'nav-item', ['button'], 'li')
+      +element(blockName, 'button', btnModifiers, 'a')(
+        href= barText.button_link || '#'
+      ).
+        #{barText.button_text}
