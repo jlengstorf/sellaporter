@@ -22,47 +22,17 @@
   var headline = {};
   var subtitle = {};
   var content = {};
-  if (section.hero_type === 'super') {
-    headline.tag = 'h1';
-    headline.type = 'superheading';
-    headline.text = section.superheading;
-
-    subtitle.tag = 'p';
-    subtitle.type = 'subtitle';
-    subtitle.text = section.subtitle;
-  } else {
-    headline.tag = 'h2';
-    headline.type = 'heading';
-    headline.text = section.heading;
-
-    subtitle.tag = false;
-  }
 -
-+section(blockName, blockModifiers)(style="background-image: url(" + background_image + ")")
++sectionID(blockName, blockModifiers, true, section)(style="background-image: url(" + background_image + ")")
 
-  if section.hero_type === 'super'
+  //- For superheadings, we add the PN logo
+  +element(blockName, 'superheading', section.text_options, 'p').
+    #[img.sp-hero__logo(src="img/precision-nutrition.svg" alt="Precision Nutrition")]
+    !{section.superheading}
 
-    //- For superheadings, we add the PN logo
-    +element(blockName, 'superheading', section.text_options, 'p').
-      #[img.sp-hero__logo(src="img/precision-nutrition.svg" alt="Precision Nutrition")]
-      !{section.superheading}
-
-    //- Subtitle (treated like the main title)
-    +element(blockName, 'subtitle', section.text_options, 'h1').
-      !{section.subtitle}
-
-  else
-
-    //-
-      Just hacking away over here... This shows the ProCoach logo on "normal"
-      hero boxes. I am positive this will be an issue later.
-
-      TODO unfuck this.
-    .sp-procoach
-      object(type="image/svg+xml" data="img/procoach.svg" class="sp-procoach__svg")
-
-    +element(blockName, 'heading', section.text_options, 'h2').
-      !{section.heading}
+  //- Subtitle (treated like the main title)
+  +element(blockName, 'subtitle', section.text_options, 'h1').
+    !{section.subtitle}
 
   //- Add the body copy.
   //- TODO Do we need an empty check first?
