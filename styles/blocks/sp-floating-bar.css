@@ -1,5 +1,6 @@
 .sp-floating-bar {
   width: 100vw;
+  height: 55px;
   padding: calc( $bh * 0.5 ) calc( $bw * 5 );
   background: $color-lightest;
   border-bottom: $border-default;
@@ -23,9 +24,33 @@
    */
   backface-visibility: hidden;
 
-  &__text {
+  &__nav-items {
+    position: relative;
     max-width: $media-screen-large;
-    text-align: center;
+    margin: 0 auto;
+    text-align: left;
+  }
+
+  &__nav-item {
+    display: inline-block;
+
+    &--button {
+      position: absolute;
+      right: 0;
+    }
+  }
+
+  &__nav-link {
+    display: block;
+    padding: calc( $bh * 0.5 ) calc( $bw * 1 );
+    color: $color-gray-dark;
+    font-size: 85%;
+    font-weight: 700;
+    text-decoration: none;
+
+    &--current {
+      color: $color-brand;
+    }
   }
 
   &__text-bold {
@@ -48,4 +73,9 @@
       margin-left: calc( $bw * 2 );
     }
   }
+}
+
+/* Hack it up, hack it up, hack it up, haaack, it up. */
+.--hack_sp-floating-bar__sibling--add-top-margin {
+  margin-top: 55px;
 }
