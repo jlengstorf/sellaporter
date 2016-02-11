@@ -1,0 +1,15 @@
+-
+  var blockName = 'sp-feature-color-boxes';
+  var blockModifiers = [];
+-
++sectionID(blockName, blockModifiers, false, section)
+  +element(blockName, 'item')
+    +element(blockName, 'heading', [], 'h2')()= section.heading
+    +element(blockName, 'lead-text', [], 'p')= section.lead_text
+    +element(blockName, 'features', [], 'ul')
+      each feature in section.features
+        +element(blockName, 'feature', [], 'li')
+          +element(blockName, 'feature-heading', [], 'h3')
+            +element(blockName, 'icon', [feature.icon], 'span')= ' '
+            | #{feature.heading}
+          +element(blockName, 'feature-text', [], 'p')= feature.text
