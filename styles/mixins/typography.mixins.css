@@ -8,8 +8,12 @@
 
 @define-mixin heading-centered {
   @mixin heading;
-  font-size: 250%;
+  font-size: 175%;
   text-align: center;
+
+  @media (min-width: $media-screen-small) {
+    font-size: 250%;
+  }
 }
 
 @define-mixin subheading {
@@ -22,10 +26,13 @@
 
 @define-mixin text-lead-centered {
   @mixin text-color;
-  @mixin text-big;
   font-weight: 700;
   line-height: 1.75;
   text-align: center;
+
+  @media (min-width: $media-screen-small) {
+    @mixin text-big;
+  }
 }
 
 @define-mixin text-body {
