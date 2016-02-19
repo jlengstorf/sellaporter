@@ -179,7 +179,6 @@
     height: auto;
   }
 
-  /* The close button is added via JavaScript. */
   &__close-btn {
     position: absolute;
     top: 0;
