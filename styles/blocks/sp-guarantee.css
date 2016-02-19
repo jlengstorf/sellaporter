@@ -1,5 +1,5 @@
 .sp-guarantee {
-  padding: calc( $bh * 4 ) calc( $bw * 5 );
+  @mixin section-padding;
 
   @media (min-width: $media-screen-xsmall) {
     padding-left: 0;

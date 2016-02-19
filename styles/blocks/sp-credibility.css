@@ -1,5 +1,5 @@
 .sp-credibility {
-  padding: calc( $bh * 4.5 ) 0;
+  @mixin section-padding;
 
   &__item {
     max-width: 1100px;
