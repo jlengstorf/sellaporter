@@ -52,7 +52,6 @@
 
 /* The logo is animated using CSS. */
 @import 'animations/icons.css';
-@import 'animations/procoach.css';
 
 /* Styles for the logo.*/
 @import 'blocks/procoach.css';
