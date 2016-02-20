@@ -14,6 +14,7 @@
     "watch:styles": "watch 'npm run build:assets' styles/",
     "watch:scripts": "watch 'npm run build:assets' scripts/",
     "watch:templates": "watch 'npm run build:site' templates/",
+    "postinstall": "bower install",
     "postversion": "git push && git push --tags",
     "test": "echo 'Error: no test specified' && exit 1"
   },
@@ -27,6 +28,7 @@
   "author": "",
   "license": "ISC",
   "dependencies": {
+    "bower": "^1.7.7",
     "concurrently": "^1.0.0",
     "getconfig": "^2.2.0",
     "jade": "^1.11.0",
