@@ -24,3 +24,12 @@
     height: 100%;
   }
 }
+
+@define-mixin section-padding {
+  padding: calc( $bh * 3 ) calc( $bw * 5 );
+
+  @media (min-width: $media-screen-small) {
+    padding-top: calc( $bh * 4.5 );
+    padding-bottom: calc( $bh * 4.5 );
+  }
+}

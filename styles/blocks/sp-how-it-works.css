@@ -3,8 +3,7 @@
   padding-bottom: calc( $bh * 2 );
 
   &--simple {
-    padding-top: calc( $bh * 4 );
-    padding-bottom: calc( $bh * 4 );
+    @mixin section-padding;
     @mixin background-solid-color $color-blue-bg;
   }
 
@@ -36,7 +35,6 @@
 
     &--simple {
       @mixin heading-centered;
-      margin-top: $bh;
     }
   }
 
@@ -46,6 +44,7 @@
     font-weight: 200;
 
     &--simple {
+      font-size: 100%;
       @mixin text-lead-centered;
     }
   }
