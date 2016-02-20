@@ -15,6 +15,6 @@
     "templates/vendor"
   ],
   "dependencies": {
-    "pn-finalists": "PrecisionNutrition/pn-finalists#^0.2.3"
+    "pn-finalists": "PrecisionNutrition/pn-finalists#^0.3.0"
   }
 }
