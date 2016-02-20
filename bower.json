@@ -1,0 +1,20 @@
+{
+  "name": "sellaporter",
+  "description": "",
+  "main": "scripts/main.js",
+  "authors": [
+    "Jason Lengstorf <jason@lengstorf.com>"
+  ],
+  "license": "ISC",
+  "homepage": "https://github.com/jlengstorf/sellaporter",
+  "moduleType": [],
+  "private": true,
+  "ignore": [
+    "**/.*",
+    "node_modules",
+    "templates/vendor"
+  ],
+  "dependencies": {
+    "pn-finalists": "PrecisionNutrition/pn-finalists#^0.2.3"
+  }
+}

@@ -1,0 +1,18 @@
+.sp-credibility {
+  @mixin section-padding;
+
+  &__item {
+    max-width: 1100px;
+    margin: 0 auto;
+  }
+
+  &__lead-text {
+    text-align: center;
+  }
+
+  &__credibility-logos {
+    max-width: 100%;
+    height: auto;
+    margin-top: calc( $bh * 1.5 );
+  }
+}

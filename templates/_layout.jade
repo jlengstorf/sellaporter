@@ -21,22 +21,33 @@ html(lang="en")
     .sp
       -
         var isPopoverRequired = false;
+        var currentPhase = fields.sellaporter_phase;
+
+        // Run a quick pre-loop to get all floating nav items
+        var floatingNavItems = fields.acf.smart_sales_page.filter(block => {
+          var isVisible = block.visible_phases.indexOf(currentPhase) !== -1;
+          return (isVisible && block.floating_nav_visible && !!block.nav_text);
+        });
       -
       each section in fields.acf.smart_sales_page
-        -
-          if (section.cta_type === 'popover') {
-            isPopoverRequired = true;
-          }
-        -
         if (section.visible_phases.indexOf(fields.sellaporter_phase) !== -1)
           -
+            if (section.cta_type === 'popover') {
+              isPopoverRequired = true;
+            }
+
+            if (section.acf_fc_layout === 'sp-floating-bar') {
+              section.phase_text = fields.acf.floating_bar_text;
+              section.nav_items = floatingNavItems;
+            }
+
             section.current_phase = fields.sellaporter_phase;
           -
           +includeBlock(section)
 
+      //- If any of the buttons open a popover, add the markup
       if (isPopoverRequired)
         -
-          // TODO make this dynamic and figure out a better way
           var popover = {
             acf_fc_layout: 'sp-popover',
             heading_bold: fields.acf.popover_heading_bold,
@@ -47,9 +58,14 @@ html(lang="en")
         -
         +includeBlock(popover)
 
+    //-
+      Vendor scripts are bundled separately because they're less likely to
+      change than app scripts. Keeping them separate helps with caching.
     script(src="/js/vendors.min.js")
+    script(src="/vendor/pn-finalists/dist/pn-finalists.min.js")
     script(src="/js/main.min.js")
 
+    //- If we're in development mode, this adds a LiveReload listener.
     if process.env.NODE_ENV && process.env.NODE_ENV === 'development'
       - console.warn('NOTE: Development mode is enabled!');
       script(src="//localhost:9091")

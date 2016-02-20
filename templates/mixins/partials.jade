@@ -6,12 +6,18 @@ mixin includeBlock(section)
   -
   if block === 'sp-about'
     include /partials/sp-about
+  else if block === 'sp-credibility'
+    include /partials/sp-credibility
   else if block === 'sp-cta'
     include /partials/sp-cta
   else if block === 'sp-faq'
     include /partials/sp-faq
+  else if block === 'sp-feature-color-boxes'
+    include /partials/sp-feature-color-boxes
   else if block === 'sp-features'
     include /partials/sp-features
+  else if block === 'sp-floating-bar'
+    include /partials/sp-floating-bar
   else if block === 'sp-generic'
     include /partials/sp-generic
   else if block === 'sp-guarantee'
@@ -20,6 +26,8 @@ mixin includeBlock(section)
     include /partials/sp-hero
   else if block === 'sp-how-it-works'
     include /partials/sp-how-it-works
+  else if block === 'sp-how-it-works-simple'
+    include /partials/sp-how-it-works-simple
   else if block === 'sp-photobox'
     include /partials/sp-photobox
   else if block === 'sp-popover'

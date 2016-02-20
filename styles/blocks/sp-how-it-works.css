@@ -2,10 +2,19 @@
   padding-top: calc( $bh * 4 );
   padding-bottom: calc( $bh * 2 );
 
+  &--simple {
+    @mixin section-padding;
+    @mixin background-solid-color $color-blue-bg;
+  }
+
   &__item {
     max-width: $media-screen-large;
     margin-left: auto;
     margin-right: auto;
+
+    &--simple {
+      max-width: 1100px;
+    }
 
     @media (min-width: $media-screen-small) {
       display: flex;
@@ -23,12 +32,21 @@
 
   &__heading {
     @mixin heading;
+
+    &--simple {
+      @mixin heading-centered;
+    }
   }
 
   &__lead {
     @mixin text-big;
     margin-top: $bh;
     font-weight: 200;
+
+    &--simple {
+      font-size: 100%;
+      @mixin text-lead-centered;
+    }
   }
 
   &__flex-wrapper {
@@ -69,6 +87,11 @@
       order: 1;
       max-width: 55%;
       padding-left: calc( $bw * 2 );
+
+      &--simple {
+        max-width: 100%;
+        padding-left: 0;
+      }
     }
   }
 
@@ -95,14 +118,27 @@
     max-width: 100px;
     height: auto;
     margin: 0 auto;
+
+    @media (min-width: $media-screen-small) {
+      &--simple {
+        max-width: 200px;
+      }
+    }
   }
 
   &__subheading {
     @mixin subheading;
     margin-top: calc( $bh * 0.5 );
+    font-weight: 300;
+
+    @media (min-width: $media-screen-small) {
+      font-size: 100%;
+    }
 
     @media (min-width: 630px) {
-      font-size: 100%;
+      &--simple {
+        font-size: 150%;
+      }
     }
   }
 

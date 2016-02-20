@@ -51,7 +51,7 @@
 @import 'config/base.css';
 
 /* The logo is animated using CSS. */
-@import 'animations/procoach.css';
+@import 'animations/icons.css';
 
 /* Styles for the logo.*/
 @import 'blocks/procoach.css';
@@ -59,10 +59,13 @@
 /* Styles for the various sections. */
 @import 'blocks/sp-about.css';
 @import 'blocks/sp-button.css';
+@import 'blocks/sp-credibility.css';
 @import 'blocks/sp-cta.css';
 @import 'blocks/sp-faq.css';
+@import 'blocks/sp-feature-color-boxes.css';
 @import 'blocks/sp-features.css';
 @import 'blocks/sp-finalists.css';
+@import 'blocks/sp-floating-bar.css';
 @import 'blocks/sp-generic.css';
 @import 'blocks/sp-guarantee.css';
 @import 'blocks/sp-hero.css';

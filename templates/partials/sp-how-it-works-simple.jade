@@ -1,0 +1,20 @@
+-
+  // This is the same as the How It Works block, but no video is added.
+  var blockName = 'sp-how-it-works';
+  var blockModifiers = ['simple'];
+-
++sectionID(blockName, blockModifiers, false, section)
+  +element(blockName, 'item', ['simple'])
+    +element(blockName, 'heading', ['simple'], 'h2')= section.heading
+    +element(blockName, 'lead', ['simple']).
+      !{section.lead}
+
+    +element(blockName, 'steps', ['simple'], 'ul')
+      each step in section.steps
+        +element(blockName, 'step', ['simple'], 'li')
+          +element(blockName, 'icon', ['simple'], 'img')(
+            src= step.icon.url
+            alt= step.icon.alt
+          )
+          +element(blockName, 'subheading', ['simple'], 'h3')= step.step_heading
+          +element(blockName, 'description', ['simple'], 'p')= step.step_description

@@ -12,9 +12,6 @@
   @mixin text-body;
   margin-left: auto;
   margin-right: auto;
-  border: $border-default;
-  border-top: 0;
-  border-bottom: 0;
   font-family: $font-family-default;
 
   /* For fun, trying out some style on the bottom. */

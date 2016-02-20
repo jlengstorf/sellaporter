@@ -1,0 +1,23 @@
+-
+  var blockName = 'sp-floating-bar';
+  var blockModifiers = [];
+  var btnModifiers = [];
+
+  var barText = section.phase_text.filter(text => {
+    return (text.visible_phases.indexOf(section.current_phase) !== -1);
+  })[0];
+
+  if (barText.button_action === 'popover') {
+    btnModifiers.push('popover')
+  }
+-
++block(blockName, blockModifiers, 'nav')
+  +element(blockName, 'nav-items', [], 'ul')
+    each nav_item in section.nav_items
+      +element(blockName, 'nav-item', [], 'li')
+        +sectionLink(blockName, 'nav-link', [], nav_item.nav_text)
+    +element(blockName, 'nav-item', ['button'], 'li')
+      +element(blockName, 'button', btnModifiers, 'a')(
+        href= barText.button_link || '#'
+      ).
+        #{barText.button_text}
