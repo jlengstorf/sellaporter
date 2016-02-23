@@ -1,0 +1,15 @@
+-
+  var blockName = 'sp-who-its-for';
+  var blockModifiers = [];
+-
++sectionID(blockName, blockModifiers, false, section)
+  +element(blockName, 'list-container')
+    +element(blockName, 'list-heading', ['for'], 'h2')= section.for_heading
+    +element(blockName, 'list', ['for'], 'ul')
+      each item in section.for_points
+        +element(blockName, 'list-item', ['for'], 'li')= item.point
+  +element(blockName, 'list-container')
+    +element(blockName, 'list-heading', ['not'], 'h2')= section.not_heading
+    +element(blockName, 'list', ['not'], 'ul')
+      each item in section.not_points
+        +element(blockName, 'list-item', ['not'], 'li')= item.point
