@@ -7,6 +7,6 @@
     blockStyle = 'background-image: url(' + section.background_image + ')';
   }
 -
-+section(blockName, blockModifiers)(style=blockStyle)
++sectionID(blockName, blockModifiers, true, section)(style=blockStyle)
   +element(blockName, 'content').
     !{section.body_text}
