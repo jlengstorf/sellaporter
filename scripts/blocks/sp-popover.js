@@ -42,8 +42,9 @@ class SellaporterPopover {
 
     // If no popover exists in the DOM, we're done here.
     if (!!__popover) {
+      const closeBtnSel = `.${__config.popoverClass}__close-btn`;
 
-      document.querySelector(`.${__config.popoverClass}__close-btn`).addEventListener('click', event => {
+      document.querySelector(closeBtnSel).addEventListener('click', event => {
         event.preventDefault();
         _hidePopover();
       });

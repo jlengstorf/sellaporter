@@ -41,12 +41,13 @@ class SellaporterFloatingBar {
   }
 
   setBarVisibility() {
+    const marginClass = '--hack_sp-floating-bar__sibling--add-top-margin';
     if (window.scrollY >= __triggerY) {
       __floatingBar.classList.add(`${__config.className}${__config.classModifier}`);
-      __floatingBar.nextElementSibling.classList.add('--hack_sp-floating-bar__sibling--add-top-margin');
+      __floatingBar.nextElementSibling.classList.add(marginClass);
     } else {
       __floatingBar.classList.remove(`${__config.className}${__config.classModifier}`);
-      __floatingBar.nextElementSibling.classList.remove('--hack_sp-floating-bar__sibling--add-top-margin');
+      __floatingBar.nextElementSibling.classList.remove(marginClass);
     }
   }
 
