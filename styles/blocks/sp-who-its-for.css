@@ -1,0 +1,41 @@
+.sp-who-its-for {
+  @mixin section-padding;
+  display: flex;
+  align-items: flex-start;
+  justify-content: center;
+  background: $color-gray-light;
+  border-top: 1px solid color( $color-gray-light shade(5%) );
+  border-bottom: 1px solid color( $color-gray-light shade(5%) );
+
+  &__list-container {
+    flex: 1 45%;
+    min-width: 280px;
+    max-width: 520px;
+    margin: calc( $bh * 2 ) $bw;
+    padding: calc( $bh * 3 ) calc( $bh * 4 );
+    background: $color-lightest;
+    border-radius: 6px;
+    box-shadow: 0 3px 4px color( $color-gray-light shade(5%) );
+  }
+
+  &__list-heading {
+    @mixin heading;
+    @mixin heading-centered;
+
+    @media (min-width: $media-screen-medium) {
+      font-size: 150%;
+    }
+  }
+
+  &__list {
+    margin-top: $bh;
+    padding-left: 20px;
+  }
+
+  &__list-item {
+    margin-top: $bh;
+    font-size: 87.5%;
+    list-style-type: disc;
+  }
+
+}
