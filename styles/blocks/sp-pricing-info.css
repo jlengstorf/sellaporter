@@ -1,0 +1,139 @@
+.sp-pricing-info {
+  @mixin section-padding;
+  @mixin background-solid-color $color-gray-light;
+
+  &__heading {
+    @mixin heading;
+    @mixin heading-centered;
+  }
+
+  &__lead-text {
+    @mixin text-lead-centered;
+    max-width: 700px;
+    margin: $bh auto 0;
+  }
+
+  &__box {
+    position: relative;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    flex-wrap: wrap;
+    max-width: 1070px;
+    margin: calc( $bh * 2.5 ) auto 0;
+    background: $color-lightest;
+    border-radius: 6px;
+    box-shadow: 0 3px 4px color( $color-gray-light shade(5%) );
+  }
+
+  &__subheading {
+    flex: 2 100%;
+    padding: calc( $bh * 1.5 ) calc( $bw * 2 );
+    background: $color-gray-dark;
+    border-radius: 6px 6px 0 0;
+    color: $color-lightest;
+    font-family: $font-family-heading;
+    font-size: 87.5%;
+    font-weight: $font-weight-heading;
+    line-height: 1;
+    text-align: center;
+    vertical-align: baseline;
+
+    @media (min-width: $media-screen-xsmall) {
+      font-size: 100%;
+    }
+  }
+
+  &__logo {
+    width: 150px;
+    margin-top: -2.5px;
+    margin-right: 10px;
+    padding-right: 10px;
+    border-right: $border-width-default $border-style-default $color-lightest;
+    vertical-align: middle;
+
+    @media (min-width: $media-screen-xsmall) {
+      width: 180px;
+      margin-left: -70px;
+      margin-right: 15px;
+      padding-right: 20px;
+    }
+  }
+
+  &__price-container,&__info-container {
+    flex: 1 45%;
+    min-width: 280px;
+    max-width: 535px;
+    margin: calc( $bh * 1.5 ) 0 calc( $bh * 3 );
+    padding: $bh calc( $bh * 4 );
+  }
+
+  &__price-container {
+    text-align: center;
+  }
+
+  &__price {
+    position: relative;
+    display: inline-block;
+    color: $color-text-headline;
+    font-size: 500%;
+    font-weight: 700;
+    line-height: 1;
+
+    &::before,&::after {
+      position: absolute;
+      line-height: 2.5;
+      vertical-align: top;
+    }
+
+    &::before {
+      content: '$';
+      top: 0;
+      right: 100%;
+      font-size: 30%;
+    }
+
+    &::after {
+      content: 'USD';
+      top: $bh;
+      left: 100%;
+      color: color( $color-gray-light shade(10%) );
+      font-size: 15%;
+    }
+  }
+
+  &__frequency {
+    margin-top: calc( $bh * -0.5 );
+    font-size: 75%;
+    font-weight: 700;
+    line-height: 0.75;
+    text-transform: uppercase;
+  }
+
+  &__info-container {
+    border-left: 2px solid $color-gray-light;
+  }
+
+  &__info {
+    padding-left: calc( $bw * 2 );
+  }
+
+  &__info-item {
+    list-style-type: disc;
+    font-size: 87.5%;
+
+    &+& {
+      margin-top: $bh;
+    }
+  }
+
+  &__button {
+    @mixin button;
+    display: inline-block;
+    position: absolute;
+    bottom: 0;
+    left: 50%;
+    transform: translate(-50%, 50%);
+  }
+
+}
