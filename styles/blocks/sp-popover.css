@@ -1,60 +1,16 @@
 .sp-popover {
-  position: fixed;
-  top: 0;
-  left: 0;
-  width: 100vw;
-  height: 100vh;
-  background: color( $color-lightest alpha(85%) );
-  opacity: 1;
-  overflow-y: scroll;
-  transition: $animation-speed-default opacity $animation-easing-default;
-  z-index: 1000;
+  @mixin popover;
 
   &--fade-out {
-    opacity: 0;
+    @mixin popover-fade-out;
   }
 
   &--hidden {
-    position: absolute;
-    top: -1;
-    left: -1;
-    width: 0;
-    height: 0;
-    display: none;
-    pointer-events: none;
-    z-index: -1;
-  }
-
-  @media (min-width: $media-screen-small) {
-    position: fixed;
-    display: flex;
-    align-items: center;
-    justify-content: center;
+    @mixin popover-hidden;
   }
 
   &__container {
-    width: 100%;
-    height: 100%;
-    background-color: $color-brand;
-    background-image: url(/img/hectagons.svg);
-    background-repeat: repeat-x;
-    background-size: cover;
-
-    @media (min-width: $media-screen-small) {
-      flex: 1 95%;
-      display: flex;
-      align-items: flex-end;
-      justify-content: space-between;
-      height: auto;
-      max-width: calc( $bw * 95 );
-      max-height: 95%;
-      border-radius: calc( $bh * 0.75 );
-      box-shadow: 0 0 15px 2px color( $color-darkest alpha(20%) );
-    }
-
-    @media (min-width: $media-screen-medium) {
-      max-width: calc( $media-screen-medium - 14 );
-    }
+    @mixin popover-container;
   }
 
   &__form {
@@ -180,23 +136,7 @@
   }
 
   &__close-btn {
-    position: absolute;
-    top: 0;
-    right: 0;
-    display: block;
-    padding: 0 calc( $bw * 1.5 );
-    background: rgba(0, 0, 0, 0);
-    border: 0;
-    color: $color-gray-dark;
-    cursor: pointer;
-    font-size: 350%;
-    line-height: 0.875;
-    text-shadow: 1px 1px 5px color( $color-darkest alpha(20%) );
-    z-index: 1010;
-
-    &:active,&:focus {
-      outline: 0;
-    }
+    @mixin popover-close-btn;
   }
 
 }

@@ -1,0 +1,24 @@
+.sp-video-popover {
+  @mixin popover;
+
+  &--fade-out {
+    @mixin popover-fade-out;
+  }
+
+  &--hidden {
+    @mixin popover-hidden;
+  }
+
+  &__container {
+    @mixin popover-container;
+  }
+
+  &__embed-container {
+    @mixin embed-container;
+    width: 100%;
+  }
+
+  &__close-btn {
+    @mixin popover-close-btn;
+  }
+}
