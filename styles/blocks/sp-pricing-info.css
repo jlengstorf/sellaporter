@@ -1,6 +1,6 @@
 .sp-pricing-info {
   @mixin section-padding;
-  @mixin background-solid-color $color-gray-light;
+  @mixin background-solid-color $color-blue-bg;
 
   &__heading {
     @mixin heading;
@@ -23,7 +23,7 @@
     margin: calc( $bh * 2.5 ) auto 0;
     background: $color-lightest;
     border-radius: 6px;
-    box-shadow: 0 3px 4px color( $color-gray-light shade(5%) );
+    box-shadow: 0 3px 4px color( $color-blue-bg shade(5%) );
   }
 
   &__subheading {
