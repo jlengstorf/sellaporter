@@ -46,6 +46,7 @@
 @import 'mixins/buttons.mixins.css';
 @import 'mixins/sp-how-it-works.mixins.css';
 @import 'mixins/miscellaneous.mixins.css';
+@import 'mixins/popover.mixins.css';
 
 /* Generic classes for Sellaporter layout and sections. */
 @import 'config/base.css';
@@ -75,3 +76,5 @@
 @import 'blocks/sp-pricing.css';
 @import 'blocks/sp-text.css';
 @import 'blocks/sp-video.css';
+@import 'blocks/sp-video-popover.css';
+@import 'blocks/sp-who-its-for.css';

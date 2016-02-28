@@ -16,36 +16,23 @@
  */
 import {intersect, toArray} from '../utils/array_helpers';
 
-/*
- * Create "private class properties" by keeping them locked in module scope.
- */
-const __config = {
-  popoverClass: 'sp-popover',
-
-  // Any button with a `--popover` modifier should open the popover.
-  buttonModifier: new RegExp(/--popover\b/),
-  transitionClasses: {
-    animate: 'sp-popover--fade-out',
-    hide: 'sp-popover--hidden',
-  },
-  transitionSpeed: 150,
-};
-
-let __popover = false;
-
 class SellaporterPopover {
 
-  constructor() {
+  constructor(config) {
+
+    // Get the config options, setting defaults if necessary.
+    this.config = this._getConfig(config);
 
     // There _should_ only ever be a single popover, so grab the first one.
-    __popover = document.getElementsByClassName(__config.popoverClass)[0];
+    this.popover = document.getElementsByClassName(this.config.popoverClass)[0];
 
     // If no popover exists in the DOM, we're done here.
-    if (!!__popover) {
+    if (!!this.popover) {
+      const closeBtnSel = `.${this.config.popoverClass}__close-btn`;
 
-      document.querySelector(`.${__config.popoverClass}__close-btn`).addEventListener('click', event => {
+      document.querySelector(closeBtnSel).addEventListener('click', event => {
         event.preventDefault();
-        _hidePopover();
+        this._hidePopover();
       });
 
       this.registerClickHandlers();
@@ -57,11 +44,56 @@ class SellaporterPopover {
       const cls = toArray(event.target.classList);
 
       // Checks the element's classList for the popover modifier.
-      if (__config.buttonModifier.test(cls)) {
+      if (this.config.buttonModifier.test(cls)) {
         event.preventDefault();
-        _showPopover();
+        this._showPopover();
       }
     });
+  }
+
+  _getConfig({
+      popoverClass = 'sp-popover',
+      buttonModifier = new RegExp(/--popover\b/),
+      transitionClasses = {
+        animate: 'sp-popover--fade-out',
+        hide: 'sp-popover--hidden',
+      },
+      transitionSpeed = 150,
+      showPopoverCB = ()=>{},
+      hidePopoverCB = ()=>{},
+    } = {}) {
+    return {
+      popoverClass,
+      buttonModifier,
+      transitionClasses,
+      transitionSpeed,
+      showPopoverCB,
+      hidePopoverCB,
+    };
+  }
+
+  _showPopover() {
+
+    // Make the popover visible by removing the class that hides it.
+    this.popover.classList.remove(this.config.transitionClasses.hide);
+    setTimeout(() => {
+      this.popover.classList.remove(this.config.transitionClasses.animate);
+    }, 10);
+
+    this.config.showPopoverCB();
+  }
+
+  _hidePopover() {
+
+    // Make the popover visible by removing the class that hides it.
+    this.popover.classList.add(this.config.transitionClasses.animate);
+
+    // Hide it for real once the animation is complete.
+    setTimeout(() => {
+      this.popover.classList.add(this.config.transitionClasses.hide);
+    },  this.config.transitionSpeed);
+
+    this.config.hidePopoverCB();
   }
 
 }
@@ -70,24 +102,4 @@ const instance = new SellaporterPopover();
 
 export default instance;
 
-/*
- * Helper functions
- */
-
-function _showPopover() {
-
-  // Make the popover visible by removing the class that hides it.
-  __popover.classList.remove(__config.transitionClasses.hide);
-  __popover.classList.remove(__config.transitionClasses.animate);
-}
-
-function _hidePopover() {
-
-  // Make the popover visible by removing the class that hides it.
-  __popover.classList.add(__config.transitionClasses.animate);
-
-  // Hide it for real once the animation is complete.
-  setTimeout(() => {
-    __popover.classList.add(__config.transitionClasses.hide);
-  },  __config.transitionSpeed);
-}
+export { SellaporterPopover as Popover };

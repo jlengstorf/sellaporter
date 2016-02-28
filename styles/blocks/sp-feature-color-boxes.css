@@ -16,7 +16,7 @@
     display: flex;
     align-items: flex-start;
     flex-wrap: wrap;
-    justify-content: space-between;
+    justify-content: center;
     margin-top: calc( $bh * 1 );
 
     @media (min-width: $media-screen-small) {
@@ -26,8 +26,9 @@
 
   &__feature {
     flex: 1 45%;
+    max-width: 524px;
     min-width: 270px;
-    margin: calc( $bh * 1.5 ) calc( $bw * 1.5 ) 0;
+    margin: calc( $bh * 1.5 ) $bw 0;
     background: $color-gray-dark;
     border: 3px solid $color-gray-dark;
     border-radius: 6px;

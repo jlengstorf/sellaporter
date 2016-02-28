@@ -3,11 +3,7 @@
   var blockModifiers = [];
   var btnModifiers = [];
 
-  var barText = section.phase_text.filter(text => {
-    return (text.visible_phases.indexOf(section.current_phase) !== -1);
-  })[0];
-
-  if (barText.button_action === 'popover') {
+  if (section.barText.button_action === 'popover') {
     btnModifiers.push('popover')
   }
 -
@@ -18,6 +14,6 @@
         +sectionLink(blockName, 'nav-link', [], nav_item.nav_text)
     +element(blockName, 'nav-item', ['button'], 'li')
       +element(blockName, 'button', btnModifiers, 'a')(
-        href= barText.button_link || '#'
+        href= section.barText.button_link || '#'
       ).
-        #{barText.button_text}
+        #{section.barText.button_text}

@@ -9,20 +9,21 @@
  * can (and probably will) have side effects.
  */
 .sp-generic {
+  @mixin section-padding;
   max-width: $media-screen-large;
   margin-left: auto;
   margin-right: auto;
-  padding: calc( $bh * 2 ) 0;
+  /*padding: calc( $bh * 2 ) 0;*/
 
   &--center {
     max-width: $media-screen-small;
     margin-left: auto;
     margin-right: auto;
-    padding: calc( $bh * 2 ) $bh;
+    /*padding: calc( $bh * 2 ) $bh;*/
 
-    @media (min-width: $media-screen-small) {
+    /*@media (min-width: $media-screen-small) {
       padding: calc( $bh * 4 );
-    }
+    }*/
 
     @media (min-width: $media-screen-large) {
       padding-left: 0;
@@ -31,12 +32,12 @@
   }
 
   &--right,&--left {
-    padding: calc( $bh * 2 ) $bh;
+    /*padding: calc( $bh * 2 ) $bh;*/
     background-repeat: no-repeat;
     background-size: 0;
 
     @media (min-width: $media-screen-small) {
-      padding: calc( $bh * 4 );
+      /*padding: calc( $bh * 4 );*/
 
       /*
        * This is set based on the image used during design. If it changes, this
@@ -46,9 +47,9 @@
       background-size: 43% auto;
     }
 
-    @media (min-width: $media-screen-medium) {
+    /*@media (min-width: $media-screen-medium) {
       padding: calc( $bh * 5 );
-    }
+    }*/
 
     @media (min-width: $media-screen-large) {
       min-height: 640px;
@@ -82,7 +83,7 @@
     }
 
     @media (min-width: $media-screen-large) {
-      padding-right: 430px;
+      padding-left: 430px;
     }
   }
 
@@ -96,6 +97,7 @@
 
   &__heading,h2 {
     @mixin heading;
+    @mixin heading-centered;
     margin-top: calc( $bh * 2 );
 
     &:first-child {
