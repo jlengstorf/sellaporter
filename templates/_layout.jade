@@ -11,6 +11,7 @@ html(lang="en")
     meta(charset="utf-8")
     meta(name="viewport" content="width=device-width, initial-scale=1.0")
 
+    script(src="//f.vimeocdn.com/js/froogaloop2.min.js")
     script(src="//use.typekit.net/mdv1txb.js")
     script.
       try{Typekit.load();}catch(e){}
@@ -32,16 +33,25 @@ html(lang="en")
       each section in fields.acf.smart_sales_page
         if (section.visible_phases.indexOf(fields.sellaporter_phase) !== -1)
           -
+            section.current_phase = fields.sellaporter_phase;
+
             if (section.cta_type === 'popover') {
               isPopoverRequired = true;
             }
 
             if (section.acf_fc_layout === 'sp-floating-bar') {
-              section.phase_text = fields.acf.floating_bar_text;
               section.nav_items = floatingNavItems;
-            }
 
-            section.current_phase = fields.sellaporter_phase;
+              // Grab the button text for the floating bar.
+              section.barText = fields.acf.floating_bar_text.filter(t => {
+                return (t.visible_phases.indexOf(section.current_phase) > -1);
+              })[0];
+
+              // If the floating bar opens the popover, make sure it exists.
+              if (section.barText.button_action === 'popover') {
+                isPopoverRequired = true;
+              }
+            }
           -
           +includeBlock(section)
 
