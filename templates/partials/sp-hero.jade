@@ -35,18 +35,21 @@
     !{section.subtitle}
 
   //- Add the body copy.
-  //- TODO Do we need an empty check first?
-  +element(blockName, 'body-text', section.text_options, 'div').
-    !{section.text}
+  if section.text
+    +element(blockName, 'body-text', section.text_options, 'div').
+      !{section.text}
 
   //- Show a CTA button if the option was set
   if section.show_cta_button !== false
     -
       var btnModifiers = section.text_options;
-      if (section.cta_type === 'popover') {
-        btnModifiers.push('popover');
-      }
+      btnModifiers.push(section.cta_type);
     -
-    +element(blockName, 'button', btnModifiers, 'a')(
-      href=section.button_link
-    )= section.button_text
+    if section.cta_type === 'video'
+      +element(blockName, 'button', btnModifiers, 'a')(
+        data-video-url=section.video_url
+      )= section.button_text
+    else
+      +element(blockName, 'button', btnModifiers, 'a')(
+        href=section.button_link
+      )= section.button_text

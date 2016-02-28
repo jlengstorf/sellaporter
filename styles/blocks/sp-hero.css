@@ -150,5 +150,26 @@
       padding-left: calc( $bw * 5 );
       padding-right: calc( $bw * 5 );
     }
+
+    &--video {
+      background: transparent;
+      border: 0;
+      font-size: 150%;
+      font-weight: 300;
+      line-height: 2.3;
+      text-transform: none;
+
+      &::before {
+        content: '';
+        display: inline-block;
+        width: 60px;
+        height: 60px;
+        margin-right: calc( $bw * 1.25 );
+        background-image: url(/img/play-btn.svg);
+        background-repeat: no-repeat;
+        background-size: contain;
+        vertical-align: bottom;
+      }
+    }
   }
 }
