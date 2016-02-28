@@ -1,0 +1,28 @@
+-
+  var blockName = 'sp-pricing-info';
+  var blockModifiers = [];
+-
++sectionID(blockName, blockModifiers, false, section)
+  +element(blockName, 'item')
+    +element(blockName, 'heading', [], 'h2')= section.heading
+    +element(blockName, 'lead-text').
+      !{section.lead_text}
+
+    +element(blockName, 'box')
+      +element(blockName, 'subheading', [], 'h3')
+        +element(blockName, 'logo', [], 'img')(
+          alt="Precision Nutrition"
+          src="img/precision-nutrition.svg"
+        )
+        | #{section.box_heading}
+      +element(blockName, 'price-container')
+        +element(blockName, 'price', [], 'p')= section.price
+        +element(blockName, 'frequency', [], 'p')= section.frequency
+      +element(blockName, 'info-container')
+        +element(blockName, 'info', [], 'ul')
+          each info in section.info
+            +element(blockName, 'info-item', [], 'li').
+             !{info.item}
+      +element(blockName, 'button', [section.cta_type], 'a')(
+        href= section.button_link || "#"
+      )= section.button_text
