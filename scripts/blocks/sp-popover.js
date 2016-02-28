@@ -59,8 +59,8 @@ class SellaporterPopover {
         hide: 'sp-popover--hidden',
       },
       transitionSpeed = 150,
-      showPopoverCB = ()=>{},
-      hidePopoverCB = ()=>{},
+      showPopoverCB = (() => {}),
+      hidePopoverCB = (() => {}),
     } = {}) {
     return {
       popoverClass,
