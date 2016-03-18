@@ -5,7 +5,7 @@ const __config = {
   className: 'sp-floating-bar',
   classModifier: '--fixed-top',
   classLink: 'sp-floating-bar__nav-link',
-  classLinkModifier: 'sp-floating-bar__nav-link--current',
+  classLinkModifier: 'sp-floating-bar__nav-item--current',
   triggerEl: 'sp-hero',
 };
 const __sections = [];
@@ -70,9 +70,9 @@ class SellaporterFloatingBar {
       const top = obj.section.offsetTop;
       const bottom = top + obj.section.offsetHeight;
       if (top <= offsetY && bottom >= offsetY) {
-        obj.link.classList.add(__config.classLinkModifier);
+        obj.link.parentNode.classList.add(__config.classLinkModifier);
       } else {
-        obj.link.classList.remove(__config.classLinkModifier);
+        obj.link.parentNode.classList.remove(__config.classLinkModifier);
       }
     });
   }
