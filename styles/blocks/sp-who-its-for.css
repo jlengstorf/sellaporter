@@ -1,26 +1,46 @@
 .sp-who-its-for {
   @mixin section-padding;
-  display: flex;
-  align-items: flex-start;
-  justify-content: center;
   background: $color-gray-light;
   border-top: 1px solid color( $color-gray-light shade(5%) );
   border-bottom: 1px solid color( $color-gray-light shade(5%) );
 
+  @media (min-width: $media-screen-small) {
+    display: flex;
+    align-items: flex-start;
+    justify-content: center;
+  }
+
   &__list-container {
-    flex: 1 45%;
     min-width: 280px;
     max-width: 520px;
-    margin: calc( $bh * 2 ) $bw;
-    padding: calc( $bh * 3 ) calc( $bh * 4 );
+    margin-left: auto;
+    margin-right: auto;
+    padding: calc( $bh * 2 ) calc( $bh * 1.5 );
     background: $color-lightest;
     border-radius: 6px;
     box-shadow: 0 3px 4px color( $color-gray-light shade(5%) );
+
+    &+& {
+      margin-top: calc( $bh * 1.5 );
+    }
+
+    @media (min-width: $media-screen-small) {
+      flex: 1 45%;
+      margin: calc( $bh * 2 ) $bw;
+      padding: calc( $bh * 3 ) calc( $bh * 4 );
+    }
   }
 
   &__list-heading {
     @mixin heading;
     @mixin heading-centered;
+    font-size: 115%;
+    font-weight: $font-weight-subheading;
+
+    @media (min-width: $media-screen-small) {
+      font-size: 175%;
+      font-weight: $font-weight-heading;
+    }
 
     @media (min-width: $media-screen-medium) {
       font-size: 150%;
