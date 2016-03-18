@@ -29,14 +29,41 @@
     max-width: $media-screen-large;
     margin: 0 auto;
     text-align: left;
+
+    &::before {
+      content: 'ProCoach®';
+      position: absolute;
+      padding: calc( $bh * 0.5 ) calc( $bw * 1 );
+      color: $color-gray-dark;
+      font-size: 85%;
+      font-weight: 700;
+      text-decoration: none;
+      z-index: 1;
+    }
   }
 
   &__nav-item {
-    display: inline-block;
+    position: relative;
+    display: none;
+    background: $color-lightest;
+    z-index: 2;
 
     &--button {
       position: absolute;
       right: 0;
+      display: inline-block;
+    }
+
+    &--current {
+      display: inline-block;
+    }
+
+    @media (min-width: $media-screen-medium) {
+      display: inline-block;
+
+      &--current a {
+        color: $color-brand;
+      }
     }
   }
 
@@ -47,10 +74,6 @@
     font-size: 85%;
     font-weight: 700;
     text-decoration: none;
-
-    &--current {
-      color: $color-brand;
-    }
   }
 
   &__text-bold {
@@ -64,13 +87,15 @@
 
   &__button {
     @mixin button;
-    padding: calc( $bh * 0.5 ) calc( $bw * 2 );
-    font-size: 85%;
+    padding: calc( $bh * 0.625 ) calc( $bw * 2.5 );
+    font-size: 75%;
 
     @media (min-width: $media-screen-xsmall) {
       display: inline-block;
       max-width: 280px;
       margin-left: calc( $bw * 2 );
+      padding: calc( $bh * 0.5 ) calc( $bw * 2 );
+      font-size: 85%;
     }
   }
 }

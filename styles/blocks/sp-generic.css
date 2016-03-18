@@ -10,12 +10,19 @@
  */
 .sp-generic {
   @mixin section-padding;
-  max-width: $media-screen-large;
-  margin-left: auto;
-  margin-right: auto;
-  /*padding: calc( $bh * 2 ) 0;*/
 
-  &--center {
+  /* Oh shit, look how clever this is! */
+  &+& {
+    @mixin background-solid-color color( $color-brand tint(95%) );
+  }
+
+  &__content {
+    max-width: $media-screen-large;
+    margin-left: auto;
+    margin-right: auto;
+  }
+
+  &--center &__content {
     max-width: $media-screen-small;
     margin-left: auto;
     margin-right: auto;
@@ -32,7 +39,9 @@
   }
 
   &--right,&--left {
-    /*padding: calc( $bh * 2 ) $bh;*/
+    max-width: $media-screen-large;
+    margin-left: auto;
+    margin-right: auto;
     background-repeat: no-repeat;
     background-size: 0;
 
