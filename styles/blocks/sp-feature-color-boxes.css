@@ -154,5 +154,29 @@
         background-image: url(/img/supercoach-center.svg);
       }
     }
+
+    &--while-you-sleep {
+      background-image: url(/img/while-you-sleep.svg);
+    }
+
+    &--massive-productivity {
+      background-image: url(/img/massive-productivity.svg);
+    }
+
+    &--whole-person-focus {
+      background-image: url(/img/whole-person-focus.svg);
+    }
+
+    &--prove-your-worth {
+      background-image: url(/img/prove-your-worth.svg);
+    }
+
+    &--look-super-human {
+      background-image: url(/img/look-super-human.svg);
+    }
+
+    &--very-affordable {
+      background-image: url(/img/very-affordable.svg);
+    }
   }
 }
