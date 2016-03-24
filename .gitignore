@@ -1,4 +1,5 @@
 *.DS*
+livedata.sh
 node_modules
 build
 templates/vendor
