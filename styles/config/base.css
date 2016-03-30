@@ -12,14 +12,22 @@
   @mixin text-body;
   margin-left: auto;
   margin-right: auto;
+  padding-bottom: 7vw;
   font-family: $font-family-default;
 
-  /* For fun, trying out some style on the bottom. */
-  background-image: url(/img/puppy-friends.jpg);
-  background-repeat: no-repeat;
-  background-size: contain;
-  background-position: bottom center;
-  padding-bottom: 50vw;
+  @media (min-width: 1024px) {
+    padding-bottom: 0;
+  }
+
+  &--has-bottom-image {
+
+    /* For fun, trying out some style on the bottom. */
+    background-image: url(/img/puppy-friends.jpg);
+    background-repeat: no-repeat;
+    background-size: contain;
+    background-position: bottom center;
+    padding-bottom: 50vw;
+  }
 
   /*
    * General reset

@@ -10,8 +10,17 @@
 +block(blockName, blockModifiers, 'nav')
   +element(blockName, 'nav-items', [], 'ul')
     each nav_item in section.nav_items
+      -
+        var bgImg = '';
+        if (nav_item.nav_icon_path) {
+          bgImg = `background-image: url(${nav_item.nav_icon_path});`;
+        }
+        console.log(bgImg);
+      -
       +element(blockName, 'nav-item', [], 'li')
-        +sectionLink(blockName, 'nav-link', [], nav_item.nav_text)
+        +sectionLink(blockName, 'nav-link', [], nav_item.nav_text)(
+          style= bgImg
+        )
     +element(blockName, 'nav-item', ['button'], 'li')
       +element(blockName, 'button', btnModifiers, 'a')(
         href= section.barText.button_link || '#'

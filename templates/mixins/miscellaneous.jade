@@ -8,8 +8,10 @@ mixin maybeLink(link, blockName, element, modifiers)
 mixin sectionLink(blockName, element, modifiers, text)
   -
     var sectionHash = '#' + toSlug(text);
+    var sectionLinkID = '--js-link-to_' + toSlug(text);
   -
-  +element(blockName, element, modifiers, 'a')(
+  +element(blockName, element, modifiers, 'a')&attributes(attributes)(
+    class= sectionLinkID
     href= sectionHash
   )= text
 
@@ -18,7 +20,9 @@ mixin sectionID(blockName, modifiers, shouldWrapItem, section)
     -
       var sectionID = toSlug(section.nav_text);
     -
-    +section(blockName, modifiers, shouldWrapItem)&attributes(attributes)(id= sectionID)
+    +section(blockName, modifiers, shouldWrapItem)&attributes(attributes)(
+      id= sectionID
+    )
       block
   else
     +section(blockName, modifiers, shouldWrapItem)&attributes(attributes)
