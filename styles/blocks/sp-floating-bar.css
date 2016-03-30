@@ -146,7 +146,7 @@
       border-left: 0;
     }
 
-    &:hover,&:active,&:focus>a {
+    &:hover>a,&:active>a,&:focus>a {
       opacity: 0.75;
     }
 

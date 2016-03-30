@@ -48,7 +48,8 @@ class SellaporterFloatingBar {
       __triggerY = !!__triggerElement ? __triggerElement.offsetHeight : 0;
 
       // Set up a scroll listener to determine when to detach the nav bar.
-      window.addEventListener('scroll', throttle(this.setActiveSection.bind(this), 25), false);
+      window.addEventListener('scroll', throttle(this.setActiveSection, 25), false);
+      window.addEventListener('scroll', throttle(this.setActiveTab.bind(this), 25), false);
       window.addEventListener('scroll', throttle(this.setBarVisibility, 25), false);
 
       window.addEventListener('click', this.scrollToSection);
@@ -81,11 +82,17 @@ class SellaporterFloatingBar {
   }
 
   setActiveSection() {
-    const offsetY = window.scrollY + __floatingBar.offsetHeight;
-
     __sections.forEach(obj => {
-      const top = obj.section.offsetTop;
-      const bottom = top + obj.section.offsetHeight;
+      if (isOnScreen(obj.section)) {
+        obj.link.parentNode.classList.add(__config.classLinkModifier);
+      } else {
+        obj.link.parentNode.classList.remove(__config.classLinkModifier);
+      }
+    });
+  }
+
+  setActiveTab() {
+    __sections.forEach(obj => {
 
       // Get the mobile tabbed nav link, if it exists
       const tabLinkSelector = `.--js-link-to_${obj.section.id}`;
@@ -94,13 +101,14 @@ class SellaporterFloatingBar {
         tabLink = this.mobileTabbedNav.querySelector(tabLinkSelector);
       }
 
-      // If the section on-screen is this one, set the nav item(s) to active.
-      if (top <= offsetY && bottom >= offsetY) {
-        obj.link.parentNode.classList.add(__config.classLinkModifier);
-        tabLink && tabLink.parentNode.classList.add(__config.classLinkModifier);
-      } else {
-        obj.link.parentNode.classList.remove(__config.classLinkModifier);
-        tabLink && tabLink.parentNode.classList.remove(__config.classLinkModifier);
+      if (tabLink) {
+
+        // If the section on-screen is this one, set the nav tab to active.
+        if (isOnScreen(obj.section)) {
+          tabLink.parentNode.classList.add(__config.classLinkModifier);
+        } else {
+          tabLink.parentNode.classList.remove(__config.classLinkModifier);
+        }
       }
     });
   }
@@ -175,4 +183,12 @@ function scrollTo(element, targetPos, duration) {
 
 function getElementToScroll() {
   return document.body.scrollTop ? document.body : document.documentElement;
+}
+
+function isOnScreen(node) {
+  const offsetY = window.scrollY + __floatingBar.offsetHeight;
+  const top = node.offsetTop;
+  const bottom = top + node.offsetHeight;
+
+  return (top <= offsetY && bottom >= offsetY);
 }
