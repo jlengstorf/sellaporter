@@ -75,6 +75,8 @@
     font-size: 85%;
     font-weight: 700;
     text-decoration: none;
+    background-repeat: no-repeat;
+    background-size: 0;
   }
 
   &__text-bold {
@@ -97,6 +99,84 @@
       margin-left: calc( $bw * 2 );
       padding: calc( $bh * 0.5 ) calc( $bw * 2 );
       font-size: 85%;
+    }
+  }
+
+  /*
+   * This is a second nav that's added by JavaScript on smaller viewports. I
+   * added this because sometimes I like to make things far harder for myself
+   * than necessary, simply so I can climb up on my high horse and say, "Hey,
+   * all you lazy developers who copped out with hamburger menus! Look at this
+   * marginally more efficient UX approach of tabbed nav! Yeah! I'm the best!"
+   */
+  &--mobile-tabbed-nav {
+    position: fixed;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    padding: 0;
+    font-family: $font-family-default;
+    border-bottom: 0;
+    border-top: $border-default;
+    z-index: 900;
+
+    @media (min-width: 1024px) {
+      display: none;
+    }
+  }
+
+  &--mobile-tabbed-nav &__nav-items {
+    display: flex;
+    align-items: space-between;
+    justify-content: flex-end;
+  }
+
+  &--mobile-tabbed-nav &__nav-item {
+    display: inline-block;
+    flex: 1 20%;
+    border-left: $border-default;
+    text-align: center;
+
+    >a {
+      transition: 250ms all linear;
+      opacity: 0.5;
+    }
+
+    &:first-child {
+      border-left: 0;
+    }
+
+    &:hover,&:active,&:focus>a {
+      opacity: 0.75;
+    }
+
+    &--current>a {
+      background-color: color( $color-brand tint(90%) );
+      opacity: 1;
+    }
+
+    &--button {
+      display: none;
+    }
+  }
+
+  &--mobile-tabbed-nav &__nav-link {
+    display: block;
+    height: 56px;
+    color: $color-gray-medium;
+    font-size: 8px;
+    font-weight: $font-weight-default;
+    letter-spacing: 0.5px;
+    text-transform: uppercase;
+    padding-top: 30px;
+    background-image: url(/img/tab_what-is-procoach.svg);
+    background-position: top 5px center;
+    background-repeat: no-repeat;
+    background-size: 24px;
+
+    @media (min-width: 550px) {
+      padding-top: 40px;
+      background-size: 35px;
     }
   }
 }
