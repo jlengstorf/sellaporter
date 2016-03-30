@@ -106,7 +106,6 @@ class SellaporterFloatingBar {
         // If the section on-screen is this one, set the nav tab to active.
         if (isOnScreen(obj.section)) {
           tabLink.parentNode.classList.add(__config.classLinkModifier);
-          alert(tabLink.textContent.trim());
         } else {
           tabLink.parentNode.classList.remove(__config.classLinkModifier);
         }
