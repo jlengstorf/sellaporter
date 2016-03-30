@@ -98,6 +98,7 @@ class SellaporterFloatingBar {
       const tabLinkSelector = `.--js-link-to_${obj.section.id}`;
       let tabLink = false;
       if (this.mobileTabbedNav) {
+        console.log(tabLinkSelector);
         tabLink = this.mobileTabbedNav.querySelector(tabLinkSelector);
       }
 
