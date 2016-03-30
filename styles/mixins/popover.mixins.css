@@ -40,6 +40,7 @@
   background-image: url(/img/hectagons.svg);
   background-repeat: repeat-x;
   background-size: cover;
+  overflow-y: scroll;
 
   @media (min-width: $media-screen-small) {
     flex: 1 95%;
