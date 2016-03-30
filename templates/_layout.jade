@@ -19,7 +19,19 @@ html(lang="en")
     link(rel="stylesheet" href="/css/main.min.css")
 
   body
-    .sp
+    -
+      var bottomImage = false;
+      var styleAttr = false;
+      if (fields.acf.bottom_image) {
+        bottomImage = fields.acf.bottom_image.sizes.large || false;
+        bottomImageClass = bottomImage && 'sp--has-bottom-image';
+        styleAttr = bottomImage && `background-image: url(${bottomImage});`;
+      }
+    -
+    .sp(
+      class= bottomImageClass
+      style= styleAttr
+    )
       -
         var isPopoverRequired = false;
         var currentPhase = fields.sellaporter_phase;
