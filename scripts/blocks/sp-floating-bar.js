@@ -10,6 +10,12 @@ const __config = {
 };
 const __sections = [];
 
+// Grab the viewport dimensions.
+const viewport = {
+  height: Math.max(document.documentElement.clientHeight, window.innerHeight || 0),
+  width: Math.max(document.documentElement.clientWidth, window.innerWidth || 0),
+};
+
 let __floatingBar = false;
 let __triggerElement = false;
 let __triggerY = false;
@@ -22,6 +28,17 @@ class SellaporterFloatingBar {
     if (!!__floatingBar) {
 
       /*
+       * Since we want to put a fixed tab bar at the bottom of the screen AND
+       * have the current section at the top, we need to duplicate the menu on
+       * smaller screens.
+       */
+      if (viewport.width < 1024) {
+        this.mobileTabbedNav = __floatingBar.cloneNode(true);
+        this.mobileTabbedNav.classList.add('sp-floating-bar--mobile-tabbed-nav');
+        document.body.appendChild(this.mobileTabbedNav);
+      }
+
+      /*
        * After the trigger element scrolls out of frame (bottom hits the top of
        * the screen), the nav bar's modifier class is added.
        *
@@ -31,7 +48,7 @@ class SellaporterFloatingBar {
       __triggerY = !!__triggerElement ? __triggerElement.offsetHeight : 0;
 
       // Set up a scroll listener to determine when to detach the nav bar.
-      window.addEventListener('scroll', throttle(this.setActiveSection, 25), false);
+      window.addEventListener('scroll', throttle(this.setActiveSection.bind(this), 25), false);
       window.addEventListener('scroll', throttle(this.setBarVisibility, 25), false);
 
       window.addEventListener('click', this.scrollToSection);
@@ -69,15 +86,33 @@ class SellaporterFloatingBar {
     __sections.forEach(obj => {
       const top = obj.section.offsetTop;
       const bottom = top + obj.section.offsetHeight;
+
+      // Get the mobile tabbed nav link, if it exists
+      const tabLinkSelector = `.--js-link-to_${obj.section.id}`;
+      let tabLink = false;
+      if (this.mobileTabbedNav) {
+        tabLink = this.mobileTabbedNav.querySelector(tabLinkSelector);
+      }
+
+      // If the section on-screen is this one, set the nav item(s) to active.
       if (top <= offsetY && bottom >= offsetY) {
         obj.link.parentNode.classList.add(__config.classLinkModifier);
+        tabLink && tabLink.parentNode.classList.add(__config.classLinkModifier);
       } else {
         obj.link.parentNode.classList.remove(__config.classLinkModifier);
+        tabLink && tabLink.parentNode.classList.remove(__config.classLinkModifier);
       }
     });
   }
 
   scrollToSection(event) {
+    if (document.body && document.body.scrollTop === 0) {
+
+      // Addresses a weird Chrome bug where scrollTop doesn't work when
+      // scrolled all the way to the top (document.body.scrollTop === 0).
+      document.body.scrollTop = 1;
+    }
+
     const doc = getElementToScroll();
     const targetHref = event.target.href;
     const targetObj = __sections.filter(s => s.link.href === targetHref);
@@ -87,6 +122,7 @@ class SellaporterFloatingBar {
 
       // Section top, minus the floating nav height. Add 5 to avoid weirdness.
       const newY = targetObj[0].section.offsetTop - __floatingBar.offsetHeight + 5;
+
       scrollTo(doc, newY, 750);
     }
   }
