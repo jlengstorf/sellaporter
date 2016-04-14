@@ -52,6 +52,7 @@
     max-height: 95%;
     border-radius: calc( $bh * 0.75 );
     box-shadow: 0 0 15px 2px color( $color-darkest alpha(20%) );
+    overflow-y: visible;
   }
 
   @media (min-width: $media-screen-medium) {
