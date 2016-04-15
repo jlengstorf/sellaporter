@@ -12,7 +12,7 @@
   @mixin section-padding;
 
   /* Oh shit, look how clever this is! */
-  &+& {
+  &+&:not(&--left) {
     @mixin background-solid-color color( $color-brand tint(95%) );
   }
 
