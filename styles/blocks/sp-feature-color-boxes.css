@@ -17,6 +17,9 @@
 
     @media (min-width: 630px) {
       display: flex;
+      max-width: 1024px;
+      margin-left: auto;
+      margin-right: auto;
       align-items: flex-start;
       flex-wrap: wrap;
       justify-content: center;
@@ -28,70 +31,84 @@
   }
 
   &__feature {
-    max-width: 524px;
+    position: relative;
+    max-width: 450px;
     min-width: 270px;
-    margin: calc( $bh * 1.5 ) $bw 0;
-    background: $color-gray-dark;
-    border: 3px solid $color-gray-dark;
-    border-radius: 6px;
+    margin: calc( $bh * 2 ) 5%;
     text-align: center;
 
-    &:nth-child(4n+1) {
-      background-color: #3dc7ea;
-      border-color: #3dc7ea;
-    }
-
-    &:nth-child(4n+2) {
-      background-color: #00b9e7;
-      border-color: #00b9e7;
-    }
-
-    &:nth-child(4n+3) {
-      background-color: #7d91d7;
-      border-color: #7d91d7;
-    }
-
-    &:nth-child(4n+4) {
-      background-color: #4578c0;
-      border-color: #4578c0;
+    @media (min-width: 480px) {
+      text-align: left;
     }
 
     @media (min-width: 630px) {
-      flex: 1 45%;
+      flex: 1 40%;
     }
   }
 
   &__feature-heading {
-    position: relative;
     display: inline-block;
-    padding: calc( $bh * 1.5 );
-    padding-left: calc( $bh * 3 );
+    padding: calc( $bh * 5 ) calc( $bw * 1.5 ) 0;
     background-position: left center;
     background-repeat: no-repeat;
     background-size: auto 80%;
-    color: $color-lightest;
+    color: $color-gray-dark;
+    font-size: 135%;
+    font-weight: $font-weight-heading;
     line-height: 1;
-    text-align: center;
+
+    @media (min-width: 480px) {
+      padding-top: 0;
+      padding-left: calc( $bh * 5 );
+    }
   }
 
   &__feature-text {
     @mixin text-small;
-    padding: calc( $bh * 1.5 ) calc( $bw * 5 );
-    text-align: center;
+    margin-top: calc( $bh * 0.5 );
+    padding: 0 calc( $bw * 1.5 );
     background: $color-lightest;
     border-radius: 0 0 4px 4px;
+
+    @media (min-width: 480px) {
+      padding-left: calc( $bh * 5 );
+    }
+  }
+
+  &__feature:nth-child(4n+1) &__icon {
+    background-color: #3dc7ea;
+    border: 1px solid color( #3dc7ea shade(10%) );
+    border-radius: 50%;
+  }
+
+  &__feature:nth-child(4n+2) &__icon {
+    background-color: #00b9e7;
+    border: 1px solid color( #00b9e7 shade(10%) );
+    border-radius: 50%;
+  }
+
+  &__feature:nth-child(4n+3) &__icon {
+    background-color: #7d91d7;
+    border: 1px solid color( #7d91d7 shade(10%) );
+    border-radius: 50%;
+  }
+
+  &__feature:nth-child(4n+4) &__icon {
+    background-color: #4578c0;
+    border: 1px solid color( #4578c0 shade(10%) );
+    border-radius: 50%;
   }
 
   &__icon {
     position: absolute;
-    top: 50%;
-    left: calc( $bh * 0.5 );
-    transform: translateY(-50%);
+    top: 0;
+    left: 50%;
+    transform: translateX(-50%);
     display: inline-block;
-    width: calc( $bh * 2 );
-    height: calc( $bh * 2 );
+    width: calc( $bh * 4 );
+    height: calc( $bh * 4 );
     background-repeat: no-repeat;
-    background-size: contain;
+    background-size: 65%;
     background-position: center;
 
     &::before,&::after {
@@ -102,8 +119,13 @@
       width: 100%;
       height: 100%;
       background-repeat: no-repeat;
-      background-size: contain;
+      background-size: 65%;
       background-position: center;
+    }
+
+    @media (min-width: 480px) {
+      left: 0;
+      transform: none;
     }
 
     &--clock {

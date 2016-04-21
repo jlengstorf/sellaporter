@@ -129,7 +129,7 @@ class SellaporterFloatingBar {
       event.preventDefault();
 
       // Section top, minus the floating nav height. Add 5 to avoid weirdness.
-      const newY = targetObj[0].section.offsetTop - __floatingBar.offsetHeight + 5;
+      const newY = targetObj[0].section.offsetTop - __floatingBar.offsetHeight + 10;
 
       scrollTo(doc, newY, 750);
     }

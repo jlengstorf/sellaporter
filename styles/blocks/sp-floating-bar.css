@@ -59,7 +59,7 @@
       display: inline-block;
     }
 
-    @media (min-width: $media-screen-medium) {
+    @media (min-width: 900px) {
       display: inline-block;
 
       &--current a {
@@ -120,7 +120,7 @@
     border-top: $border-default;
     z-index: 900;
 
-    @media (min-width: 1024px) {
+    @media (min-width: 900px) {
       display: none;
     }
   }
@@ -136,23 +136,44 @@
     flex: 1 20%;
     border-left: $border-default;
     text-align: center;
-
-    >a {
-      transition: 250ms all linear;
-      opacity: 0.5;
-    }
+    transition: 250ms all ease-in-out;
 
     &:first-child {
       border-left: 0;
     }
 
-    &:hover>a,&:active>a,&:focus>a {
-      opacity: 0.75;
+    &:nth-child(4n+1) {
+      background-color: color( #3dc7ea tint(20%) );
     }
 
-    &--current>a {
-      background-color: color( $color-brand tint(90%) );
-      opacity: 1;
+    &:nth-child(4n+2) {
+      background-color: color( #00b9e7 tint(20%) );
+    }
+
+    &:nth-child(4n+3) {
+      background-color: color( #7d91d7 tint(20%) );
+    }
+
+    &:nth-child(4n+4) {
+      background-color: color( #4578c0 tint(20%) );
+    }
+
+    &--current {
+      &:nth-child(4n+1) {
+        background-color: #3dc7ea;
+      }
+
+      &:nth-child(4n+2) {
+        background-color: #00b9e7;
+      }
+
+      &:nth-child(4n+3) {
+        background-color: #7d91d7;
+      }
+
+      &:nth-child(4n+4) {
+        background-color: #4578c0;
+      }
     }
 
     &--button {
@@ -163,7 +184,7 @@
   &--mobile-tabbed-nav &__nav-link {
     display: block;
     height: 56px;
-    color: $color-gray-medium;
+    color: $color-lightest;
     font-size: 8px;
     font-weight: $font-weight-default;
     letter-spacing: 0.5px;

@@ -16,9 +16,10 @@
     +element(blockName, 'steps', [], 'ul')
       each step in section.steps
         +element(blockName, 'step', ['one'], 'li')
-          +element(blockName, 'icon', [], 'img')(
-            src= step.icon.url
-            alt= step.icon.alt
-          )
+          +element(blockName, 'icon-wrap')
+            +element(blockName, 'icon', [], 'img')(
+              src= step.icon.url
+              alt= step.icon.alt
+            )
           +element(blockName, 'subheading', [], 'h3')= step.step_heading
           +element(blockName, 'description', [], 'p')= step.step_description
