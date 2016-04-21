@@ -74,13 +74,13 @@
 
     @media (min-width: $media-screen-small) {
       background-position: right bottom;
-      padding-right: 35%;
+      padding-right: 42%;
     }
 
     @media (min-width: $media-screen-large) {
 
       /* Hard-coded? Whaaaaaa? */
-      padding-right: 430px;
+      padding-right: 485px;
     }
   }
 
