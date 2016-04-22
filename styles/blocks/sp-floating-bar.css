@@ -1,6 +1,6 @@
 .sp-floating-bar {
   width: 100vw;
-  height: 55px;
+  height: 65px;
   padding: calc( $bh * 0.5 ) calc( $bw * 5 );
   background: $color-lightest;
   border-bottom: $border-default;
@@ -142,37 +142,63 @@
       border-left: 0;
     }
 
-    &:nth-child(4n+1) {
-      background-color: color( #3dc7ea tint(20%) );
+    &::after {
+      content: '';
+      width: 26px;
+      height: 26px;
+      position: absolute;
+      top: 5px;
+      left: 50%;
+      transform: translateX(-50%);
+      border-radius: 50%;
+      border: 1px solid transparent;
+      z-index: -1;
+
+      @media (min-width: 550px) {
+        width: 31px;
+        height: 31px;
+      }
     }
 
-    &:nth-child(4n+2) {
+    &:nth-child(4n+1)::after {
+      background-color: color( #3cd7ea tint(20%) );
+      border-color: color( #3cd7ea tint(10%) );
+    }
+
+    &:nth-child(4n+2)::after {
       background-color: color( #00b9e7 tint(20%) );
+      border-color: color( #00b9e7 tint(10%) );
     }
 
-    &:nth-child(4n+3) {
+    &:nth-child(4n+3)::after {
       background-color: color( #7d91d7 tint(20%) );
+      border-color: color( #7d91d7 tint(10%) );
     }
 
-    &:nth-child(4n+4) {
+    &:nth-child(4n+4)::after {
       background-color: color( #4578c0 tint(20%) );
+      border-color: color( #4578c0 tint(10%) );
     }
 
     &--current {
-      &:nth-child(4n+1) {
+      &:nth-child(4n+1)::after {
         background-color: #3dc7ea;
+        border-color: color( #3dc7ea tint(10%) );
       }
 
-      &:nth-child(4n+2) {
+      &:nth-child(4n+2)::after {
         background-color: #00b9e7;
+        border-color: color( #00b9e7 tint(10%) );
       }
 
-      &:nth-child(4n+3) {
+      &:nth-child(4n+3)::after {
         background-color: #7d91d7;
+        border-color: color( #7d91d7 tint(10%) );
       }
 
-      &:nth-child(4n+4) {
+      &:nth-child(4n+4)::after {
         background-color: #4578c0;
+        border-color: color( #4578c0 tint(10%) );
       }
     }
 
@@ -183,21 +209,23 @@
 
   &--mobile-tabbed-nav &__nav-link {
     display: block;
-    height: 56px;
-    color: $color-lightest;
+    height: 66px;
+    color: $color-gray-medium;
     font-size: 8px;
     font-weight: $font-weight-default;
     letter-spacing: 0.5px;
     text-transform: uppercase;
-    padding-top: 30px;
+    padding-top: 36px;
+
+    /* This gets overridden inline by WordPress settings. */
     background-image: url(/img/tab_what-is-procoach.svg);
-    background-position: top 5px center;
+    background-position: top 7px center;
     background-repeat: no-repeat;
     background-size: 24px;
 
     @media (min-width: 550px) {
-      padding-top: 40px;
-      background-size: 35px;
+      padding-top: 45px;
+      background-size: 30px;
     }
   }
 }
