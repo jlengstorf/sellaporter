@@ -15,9 +15,9 @@
     "templates/vendor"
   ],
   "dependencies": {
-    "pn-finalists": "PrecisionNutrition/pn-finalists#0.5.0"
+    "pn-finalists": "PrecisionNutrition/pn-finalists#0.6.0"
   },
   "resolutions": {
-    "pn-finalists": "0.5.0"
+    "pn-finalists": "0.6.0"
   }
 }
