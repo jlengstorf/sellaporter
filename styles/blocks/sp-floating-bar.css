@@ -8,8 +8,9 @@
 
   &--fixed-top {
     position: fixed;
-    top: 0;
+    top: calc( $bh * -0.5 );
     left: 0;
+    padding-top: $bh;
     z-index: 900;
   }
 
