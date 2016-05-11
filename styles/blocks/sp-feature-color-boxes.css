@@ -64,7 +64,6 @@
   }
 
   &__feature-text {
-    @mixin text-small;
     margin-top: calc( $bh * 0.5 );
     padding: 0 calc( $bw * 1.5 );
     background: $color-lightest;
