@@ -32,7 +32,7 @@ $color-inverted-text-subtitle: $color-lightest;
 $color-inverted-text-body: $color-gray-light;
 
 $font-family-default: proxima-nova, "Helvetica Neue", sans-serif;
-$font-size-default: 1rem;
+$font-size-default: 1.125rem;
 $font-weight-default: 400;
 $line-height-default: 1.375;
 
