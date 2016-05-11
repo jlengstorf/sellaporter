@@ -63,7 +63,6 @@
     margin-top: -2.5px;
     margin-right: 10px;
     padding-right: 10px;
-    border-right: $border-width-default $border-style-default $color-lightest;
     vertical-align: middle;
 
     @media (min-width: $media-screen-xsmall) {
@@ -71,6 +70,14 @@
       margin-right: 20px;
       padding-right: 20px;
     }
+  }
+  
+  
+  &__subbutton {
+	  font-style: italic;
+	  font-size: .9em;
+	  text-shadow: none;
+	  color: rgba(250, 250, 250, 0.75);
   }
 
   &__heading {
