@@ -12,6 +12,10 @@
     left: 0;
     padding-top: $bh;
     z-index: 900;
+
+    @media (min-width: $media-screen-xsmall) {
+      height: 65px;
+    }
   }
 
   &--hidden {
