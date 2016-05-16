@@ -44,26 +44,6 @@
     margin-right: auto;
     background-repeat: no-repeat;
     background-size: 0;
-
-    @media (min-width: $media-screen-small) {
-      /*padding: calc( $bh * 4 );*/
-
-      /*
-       * This is set based on the image used during design. If it changes, this
-       * will probably need to be adjusted.
-       */
-      min-height: 53vw;
-      background-size: 43% auto;
-    }
-
-    /*@media (min-width: $media-screen-medium) {
-      padding: calc( $bh * 5 );
-    }*/
-
-    @media (min-width: $media-screen-large) {
-      min-height: 640px;
-      background-size: 500px auto;
-    }
   }
 
   /*
@@ -73,6 +53,13 @@
   &--left {
 
     @media (min-width: $media-screen-small) {
+
+      /*
+       * This is set based on the image used during design. If it changes, this
+       * will probably need to be adjusted.
+       */
+      min-height: 53vw;
+      background-size: 43% auto;
       background-position: right bottom;
       padding-right: 42%;
     }
@@ -80,19 +67,33 @@
     @media (min-width: $media-screen-large) {
 
       /* Hard-coded? Whaaaaaa? */
+      min-height: 640px;
+      background-size: 500px auto;
       padding-right: 485px;
     }
   }
 
   &--right {
+    background-position: center 5%;
+    background-size: 100% auto;
+    padding-top: 100%;
+
+    @media (min-width: 480px) {
+      background-size: 480px;
+      padding-top: 450px;
+    }
 
     @media (min-width: $media-screen-small) {
-      background-position: left bottom;
-      padding-left: 35%;
+      @mixin section-padding;
+      background-size: 44%;
+      background-position: -10% center;
+      padding-left: 40%;
     }
 
     @media (min-width: $media-screen-large) {
       padding-left: 430px;
+      background-position: 0 center;
+      background-size: 400px;
     }
   }
 
