@@ -91,7 +91,7 @@
 
   &__button {
     @mixin button;
-    padding: calc( $bh * 0.625 ) calc( $bw * 2.5 );
+    padding: calc( $bh * 0.375 ) calc( $bw * 2.5 );
     font-size: 75%;
 
     @media (min-width: $media-screen-xsmall) {
@@ -111,6 +111,9 @@
    * marginally more efficient UX approach of tabbed nav! Yeah! I'm the best!"
    */
   &--mobile-tabbed-nav {
+
+    /* Hiding the nav altogether per feedback */
+    display: none;
     position: fixed;
     bottom: 0;
     left: 0;
