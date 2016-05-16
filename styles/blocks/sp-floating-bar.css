@@ -1,6 +1,6 @@
 .sp-floating-bar {
   width: 100vw;
-  height: 65px;
+  height: 58px;
   padding: calc( $bh * 0.5 ) calc( $bw * 5 );
   background: $color-lightest;
   border-bottom: $border-default;
