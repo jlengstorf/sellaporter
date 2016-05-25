@@ -26,7 +26,7 @@
 }
 
 @define-mixin section-padding {
-  padding: calc( $bh * 3 ) calc( $bw * 5 );
+  padding: calc( $bh * 2 ) calc( $bw * 5 );
 
   @media (min-width: $media-screen-small) {
     padding-top: calc( $bh * 4.5 );
