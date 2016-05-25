@@ -9,7 +9,40 @@
 -
 +block(blockName, blockModifiers)
   +element(blockName, 'container')
-    +element(blockName, 'form', [], 'form')
+    +element(blockName, 'form', [], 'form')(
+      action="https://www.mcssl.com/app/contactsave.asp"
+      method="post"
+    )
+      input(
+        type="hidden"
+        name="merchantid"
+        value="41319"
+      )
+      input(
+        type="hidden"
+        name="ARThankyouURL"
+        value="http://www.precisionnutrition.com/procoach-presale-thank-you"
+      )
+      input(
+        type="hidden"
+        name="copyarresponse"
+        value="0"
+      )
+      input(
+        type="hidden"
+        name="custom"
+        value="0"
+      )
+      input(
+        type="hidden"
+        name="defaultar"
+        value="996759"
+      )
+      input(
+        type="hidden"
+        name="allowmulti"
+        value="0"
+      )
       +element(blockName, 'heading', [], 'h2')
         +element(blockName, 'heading-bold', [], 'strong')= section.heading_bold
         | #{section.heading}
