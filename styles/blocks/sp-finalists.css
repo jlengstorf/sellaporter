@@ -5,6 +5,10 @@
   margin-right: -5%;
   border: 1px;
 
+  .pn-finalists__finalist-thumb {
+    margin-top: 0;
+  }
+
   &--no-js {
     padding-bottom: 45%;
     background-image: url(/img/client_photos_women.jpg);
