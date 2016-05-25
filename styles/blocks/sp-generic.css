@@ -12,8 +12,17 @@
   @mixin section-padding;
 
   /* Oh shit, look how clever this is! */
+  /* So clever it bit you in the ass, idiot.
   &+&:not(&--left) {
     @mixin background-solid-color color( $color-brand tint(95%) );
+  }
+  */
+
+  &+& {
+    @media (min-width: $media-screen-small) {
+      padding-top: calc( $bh * 2.5 );
+      padding-bottom: calc( $bh * 2.5 );
+    }
   }
 
   &__content {

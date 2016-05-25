@@ -18,7 +18,7 @@
 
     @media (min-width: $media-screen-xsmall) {
       padding: calc( $bh * 2 ) calc( $bh * 1.5 );
-      flex: 2 66%;
+      flex: 2 55%;
       order: 2;
       display: flex;
       align-items: top;
@@ -41,7 +41,7 @@
 
     @media (min-width: $media-screen-xsmall) {
       flex: 2 100%;
-      font-size: 175%;
+      font-size: 125%;
     }
   }
 
@@ -59,8 +59,9 @@
 
     @media (min-width: $media-screen-xsmall) {
       flex: 2 100%;
-      font-size: 110%;
-      line-height: 1.75;
+      margin-top: 0;
+      font-size: 100%;
+      line-height: 1.5;
     }
   }
 
@@ -120,7 +121,7 @@
     @media (min-width: 920px) {
       display: block;
       height: 100%;
-      flex: 1 60%;
+      flex: 1 45%;
       order: 1;
       position: relative;
       margin-right: calc( $bh * 2 );
