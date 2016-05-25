@@ -32,6 +32,10 @@ if (!!$finalistsEl && !iOS && viewport.width >= 768) {
   );
 }
 
+if (iOS) {
+  document.body.classList.add('js--ios');
+}
+
 // Block-specific scripts
 import spFloatingBar from './blocks/sp-floating-bar';
 import spPopover from './blocks/sp-popover';
