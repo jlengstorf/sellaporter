@@ -118,4 +118,11 @@
     display: none;
   }
 
+  &__hidden-on-small {
+    display: none;
+    @media (min-width: $media-screen-small) {
+      display: block;
+    }
+  }
+
 }
