@@ -61,7 +61,7 @@
    */
   &--left {
 
-    @media (min-width: $media-screen-small) {
+    @media (min-width: 1000px) {
 
       /*
        * This is set based on the image used during design. If it changes, this
