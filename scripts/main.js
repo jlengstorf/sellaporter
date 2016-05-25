@@ -15,9 +15,12 @@ const viewport = {
   width: Math.max(document.documentElement.clientWidth, window.innerWidth || 0),
 };
 
+// This is a hack, and I hate it, but I don't have time to debug iDevices right now
+const iOS = !!navigator.platform && /iPad|iPhone|iPod/.test(navigator.platform);
+
 // Check for a finalists element.
 const $finalistsEl = document.querySelector('.sp-finalists');
-if (!!$finalistsEl && viewport.width >= 768) {
+if (!!$finalistsEl && !iOS && viewport.width >= 768) {
 
   // Remove the no-JS class to turn off fallback styling.
   $finalistsEl.classList.remove('sp-finalists--no-js');
