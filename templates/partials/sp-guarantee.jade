@@ -13,10 +13,11 @@
 +section(blockName, blockModifiers, false)
   +element(blockName, 'item')
     if image
-      +element(blockName, 'image', [], 'img')(
-        src=image.src
-        alt=image.alt
-      )
+      +element(blockName, 'image-wrap')
+        +element(blockName, 'image', [], 'img')(
+          src=image.src
+          alt=image.alt
+        )
     +element(blockName, 'text')
       +element(blockName, 'heading', [], 'h2')= section.heading
       | !{section.body_text}

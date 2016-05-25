@@ -18,9 +18,8 @@
     }
   }
 
-  &__image {
-    display: block;
-    max-width: 205px;
+  &__image-wrap {
+    max-width: 205px;;
     margin-left: auto;
     margin-right: auto;
 
@@ -35,6 +34,12 @@
       flex: 1 40%;
       max-width: 205px;
     }
+  }
+
+  &__image {
+    display: block;
+    max-width: 100%;
+    height: auto
   }
 
   &__heading {
