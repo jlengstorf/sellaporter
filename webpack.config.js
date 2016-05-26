@@ -8,7 +8,7 @@ module.exports = {
   devtool: 'source-map',
 
   entry: {
-    'main': __dirname + '/scripts/main.js',
+    'main': [ 'babel-polyfill', __dirname + '/scripts/main.js' ],
     'vendors': [],
   },
 
