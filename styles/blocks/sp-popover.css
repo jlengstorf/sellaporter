@@ -14,7 +14,7 @@
   }
 
   &__form {
-    padding: calc( $bh * 1.5 ) $bh;
+    padding: calc( $bh * 3.5 ) $bh calc( $bh * 1.5 );
 
     @media (min-width: $media-screen-xsmall) {
       padding: calc( $bh * 2 ) calc( $bh * 1.5 );
