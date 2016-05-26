@@ -10,6 +10,7 @@
   }
 
   &--no-js {
+    display: none;
     padding-bottom: 45%;
     background-image: url(/img/client_photos_women.jpg);
     background-repeat: no-repeat;
