@@ -2,7 +2,7 @@
   var blockName = 'sp-faq';
   var blockModifiers = [];
 -
-+section(blockName, blockModifiers, false)
++sectionID(blockName, blockModifiers, false, section)
   +element(blockName, 'item')
     +element(blockName, 'heading', [], 'h2')= section.heading
     +element(blockName, 'faq-list', [], 'dl')
