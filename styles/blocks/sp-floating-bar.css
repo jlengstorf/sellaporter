@@ -1,7 +1,7 @@
 .sp-floating-bar {
   width: 100vw;
   height: 58px;
-  padding: calc( $bh * 0.5 ) calc( $bw * 5 );
+  padding: calc( $bh * 0.5 ) calc( $bw * 2.5 );
   background: $color-lightest;
   border-bottom: $border-default;
   transition: $transition-default;
@@ -16,6 +16,11 @@
     @media (min-width: $media-screen-xsmall) {
       height: 65px;
     }
+  }
+
+  @media (min-width: $media-screen-xsmall) {
+    padding-left: calc( $bw * 5 );
+    padding-right: calc( $bw * 5 );
   }
 
   &--hidden {
@@ -120,6 +125,7 @@
     bottom: 0;
     left: 0;
     right: 0;
+    height: 48px;
     padding: 0;
     font-family: $font-family-default;
     border-bottom: 0;
@@ -140,6 +146,7 @@
   &--mobile-tabbed-nav &__nav-item {
     display: inline-block;
     min-width: 50px;
+    max-width: 53px;
     flex: 1 20%;
     border-left: $border-default;
     text-align: center;
@@ -151,10 +158,10 @@
 
     &::after {
       content: '';
-      width: 20px;
-      height: 20px;
+      width: 18px;
+      height: 18px;
       position: absolute;
-      top: 5px;
+      top: 4px;
       left: 50%;
       transform: translateX(-50%);
       border-radius: 50%;
@@ -216,20 +223,20 @@
 
   &--mobile-tabbed-nav &__nav-link {
     display: block;
-    height: 66px;
+    height: 60px;
     min-width: 0;
     color: $color-gray-medium;
-    font-size: 8px;
+    font-size: 7px;
     font-weight: $font-weight-default;
     letter-spacing: 0.5px;
     text-transform: uppercase;
-    padding-top: 36px;
+    padding-top: 28px;
 
     /* This gets overridden inline by WordPress settings. */
     background-image: url(/img/tab_what-is-procoach.svg);
     background-position: top 6px center;
     background-repeat: no-repeat;
-    background-size: 18px;
+    background-size: 16px;
 
     @media (min-width: 550px) {
       padding-top: 45px;
