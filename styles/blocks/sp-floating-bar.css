@@ -51,12 +51,17 @@
     }*/
 
     &::after {
-      content: 'menu';
+      content: '\00a0';
       position: absolute;
       top: 0;
       left: 5vw;
+      width: 30px;
       padding: 2px 0.4em 0 0.6em;
       background-color: $color-lightest;
+      background-image: url('data:image/svg+xml;utf-g,<svg xmlns="http://www.w3.org/2000/svg" viewBox="252 153 60 50"><path fill="#7D878A" fill-rule="evenodd" d="M252 153h60v10h-60zm0 20h60v10h-60zm0 20h60v10h-60z"/></svg>');
+      background-position: center;
+      background-repeat: no-repeat;
+      background-size: 50%;
       border: 1px solid $color-gray-light;
       border-radius: $border-radius-default;
       font-size: 50%;
