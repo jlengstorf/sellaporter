@@ -5,7 +5,7 @@ var isDevMode = process.env.NODE_ENV === 'development';
 module.exports = {
 
   debug: isDevMode,
-  devtool: 'source-map',
+  devtool: 'cheap-source-map',
 
   entry: {
     'main': [ 'babel-polyfill', __dirname + '/scripts/main.js' ],
