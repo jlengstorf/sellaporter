@@ -91,7 +91,19 @@
       font-weight: $font-weight-subheading;
       text-shadow: 2px 1px 0 color( $color-brand shade(10%) );
       transform: rotate(12deg);
+    }
 
+    /*
+     * Hides the discount percentage badge.
+     *
+     * TODO make this more robust; right now it needs to be tweaked for any
+     *      non-discounted phase. Maybe a setting in the WP admin? Or a check
+     *      for the presence of a "regular price" and/or discount percentage?
+     */
+    &--gen-sale {
+      &::before,&::after {
+        display: none;
+      }
     }
 
     &::before {

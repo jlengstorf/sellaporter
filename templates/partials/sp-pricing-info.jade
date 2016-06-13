@@ -15,8 +15,11 @@
           src="img/precision-nutrition.svg"
         )
         | #{section.box_heading}
-      +element(blockName, 'price-container')(data-savings=section.savings_percent)
-        +element(blockName, 'full-price', [], 'p')= section.full_price
+      +element(blockName, 'price-container', [section.current_phase])(
+        data-savings=section.savings_percent
+      )
+        if section.full_price
+          +element(blockName, 'full-price', [], 'p')= section.full_price
         +element(blockName, 'price', [], 'p')= section.price
         +element(blockName, 'frequency', [], 'p')= section.frequency
       +element(blockName, 'info-container')
