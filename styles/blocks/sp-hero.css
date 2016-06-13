@@ -71,8 +71,8 @@
       padding-right: 20px;
     }
   }
-  
-  
+
+
   &__subbutton {
 	  font-style: italic;
 	  font-size: .9em;
@@ -129,6 +129,10 @@
 
     @media (min-width: $media-screen-small) {
       max-width: calc( $bw * 46 );
+    }
+
+    @media (min-width: $media-screen-medium) {
+      max-width: calc( $bw * 34 );
     }
 
     /*
