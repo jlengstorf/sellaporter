@@ -43,3 +43,27 @@ if (iOS) {
 import spFloatingBar from './blocks/sp-floating-bar';
 import spPopover from './blocks/sp-popover';
 import spVideoPopover from './blocks/sp-video-popover';
+
+/*
+ * Since the data is going to show us that hamburger navs are a bad idea, I'm
+ * not going to bother making this clean.
+ */
+const toggleHamburger = event => {
+  const navClass = 'sp-floating-bar__nav-items';
+  const linkClass = 'sp-floating-bar__nav-link';
+  const openClass = 'sp-floating-bar__nav-items--open';
+
+  // For the hamburger toggle itself.
+  if (event.target.classList.contains(navClass)) {
+    event.preventDefault();
+    event.target.classList.toggle(openClass);
+  }
+
+  // When a nav link is clicked, close the menu.
+  if (event.target.classList.contains(linkClass)) {
+    const nav = document.querySelector(`.${navClass}`);
+    nav.classList.remove(openClass);
+  }
+};
+
+document.addEventListener('click', toggleHamburger);

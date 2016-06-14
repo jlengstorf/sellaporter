@@ -32,10 +32,14 @@
   &__nav-items {
     position: relative;
     max-width: $media-screen-large;
-    margin: 0 auto;
+    height: 42px;
+    margin: 0 -5vw;
+    overflow-y: hidden;
+    padding-top: 42px;
     text-align: left;
+    transition: 150ms height linear;
 
-    &::before {
+    /*&::before {
       content: 'ProCoach';
       position: absolute;
       padding: calc( $bh * 0.5 ) calc( $bw * 1 );
@@ -44,13 +48,56 @@
       font-weight: 700;
       text-decoration: none;
       z-index: 1;
+    }*/
+
+    &::after {
+      content: '\00a0';
+      position: absolute;
+      top: 0;
+      left: 5vw;
+      width: 30px;
+      padding: 2px 0.4em 0 0.6em;
+      background-color: $color-lightest;
+      background-image: url('data:image/svg+xml;utf-g,<svg xmlns="http://www.w3.org/2000/svg" viewBox="252 153 60 50"><path fill="#7D878A" fill-rule="evenodd" d="M252 153h60v10h-60zm0 20h60v10h-60zm0 20h60v10h-60z"/></svg>');
+      background-position: center;
+      background-repeat: no-repeat;
+      background-size: 50%;
+      border: 1px solid $color-gray-light;
+      border-radius: $border-radius-default;
+      font-size: 50%;
+      letter-spacing: 0.1em;
+      line-height: 28px;
+      text-align: center;
+      text-transform: uppercase;
+      transition: 150ms background-color linear;
+      z-index: 10;
+    }
+
+    &--open {
+      height: 50vh;
+
+      &::after {
+        background-color: $color-gray-light;
+      }
+    }
+
+    @media (min-width: 960px) {
+      margin-left: auto;
+      margin-right: auto;
+      padding-top: 0;
+
+      &::after {
+        display: none;
+      }
     }
   }
 
   &__nav-item {
     position: relative;
-    display: none;
+    display: block;
     background: $color-lightest;
+    border-bottom: 1px solid $color-gray-light;
+    text-align: center;
     z-index: 2;
 
     &--button {
@@ -58,17 +105,27 @@
       top: 0;
       right: 0;
       display: inline-block;
+      margin-right: 5vw;
     }
 
     &--current {
-      display: inline-block;
+      background-color: $color-gray-light;
     }
 
     @media (min-width: 960px) {
       display: inline-block;
+      border-bottom: 0;
 
-      &--current a {
-        color: $color-brand;
+      &--current {
+        background-color: transparent;
+
+        a {
+          color: $color-brand;
+        }
+      }
+
+      &--button {
+        margin-right: 0;
       }
     }
   }
