@@ -132,7 +132,7 @@
     }
 
     @media (min-width: $media-screen-medium) {
-      max-width: calc( $bw * 34 );
+      max-width: 500px;
     }
 
     /*
