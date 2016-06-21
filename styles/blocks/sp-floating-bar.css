@@ -75,7 +75,7 @@
 
   &__nav-link {
     display: block;
-    min-width: 70px;
+    min-width: 80px;
     padding: calc( $bh * 0.5 ) calc( $bw * 1 );
     color: $color-gray-dark;
     font-size: 75%;
